@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="WanCeDesktopApp.Views.WorkspaceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:WanCeDesktopApp"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:cv="clr-namespace:WanCeDesktopApp.Common"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             d:DesignHeight="450"
+             d:DesignWidth="1100">
+    <Grid>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="9*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Background="#626367">
+        </Border>
+        <Border Grid.Column="1"
+                Background="#626367"></Border>
+        <StackPanel Width="180">
+            <ListBox x:Name="SampleSubmenu"
+                     SelectedIndex="0"
+                     ItemContainerStyle="{StaticResource myListBoxItemNavigationStyle}"
+                     ItemsSource="{Binding SubNavigation}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding ItemSelectChangeCommand}"
+                                               CommandParameter="{Binding ElementName=SampleSubmenu,Path=SelectedItem}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
+        </StackPanel>
+        <Grid Grid.Column="1"
+              Margin="5">
+            <DockPanel>
+                <ContentControl prism:RegionManager.RegionName="{x:Static ext:PrismManage.WorkspaceViewRegionName}" />
+            </DockPanel>
+        </Grid>
+    </Grid>
+</UserControl>

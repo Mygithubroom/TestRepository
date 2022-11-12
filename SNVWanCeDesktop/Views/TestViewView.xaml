@@ -1,0 +1,400 @@
+﻿<UserControl
+    x:Class="WanCeDesktopApp.Views.TestView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:local="clr-namespace:WanCeDesktopApp.Common"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="800"
+    d:DesignWidth="1600"
+    mc:Ignorable="d">
+    <ScrollViewer
+        Background="{DynamicResource PrimaryHueGridBrush}"
+        HorizontalScrollBarVisibility="Disabled"
+        VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--  第1行的布局  -->
+            <StackPanel Grid.Row="0" Orientation="Vertical">
+                <TextBlock
+                    Margin="10,20,0,0"
+                    Style="{StaticResource txbkFirstTitle}"
+                    Text="{lex:Loc New Sample}" />
+                <TextBlock Margin="10,10,0,0" Text="{lex:Loc TestViewMethodSelectionDescription}" />
+            </StackPanel>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Height="30"
+                    Margin="10,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource SecondaryHueMidBrush}"
+                    BorderBrush="{DynamicResource SecondaryHueMidBrush}"
+                    BorderThickness="1"
+                    Content="{lex:Loc TestViewMethodBrowseButtonTitle}" />
+                <StackPanel
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    Orientation="Vertical">
+                    <TextBlock Margin="10,5" Text="{lex:Loc Sortby}" />
+                    <ComboBox
+                        Height="30"
+                        Margin="10,0"
+                        Style="{StaticResource MaterialDesignComboBox}">
+                        <ComboBoxItem>选项1</ComboBoxItem>
+                        <ComboBoxItem>选项2</ComboBoxItem>
+                        <ComboBoxItem>选项3</ComboBoxItem>
+                        <ComboBoxItem>选项4</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="2"
+                    VerticalAlignment="Bottom"
+                    Orientation="Vertical">
+                    <TextBlock Margin="10,5" Text="{lex:Loc Filterby}" />
+                    <TextBox
+                        Height="30"
+                        Margin="10,0"
+                        md:HintAssist.Hint="{lex:Loc HintMessage}"
+                        md:TextFieldAssist.HasClearButton="True"
+                        Style="{StaticResource MaterialDesignTextBox}" />
+                </StackPanel>
+                <Button
+                    Grid.Column="3"
+                    Margin="10,0"
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource SecondaryHueDarkBrush}"
+                    BorderBrush="{DynamicResource SecondaryHueDarkBrush}"
+                    BorderThickness="1"
+                    Content="{lex:Loc ClearList}" />
+            </Grid>
+            <!--  第2行的布局  -->
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,20,0,0" Text="{lex:Loc TestViewFunctionSectionTitle}" />
+                <ListBox
+                    x:Name="listTest"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    ItemTemplate="{StaticResource myMethodItem}"
+                    ItemsSource="{Binding TestBars}"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding NavigateCommandIndexView}" CommandParameter="NewMethodView" />
+                            <!--  Listbox点击，传入索引号做为参数，后台根据索引号进行导航  -->
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <!--<ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="197" MinHeight="100">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Border
+                                        Grid.Row="0"
+                                        Background="#222627"
+                                        BorderBrush="Black"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4,4,0,0">
+                                        <DockPanel HorizontalAlignment="Center">
+                                            <TextBlock
+                                                Margin="0,5"
+                                                FontSize="20"
+                                                Foreground="Orange">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                                        <MultiBinding.Bindings>
+                                                            <Binding Path="Title" />
+                                                            <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                                        </MultiBinding.Bindings>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </DockPanel>
+                                    </Border>
+                                    <Border
+                                        Grid.Row="1"
+                                        Background="#222627"
+                                        BorderBrush="Black"
+                                        BorderThickness="0.5,0,0.5,0.5"
+                                        CornerRadius="0,0,4,4">
+                                        <TextBlock
+                                            Margin="6,6"
+                                            FontSize="15"
+                                            Foreground="White">
+                                            <TextBlock.Text>
+                                                <MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                                    <MultiBinding.Bindings>
+                                                        <Binding Path="Content" />
+                                                        <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                                    </MultiBinding.Bindings>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>-->
+                </ListBox>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,20,0,0" Text="{lex:Loc Method}" />
+                <ListBox
+                    Grid.Row="1"
+                    ItemTemplate="{StaticResource myMethodItem}"
+                    ItemsSource="{Binding MethodBars}"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <!--<ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Width="197" MinHeight="100">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Border
+                                        Grid.Row="0"
+                                        Background="#222627"
+                                        BorderBrush="Black"
+                                        BorderThickness="0.5"
+                                        CornerRadius="4,4,0,0">
+                                        <DockPanel DockPanel.Dock="Top">
+                                            <Border Margin="4" Background="Black">
+                                                <materialDesign:PackIcon
+                                                    Width="50"
+                                                    Height="50"
+                                                    Foreground="White"
+                                                    Kind="Hail" />
+                                            </Border>
+                                            <TextBlock
+                                                Width="130"
+                                                Margin="10,5"
+                                                FontSize="20"
+                                                Foreground="Orange">
+                                                <TextBlock.Text>
+                                                    <MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                                        <MultiBinding.Bindings>
+                                                            <Binding Path="Title" />
+                                                            <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                                        </MultiBinding.Bindings>
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                            <md:PopupBox HorizontalAlignment="Right" VerticalAlignment="Top">
+                                                <Button Content="{lex:Loc Edit}" />
+                                            </md:PopupBox>
+						-->
+                    <!--<Button Width="30" Height="30" VerticalAlignment="Top" DockPanel.Dock="Right"/>-->
+                    <!--
+                                        </DockPanel>
+                                    </Border>
+                                    <Border
+                                        Grid.Row="1"
+                                        Background="#222627"
+                                        BorderBrush="Black"
+                                        BorderThickness="0.5,0,0.5,0.5"
+                                        CornerRadius="0,0,4,4">
+                                        <TextBlock
+                                            Margin="6,6"
+                                            FontSize="15"
+                                            Foreground="White">
+                                            <TextBlock.Text>
+                                                <MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                                    <MultiBinding.Bindings>
+                                                        <Binding Path="Content" />
+                                                        <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                                    </MultiBinding.Bindings>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>-->
+                </ListBox>
+            </Grid>
+            <!--  第3行的布局  -->
+            <StackPanel Grid.Row="2" Orientation="Vertical">
+                <TextBlock
+                    Margin="10,20,0,0"
+                    Style="{StaticResource txbkFirstTitle}"
+                    Text="{lex:Loc TestViewContinueSampleTitle}" />
+                <TextBlock Margin="10,10,0,0" Text="{lex:Loc TestViewContinueSampleDescription}" />
+            </StackPanel>
+            <Grid Grid.Row="2" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Height="30"
+                    Margin="10,0"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource SecondaryHueMidBrush}"
+                    BorderBrush="{DynamicResource SecondaryHueMidBrush}"
+                    BorderThickness="1"
+                    Content="{lex:Loc TestViewBrowseSampleButtonTitle}" />
+                <StackPanel
+                    Grid.Column="1"
+                    VerticalAlignment="Bottom"
+                    Orientation="Vertical">
+                    <TextBlock Margin="10,5" Text="{lex:Loc Sortby}" />
+                    <ComboBox
+                        Height="30"
+                        Margin="10,0"
+                        Style="{StaticResource MaterialDesignComboBox}">
+                        <ComboBoxItem>选项1</ComboBoxItem>
+                        <ComboBoxItem>选项2</ComboBoxItem>
+                        <ComboBoxItem>选项3</ComboBoxItem>
+                        <ComboBoxItem>选项4</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel
+                    Grid.Column="2"
+                    VerticalAlignment="Bottom"
+                    Orientation="Vertical">
+                    <TextBlock Margin="10,5" Text="{lex:Loc Filterby}" />
+                    <TextBox
+                        Height="30"
+                        Margin="10,0"
+                        md:HintAssist.Hint="{lex:Loc HintMessage}"
+                        md:TextFieldAssist.HasClearButton="True"
+                        Cursor="Arrow"
+                        Style="{StaticResource MaterialDesignTextBox}" />
+                </StackPanel>
+                <Button
+                    Grid.Column="3"
+                    Margin="10,0"
+                    VerticalAlignment="Bottom"
+                    Background="{DynamicResource SecondaryHueDarkBrush}"
+                    BorderBrush="{DynamicResource SecondaryHueDarkBrush}"
+                    BorderThickness="1"
+                    Content="{lex:Loc ClearList}" />
+            </Grid>
+            <!--  第4行的布局  -->
+            <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,20,0,0" Text="{lex:Loc TestViewSampleSectionTitle}" />
+                <!--<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Visible" Width="auto">-->
+                <ListBox
+                    Grid.Row="1"
+                    ItemTemplate="{StaticResource myMethodItem}"
+                    ItemsSource="{Binding MethodBars}"
+                    ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel
+                                IsItemsHost="True"
+                                Orientation="Horizontal"
+                                ScrollViewer.CanContentScroll="True" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <!--<ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="197" MinHeight="100">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Border
+                                    Grid.Row="0"
+                                    Background="#222627"
+                                    BorderBrush="Black"
+                                    BorderThickness="0.5"
+                                    CornerRadius="4,4,0,0">
+                                    <DockPanel DockPanel.Dock="Top">
+                                        <TextBlock
+                                            Width="130"
+                                            Margin="10,5"
+                                            FontSize="20"
+                                            Foreground="Orange">
+                                            <TextBlock.Text>
+                                                <MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                                    <MultiBinding.Bindings>
+                                                        <Binding Path="Title" />
+                                                        <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                                    </MultiBinding.Bindings>
+                                                </MultiBinding>
+                                            </TextBlock.Text>
+                                        </TextBlock>
+                                        <md:PopupBox HorizontalAlignment="Right" VerticalAlignment="Top">
+                                            <Button Content="编辑" />
+                                        </md:PopupBox>
+					-->
+                    <!--<Button Width="30" Height="30" VerticalAlignment="Top" DockPanel.Dock="Right"/>-->
+                    <!--
+                                    </DockPanel>
+                                </Border>
+                                <Border
+                                    Grid.Row="1"
+                                    Background="#222627"
+                                    BorderBrush="Black"
+                                    BorderThickness="0.5,0,0.5,0.5"
+                                    CornerRadius="0,0,4,4">
+                                    <TextBlock
+                                        Margin="6,6"
+                                        FontSize="15"
+                                        Foreground="White">
+                                        <TextBlock.Text>
+                                            <MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                                <MultiBinding.Bindings>
+                                                    <Binding Path="Content" />
+                                                    <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                                </MultiBinding.Bindings>
+                                            </MultiBinding>
+                                        </TextBlock.Text>
+                                    </TextBlock>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>-->
+                </ListBox>
+                <!--</ScrollViewer>-->
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

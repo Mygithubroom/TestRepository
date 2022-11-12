@@ -1,0 +1,453 @@
+﻿<UserControl
+    x:Class="WanCeDesktopApp.Views.Dialogs.ExpressionBuilderDialogView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cv="clr-namespace:WanCeDesktopApp.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:local="clr-namespace:WanCeDesktopApp"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:viewmodels="clr-namespace:WanCeDesktopApp.ViewModels"
+    Width="690"
+    Height="600"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    <!--<i:Interaction.Triggers>
+        <i:EventTrigger EventName="GotFocus">
+            <cv:GotFocusTrigger />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+    <UserControl.Resources>
+        <cv:StringSepcialFormatConverter x:Key="StrFormatConverter" />
+    </UserControl.Resources>
+    <Grid Background="#626367" MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Border
+                    Margin="0,0,0,-10"
+                    Background="#626367"
+                    CornerRadius="3,3,0,0">
+                    <DockPanel Height="70">
+                        <materialDesign:PackIcon
+                            Width="60"
+                            Height="60"
+                            Foreground="AliceBlue"
+                            Kind="FunctionVariant" />
+                        <StackPanel Height="70">
+                            <TextBlock
+                                Margin="6,5,0,0"
+                                FontWeight="Bold"
+                                Foreground="WhiteSmoke"
+                                Text=" Expression Builder " />
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                Foreground="WhiteSmoke"
+                                Text="Use the variables and buttons to create an "
+                                TextWrapping="Wrap" />
+                            <TextBlock
+                                Margin="20,-5,0,0"
+                                Foreground="WhiteSmoke"
+                                Text="expression, or type disectly into the text box." />
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+            </Grid>
+            <DockPanel Grid.Row="1">
+                <Grid Margin="0,5,0,0" Background="#626367">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Margin="10,5,0,0"
+                            FontWeight="Bold"
+                            Foreground="WhiteSmoke"
+                            Text="Variables" />
+                        <Border
+                            Grid.Row="1"
+                            Margin="10,0,0,0"
+                            BorderBrush="Black"
+                            BorderThickness="2,2,2,2"
+                            CornerRadius="5" />
+                        <TreeView
+                            Name="treeView"
+                            Grid.Row="1"
+                            Margin="10,5,0,5"
+                            FontSize="18"
+                            ItemsSource="{Binding AvailableParametersArr}"
+                            MouseDoubleClick="TreeView_MouseDoubleClick">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="DoubleClick">
+                                    <i:InvokeCommandAction Command="{Binding MoveToRightCommand}" CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding AvailableParametersItemsArr}">
+                                    <!--  Content="{Binding InputTypeName}"  -->
+                                    <ContentControl Name="item">
+                                        <ContentControl.Content>
+                                            <MultiBinding Converter="{StaticResource StrFormatConverter}">
+                                                <Binding Path="Title" />
+                                                <Binding Path="Tag" />
+                                            </MultiBinding>
+                                        </ContentControl.Content>
+                                    </ContentControl>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </Grid>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="10,5,0,0"
+                            FontWeight="Bold"
+                            Foreground="WhiteSmoke"
+                            Text="Expression" />
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock MaxWidth="200"  Margin="5,0,0,0" Text="{Binding CalculateResultName}" VerticalAlignment="Center"/>
+                            <TextBox Grid.Column="1"
+                            x:Name="Input"
+                            Height="70"
+                            Margin="10,2,10,0"
+                            VerticalAlignment="Top"
+                            AcceptsReturn="True"
+                            BorderBrush="Black"
+                            BorderThickness="2,2,2,2"
+                            FontSize="15"
+                            GotFocus="Input_GotFocus"
+                            KeyDown="Input_KeyDown"
+                            PreviewMouseUp="Input_PreviewMouseUp"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            Text="{Binding Expression}"
+                            TextWrapping="Wrap"
+                                 Cursor="Arrow" />
+                        </Grid>
+                        <DockPanel Margin="25,10,10,0" LastChildFill="False">
+                            <Button
+                                Width="200"
+                                Height="32"
+                                Margin="0,0,0,0"
+                                Click="Clean_Button"
+                                Content="Clear" />
+                            <Button
+                                Width="200"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Validate_Button"
+                                Content="Validate" />
+                        </DockPanel>
+                        <DockPanel Margin="25,8,0,0" LastChildFill="False">
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Click="Triangle_Button"
+                                Content="log"
+                                FocusManager.FocusedElement="{Binding ElementName=Input}"
+                                Focusable="False" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Triangle_Button"
+                                Content="ln" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Triangle_Button"
+                                Content="exp" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Triangle_Button"
+                                Content="abs" />
+                        </DockPanel>
+                        <DockPanel Margin="25,8,0,0" LastChildFill="False">
+                            <Button
+                                x:Name="Sin"
+                                Width="95"
+                                Height="32"
+                                Padding="0,0,0,0"
+                                Click="Triangle_Button"
+                                Content="sin" />
+                            <Button
+                                x:Name="Cos"
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Triangle_Button"
+                                Content="cos" />
+                            <Button
+                                x:Name="Tan"
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Triangle_Button"
+                                Content="tan" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Operator_Button"
+                                Content="π"
+                                FontSize="20" />
+                        </DockPanel>
+                        <DockPanel
+                            x:Name="panel2"
+                            Margin="25,8,0,0"
+                            LastChildFill="False">
+                            <Button
+                                x:Name="Units"
+                                Width="200"
+                                Height="32"
+                                Padding="0"
+                                Click="Units_Click"
+                                Content="Units                ▼" />
+                            <Popup
+                                x:Name="unitsPopup"
+                                Width="{Binding ElementName=Units, Path=Width}"
+                                HorizontalAlignment="Center"
+                                IsOpen="False"
+                                PlacementTarget="{Binding ElementName=panel2}">
+                                <TreeView
+                                    x:Name="UnitsTree"
+                                    Height="260"
+                                    Margin="10,0,0,0"
+                                    FontSize="18"
+                                    ItemsSource="{Binding UnitSetItems}"
+                                    MouseDoubleClick="UnitsTree_MouseDoubleClick">
+                                    <TreeView.ItemTemplate>
+                                        <HierarchicalDataTemplate ItemsSource="{Binding AvailableParametersItemsArr}">
+                                            <!--  Content="{Binding InputTypeName}"  -->
+                                            <ContentControl Name="item" Content="{Binding Title}" />
+                                        </HierarchicalDataTemplate>
+                                    </TreeView.ItemTemplate>
+                                </TreeView>
+                            </Popup>
+                            <Button
+                                x:Name="Sqrt"
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Triangle_Button"
+                                Content="Sqrt" />
+                            <Button
+                                x:Name="SecondSet"
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="SecondSet_Button"
+                                Content="2nd" />
+                        </DockPanel>
+                        <DockPanel Margin="25,8,0,0" LastChildFill="False">
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Padding="0,0,0,0"
+                                Click="Operator_Button"
+                                Content="e"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Operator_Button"
+                                Content="("
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Operator_Button"
+                                Content=")"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Operator_Button"
+                                Content="^"
+                                FontSize="20" />
+                        </DockPanel>
+                        <DockPanel Margin="25,8,0,0" LastChildFill="False">
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="7"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="8"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="9"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Operator_Button"
+                                Content="÷"
+                                FontSize="20" />
+                        </DockPanel>
+                        <DockPanel Margin="25,8,0,0" LastChildFill="False">
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="4"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="5"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="6"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Click="Operator_Button"
+                                Content="×"
+                                FontSize="30" />
+                        </DockPanel>
+                        <DockPanel Margin="25,8,0,0" LastChildFill="False">
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="1"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="2"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="3"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Operator_Button"
+                                Content="-"
+                                FontSize="30" />
+                        </DockPanel>
+                        <DockPanel Margin="25,8,0,0" LastChildFill="False">
+                            <Button
+                                Width="200"
+                                Height="32"
+                                Padding="0,0,0,0"
+                                Click="Number_Button"
+                                Content="0"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,5,0,0"
+                                Click="Dot_Button"
+                                Content="•"
+                                FontSize="20" />
+                            <Button
+                                Width="95"
+                                Height="32"
+                                Margin="10,0,0,0"
+                                Padding="0,0,0,0"
+                                Click="Operator_Button"
+                                Content="+"
+                                FontSize="25" />
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+            <DockPanel
+                Grid.Row="2"
+                Height="70"
+                Margin="0,0,10,0"
+                VerticalAlignment="Center"
+                LastChildFill="False">
+                <Button
+                    Height="49"
+                    Margin="10,0,0,0"
+                    Content="{materialDesign:PackIcon Kind=QuestionMark,
+                                                      Size=24}" />
+                <Button
+                    Width="80"
+                    Height="49"
+                    Command="{Binding SaveCommand}"
+                    Content="确  定"
+                    Cursor="Hand"
+                    DockPanel.Dock="Right" />
+                <Button
+                    Width="80"
+                    Height="49"
+                    Margin="10"
+                    Command="{Binding CancelCommand}"
+                    Content="取  消"
+                    DockPanel.Dock="Right"
+                    Style="{StaticResource MaterialDesignOutlinedButton}" />
+            </DockPanel>
+        </Grid>
+    </Grid>
+</UserControl>

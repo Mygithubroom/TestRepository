@@ -1,0 +1,239 @@
+﻿<UserControl
+	x:Class="WanCeDesktopApp.Views.SettingsUserView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:domain="clr-namespace:WanCeDesktopApp.Common"
+	xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp.Views"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+	d:DesignHeight="600"
+	d:DesignWidth="1200"
+	mc:Ignorable="d">
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+		<Grid Background="#626367">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+
+			<!--  第零行  -->
+			<Grid Grid.Row="0" Margin="0,20,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="auto" />
+					<ColumnDefinition Width="auto" />
+				</Grid.ColumnDefinitions>
+
+				<!--  第一列  表格区域  -->
+				<Grid Grid.Column="0">
+					<StackPanel>
+						<DataGrid
+							x:Name="UserDataGrid"
+							Width="525"
+							Height="200"
+							Margin="10,0,0,0"
+							HorizontalContentAlignment="Left"
+							AutoGenerateColumns="False"
+							IsReadOnly="True"
+							ItemsSource="{Binding LstUserModelsData}"
+							ScrollViewer.VerticalScrollBarVisibility="Auto">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="SelectionChanged">
+									<i:InvokeCommandAction Command="{Binding CurrentCellChanged}" CommandParameter="{Binding ElementName=UserDataGrid, Path=SelectedItem}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+
+							<DataGrid.ColumnHeaderStyle>
+								<Style TargetType="DataGridColumnHeader">
+									<Setter Property="HorizontalContentAlignment" Value="Center" />
+									<Setter Property="Background" Value="#222627" />
+									<Setter Property="Padding" Value="30,10,0,10" />
+								</Style>
+							</DataGrid.ColumnHeaderStyle>
+							<DataGrid.Columns>
+								<DataGridTextColumn Binding="{Binding UserID}" Header="ID" />
+								<DataGridTextColumn Binding="{Binding Password}" Header="{lex:Loc Password}" />
+								<DataGridTextColumn Binding="{Binding Level}" Header="{lex:Loc Grade}" />
+								<DataGridTextColumn Binding="{Binding UserName}" Header="{lex:Loc Name}" />
+								<DataGridTextColumn Binding="{Binding Phone}" Header="{lex:Loc Phone}" />
+								<DataGridTextColumn Binding="{Binding LoginDateTime}" Header="{lex:Loc LoginDateTime}" />
+							</DataGrid.Columns>
+						</DataGrid>
+					</StackPanel>
+				</Grid>
+
+				<!--  第二列  信息区域  -->
+				<Grid Grid.Column="1" Margin="50,0,0,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition Height="auto" />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock MinWidth="150" Text="ID:" />
+						<TextBox
+							Width="150"
+							md:TextFieldAssist.HasClearButton="True"
+							Style="{StaticResource MaterialDesignTextBox}"
+							Text="{Binding UserID}" />
+					</StackPanel>
+
+					<StackPanel Grid.Row="2" Orientation="Horizontal">
+						<TextBlock
+							MinWidth="150"
+							Margin="0,10,0,0"
+							Text="{lex:Loc Password}" />
+						<TextBox
+							Width="150"
+							Style="{StaticResource MaterialDesignTextBox}"
+							Text="{Binding Password}" />
+					</StackPanel>
+					<StackPanel Grid.Row="4" Orientation="Horizontal">
+						<TextBlock
+							MinWidth="150"
+							Margin="0,10,0,0"
+							Text="{lex:Loc Grade}" />
+						<TextBox
+							Width="150"
+							Margin="0,10,0,0"
+							Style="{StaticResource MaterialDesignTextBox}"
+							Text="{Binding Level}" />
+					</StackPanel>
+					<StackPanel Grid.Row="5" Orientation="Horizontal">
+						<TextBlock
+							MinWidth="150"
+							Margin="0,10,0,0"
+							Text="{lex:Loc UserName}" />
+						<TextBox
+							Width="150"
+							Margin="0,10,0,0"
+							Style="{StaticResource MaterialDesignTextBox}"
+							Text="{Binding UserName}" />
+					</StackPanel>
+					<StackPanel Grid.Row="6" Orientation="Horizontal">
+						<TextBlock
+							MinWidth="150"
+							Margin="0,10,0,0"
+							Text="{lex:Loc Phone}" />
+						<TextBox
+							Width="150"
+							Margin="0,10,0,0"
+							Style="{StaticResource MaterialDesignTextBox}"
+							Text="{Binding UserPhone}" />
+					</StackPanel>
+
+					<StackPanel
+						Grid.Row="9"
+						Margin="0,10,0,0"
+						Orientation="Horizontal">
+						<Button
+							Margin="0,0,0,0"
+							Command="{Binding AddUserInfo}"
+							Content="{lex:Loc Add}" />
+						<Button
+							Margin="45,0,0,0"
+							Command="{Binding UpDateUserInfo}"
+							Content="{lex:Loc Update}" />
+						<Button
+							Margin="45,0,0,0"
+							Command="{Binding OKcommand}"
+							Content="{lex:Loc OKNoSpace}" />
+					</StackPanel>
+				</Grid>
+			</Grid>
+			<!--  权限列表  -->
+			<DockPanel Margin="10,50,0,0" LastChildFill="False">
+				<UniformGrid Grid.Row="1" Margin="0,250,0,0">
+
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc Test}"
+						IsChecked="{Binding Test}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc Method}"
+						IsChecked="{Binding Method}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc SystemManagement}"
+						IsChecked="{Binding SystemManagement}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc Unit}"
+						IsChecked="{Binding Unit}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc Setting}"
+						IsChecked="{Binding Setting}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc Calibration}"
+						IsChecked="{Binding Calibration}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc Verification}"
+						IsChecked="{Binding Verification}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc LineCorrection}"
+						IsChecked="{Binding LinearCorrection}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc KeyboardSpeed}"
+						IsChecked="{Binding KeyboardSpeed}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc GBiso}"
+						IsChecked="{Binding GBiso}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc DataRounding}"
+						IsChecked="{Binding DataRounding}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc AccountManagement}"
+						IsChecked="{Binding AccountManagement}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc PreviewReport}"
+						IsChecked="{Binding PreviewReport}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc TestMethod}"
+						IsChecked="{Binding TestMethod}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc EditReportTemplate}"
+						IsChecked="{Binding EditReportTemplate}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc DataManagement}"
+						IsChecked="{Binding DataManagement}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc CurveAnalysis}"
+						IsChecked="{Binding CurveAnalysis}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc Print Report}"
+						IsChecked="{Binding PrintReport}" />
+					<CheckBox
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc languageManagement}"
+						IsChecked="{Binding LanguageManagement}" />
+				</UniformGrid>
+			</DockPanel>
+		</Grid>
+	</ScrollViewer>
+</UserControl>

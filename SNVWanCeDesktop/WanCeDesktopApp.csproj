@@ -1,0 +1,137 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\Fonts\**" />
+    <EmbeddedResource Remove="Resources\Fonts\**" />
+    <None Remove="Resources\Fonts\**" />
+    <Page Remove="Resources\Fonts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common\DAO\NumberInputInfo.cs" />
+    <Compile Remove="ViewModels\ExportDatabaseExportView.xaml.cs" />
+    <Compile Remove="Views\MainWindowViewModel.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\logo.bmp" />
+    <None Remove="Images\通用-关闭.png" />
+    <None Remove="Language\2022_08_03_10_29.xlsx" />
+    <None Remove="WanCeDesktopApp.Main.slnf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="ViewModels\ExportDatabaseExportView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.17.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="OxyPlot.SkiaSharp.Wpf" Version="2.1.0" />
+    <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+    <!--<PackageReference Include="PropertyChanged.Fody" Version="3.4.1" />-->
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.1" PrivateAssets="All" />
+    <PackageReference Include="Serilog.Expressions" Version="3.4.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.116" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+    <PackageReference Include="WPFLocalizeExtension" Version="3.9.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DoPE10Net">
+      <HintPath>lib\DoPE10Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ExportUtilitiesLibrary">
+      <HintPath>lib\ExportUtilitiesLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="LoggingModule">
+      <HintPath>lib\LoggingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Logic">
+      <HintPath>lib\Logic.dll</HintPath>
+    </Reference>
+    <Reference Include="MachineControlModule">
+      <HintPath>lib\MachineControlModule.dll</HintPath>
+    </Reference>
+    <Reference Include="PlotControlLibrary">
+      <HintPath>lib\PlotControlLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PTF">
+      <HintPath>lib\PTF.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteClassLibrary">
+      <HintPath>lib\SQLiteClassLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite">
+      <HintPath>lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6">
+      <HintPath>lib\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq">
+      <HintPath>lib\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>C:\Windows\Microsoft.NET\Framework64\v4.0.30319\System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="TPBase">
+      <HintPath>lib\TPBase.dll</HintPath>
+    </Reference>
+    <Reference Include="TPMetal">
+      <HintPath>lib\TPMetal.dll</HintPath>
+    </Reference>
+    <Reference Include="TPRule">
+      <HintPath>lib\TPRule.dll</HintPath>
+    </Reference>
+    <Reference Include="TupacAmaru.Yacep">
+      <HintPath>lib\TupacAmaru.Yacep.dll</HintPath>
+    </Reference>
+    <Reference Include="UnitsProvider">
+      <HintPath>lib\UnitsProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Yield">
+      <HintPath>lib\Yield.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\logo.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configure\" />
+    <Folder Include="lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Language\lang.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>lang.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Language\lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CTRL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

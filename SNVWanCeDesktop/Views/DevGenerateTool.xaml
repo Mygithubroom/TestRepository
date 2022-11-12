@@ -1,0 +1,57 @@
+﻿<Window
+    x:Class="WanCeDesktopApp.Views.DevGenerateTool"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:WanCeDesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    Name="DeveloperView"
+    Title="DevGenerateTool"
+    Width="800"
+    Height="450"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <Grid>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding LoadCommand}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <ComboBox ToolTip="选择单位系统" />
+                <ComboBox ToolTip="选择单位单位群" />
+                <Button Content="添加单元群" />
+                <TextBlock Text="单位群key值" />
+                <TextBlock Text="单位群默认值" />
+                <TextBlock Text="单位" />
+                <Button Content="添加单元" />
+                <Button Content="删除单元" />
+                <Button Content="生成XML" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <ContentControl x:Name="consoleRegion" prism:RegionManager.RegionName="ConsoleRegion" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

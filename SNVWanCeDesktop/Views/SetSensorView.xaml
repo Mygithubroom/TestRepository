@@ -1,0 +1,191 @@
+﻿<UserControl
+	x:Class="WanCeDesktopApp.Views.SetSensorView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:cv="clr-namespace:WanCeDesktopApp.Common"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+	xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:prism="http://prismlibrary.com/"
+	d:DesignHeight="450"
+	d:DesignWidth="800"
+	prism:ViewModelLocator.AutoWireViewModel="True"
+	mc:Ignorable="d">
+
+	<Grid>
+		<materialDesign:Card>
+			<Grid Background="#626367">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Grid.Row="0"
+					Margin="10,10,0,0"
+					Text="{lex:Loc SelectSetSensors}"
+					TextWrapping="Wrap" />
+				<Grid Grid.Row="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="80" />
+						<ColumnDefinition />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<TextBlock
+						Grid.Column="0"
+						Margin="10,10,0,0"
+						VerticalAlignment="Top"
+						Style="{StaticResource txbkFirstTitle}"
+						Text="{lex:Loc AvailableSensors}" />
+					<Border
+						Grid.Column="0"
+						Margin="10,40,0,10"
+						Background="#222627"
+						CornerRadius="5" />
+					<DockPanel Grid.Column="0" Margin="10,40,0,10">
+						<ListBox x:Name="listBoxLeft" ItemsSource="{Binding AvailableSersorLists}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseDoubleClick">
+									<i:InvokeCommandAction Command="{Binding MoveToRightCommand}" CommandParameter="{Binding ElementName=listBoxLeft, Path=SelectedItem}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Margin="5,0,0,0" Text="{Binding Content}" />
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</DockPanel>
+					<StackPanel
+						Grid.Column="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center">
+						<Button
+							Width="70"
+							Height="46"
+							Margin="0,0,0,10"
+							Command="{Binding MoveToRightCommand}"
+							CommandParameter="{Binding ElementName=listBoxLeft, Path=SelectedItem}"
+							Content="{materialDesign:PackIcon Kind=ArrowRight,
+							                                  Size=40}" />
+						<Button
+							Width="70"
+							Height="46"
+							Margin="0,0,0,0"
+							Command="{Binding MoveToLeftCommand}"
+							CommandParameter="{Binding ElementName=listBoxRight, Path=SelectedItem}"
+							Content="{materialDesign:PackIcon Kind=ArrowLeft,
+							                                  Size=40}" />
+					</StackPanel>
+					<TextBlock
+						Grid.Column="2"
+						Margin="0,10,0,0"
+						VerticalAlignment="Top"
+						Style="{StaticResource txbkFirstTitle}"
+						Text="{lex:Loc SelectedSensors}" />
+					<Border
+						Grid.Column="2"
+						Margin="0,40,0,10"
+						Background="#222627"
+						CornerRadius="5" />
+					<DockPanel Grid.Column="2" Margin="0,40,0,10">
+						<ListBox
+							x:Name="listBoxRight"
+							ItemsSource="{Binding SelectedSersorLists}"
+							SelectedItem="{Binding SelectedShowInfo}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseDoubleClick">
+									<i:InvokeCommandAction Command="{Binding MoveToLeftCommand}" CommandParameter="{Binding ElementName=listBoxRight, Path=SelectedItem}" />
+								</i:EventTrigger>
+								<i:EventTrigger EventName="SelectionChanged">
+									<i:InvokeCommandAction Command="{Binding UpDataText}" CommandParameter="{Binding ElementName=listBoxRight, Path=SelectedItem}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock Margin="5,0,0,0" Text="{Binding Content}" />
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</DockPanel>
+					<Grid Grid.Column="3">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="40" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<StackPanel VerticalAlignment="Center">
+							<TextBlock
+								Grid.Column="2"
+								Margin="10,0,0,0"
+								VerticalAlignment="Center"
+								Style="{StaticResource txbkFirstTitle}"
+								Text="{lex:Loc ParameterSettings}" />
+						</StackPanel>
+						<StackPanel Grid.Row="1" Margin="10,0,0,0">
+							<StackPanel Margin="0,5" Orientation="Horizontal">
+								<TextBlock
+									MinWidth="200"
+									VerticalAlignment="Center"
+									Text="{lex:Loc SensorsName}" />
+								<TextBox
+									x:Name="Texti"
+									MinWidth="200"
+									materialDesign:TextFieldAssist.HasClearButton="False"
+									Cursor="Arrow"
+									Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}" />
+							</StackPanel>
+							<StackPanel Margin="0,5" Orientation="Horizontal">
+								<TextBlock
+									MinWidth="200"
+									VerticalAlignment="Center"
+									Text="{lex:Loc Precision}" />
+								<ComboBox MinWidth="200" Cursor="Arrow">
+									<ComboBoxItem>标准采集</ComboBoxItem>
+									<ComboBoxItem>间隔采集</ComboBoxItem>
+									<ComboBoxItem>高精度采集</ComboBoxItem>
+								</ComboBox>
+							</StackPanel>
+							<StackPanel Margin="0,5" Orientation="Horizontal">
+								<TextBlock
+									MinWidth="200"
+									VerticalAlignment="Center"
+									Text="{lex:Loc Rate}" />
+								<TextBox
+									MinWidth="200"
+									Cursor="Arrow"
+									InputMethod.IsInputMethodEnabled="False" />
+							</StackPanel>
+							<StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+								<Button
+									Width="150"
+									Height="46"
+									Command="{Binding OpenDialogCommand}"
+									Content="{lex:Loc CheckSencor}" />
+								<Button
+									Width="150"
+									Height="46"
+									Margin="100,0,0,0"
+									Content="{lex:Loc OK}" />
+							</StackPanel>
+							<StackPanel>
+								<TextBlock Margin="0,10" Text="{lex:Loc Describe}" />
+								<Border
+									Width="400"
+									Height="250"
+									HorizontalAlignment="Left"
+									BorderBrush="Black"
+									BorderThickness="1,1,1,1"
+									CornerRadius="5" />
+							</StackPanel>
+						</StackPanel>
+					</Grid>
+
+				</Grid>
+			</Grid>
+		</materialDesign:Card>
+	</Grid>
+</UserControl>

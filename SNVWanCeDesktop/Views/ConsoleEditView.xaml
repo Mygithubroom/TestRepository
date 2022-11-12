@@ -1,0 +1,27 @@
+﻿<Window
+    x:Class="WanCeDesktopApp.Views.ConsoleEditView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:WanCeDesktopApp.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="ConsoleEditView"
+    Width="800"
+    Height="450"
+    Tag="{Binding ViewTag,Mode=OneWayToSource}"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ContentControl prism:RegionManager.RegionName="{x:Static ext:PrismManage.ConsoleEditRegionName}" />
+        </Grid>
+    </ScrollViewer>
+</Window>

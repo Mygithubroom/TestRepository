@@ -1,0 +1,1875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DataBarTitleStress" xml:space="preserve">
+    <value>Stress</value>
+  </data>
+  <data name="TestViewTitle" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="TestViewDescription" xml:space="preserve">
+    <value>Start or continue a sample to test!</value>
+  </data>
+  <data name="TestViewMethodSelectionDescription" xml:space="preserve">
+    <value>Create a new sample and start testing or continue testing existing samples.</value>
+  </data>
+  <data name="TestViewMethodBrowseButtonTitle" xml:space="preserve">
+    <value>Browse methods</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="HintMessage" xml:space="preserve">
+    <value>Hint</value>
+  </data>
+  <data name="OnExitConfirm" xml:space="preserve">
+    <value>Do you want to exit the application?</value>
+  </data>
+  <data name="IndexMenuContentManagement" xml:space="preserve">
+    <value>Go to System Manage</value>
+  </data>
+  <data name="IndexMenuContentMethod" xml:space="preserve">
+    <value>Go to Method Navigation</value>
+  </data>
+  <data name="IndexMenuContentTest" xml:space="preserve">
+    <value>Go to Test Navigation</value>
+  </data>
+  <data name="TestViewFunctionSectionTitle" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="New Method" xml:space="preserve">
+    <value>New Method</value>
+  </data>
+  <data name="TestViewContinueSampleTitle" xml:space="preserve">
+    <value>Continue Sample</value>
+  </data>
+  <data name="TestViewContinueSampleDescription" xml:space="preserve">
+    <value>Select a group of recent samples or browse a method to select samples.</value>
+  </data>
+  <data name="TestViewBrowseSampleButtonTitle" xml:space="preserve">
+    <value>Browse Sample</value>
+  </data>
+  <data name="TestViewSampleSectionTitle" xml:space="preserve">
+    <value>Samples</value>
+  </data>
+  <data name="Sample" xml:space="preserve">
+    <value>Sample</value>
+  </data>
+  <data name="Specimen" xml:space="preserve">
+    <value>Specimen</value>
+  </data>
+  <data name="Measurements" xml:space="preserve">
+    <value>Measurements</value>
+  </data>
+  <data name="Calculations" xml:space="preserve">
+    <value>Calculations</value>
+  </data>
+  <data name="TestControl" xml:space="preserve">
+    <value>Test Control</value>
+  </data>
+  <data name="Console" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="Workspace" xml:space="preserve">
+    <value>Workspace</value>
+  </data>
+  <data name="Exports" xml:space="preserve">
+    <value>Exports</value>
+  </data>
+  <data name="Workflow" xml:space="preserve">
+    <value>Workflow</value>
+  </data>
+  <data name="GeneralTabDescription" xml:space="preserve">
+    <value>Select the system of units the software will use for all unit fields in the method .Select how the system assigns default settings for added specimens.</value>
+  </data>
+  <data name="TestTypeColons" xml:space="preserve">
+    <value>Test type:</value>
+  </data>
+  <data name="TitleEditorName" xml:space="preserve">
+    <value>Test method saved by:</value>
+  </data>
+  <data name="GeneralTabLabelTitleRevisionHistory" xml:space="preserve">
+    <value>Revision history:</value>
+  </data>
+  <data name="Save revision history" xml:space="preserve">
+    <value>Save revision history:</value>
+  </data>
+  <data name="GeneralTabLabelTitleUnitSystem" xml:space="preserve">
+    <value>System of units</value>
+  </data>
+  <data name="GeneralTabLabelTitleSpecimenParamSource" xml:space="preserve">
+    <value>Assign specimen parameters from:</value>
+  </data>
+  <data name="GeneralTabLabelTitleEnableMultiStation" xml:space="preserve">
+    <value>Enable Multi Station testing:</value>
+  </data>
+  <data name="GeneralTabMethodDescInputHint" xml:space="preserve">
+    <value>This is a Method description area:</value>
+  </data>
+  <data name="TorsionMethodDescription" xml:space="preserve">
+    <value>Torsion Method</value>
+  </data>
+  <data name="Tension" xml:space="preserve">
+    <value>Tension</value>
+  </data>
+  <data name="TensionMethodDescription" xml:space="preserve">
+    <value>Tension Method</value>
+  </data>
+  <data name="QuickTestMethodTitle" xml:space="preserve">
+    <value>Quick Test</value>
+  </data>
+  <data name="QuickTestMethodDescription" xml:space="preserve">
+    <value>Quick start test</value>
+  </data>
+  <data name="OtherMethodDescription" xml:space="preserve">
+    <value>Other Method</value>
+  </data>
+  <data name="ImpactMethodDescription" xml:space="preserve">
+    <value>Impact Method</value>
+  </data>
+  <data name="FrictionMethodDescription" xml:space="preserve">
+    <value>Friction Method</value>
+  </data>
+  <data name="Flexure" xml:space="preserve">
+    <value>Flexure</value>
+  </data>
+  <data name="FlexureMethodDescription" xml:space="preserve">
+    <value>Flexure Method</value>
+  </data>
+  <data name="ContinueTestMethodTitle" xml:space="preserve">
+    <value>Continue Test</value>
+  </data>
+  <data name="ContinueTestMethodDescription" xml:space="preserve">
+    <value>Continue an unfinished test</value>
+  </data>
+  <data name="Compression" xml:space="preserve">
+    <value>Compression</value>
+  </data>
+  <data name="CompressionMethodDescription" xml:space="preserve">
+    <value>Compression Method</value>
+  </data>
+  <data name="TestInputType0" xml:space="preserve">
+    <value>Test Input Type 0</value>
+  </data>
+  <data name="TestInputType1" xml:space="preserve">
+    <value>Test Input Type 1</value>
+  </data>
+  <data name="TestInputType2" xml:space="preserve">
+    <value>Test Input Type 2</value>
+  </data>
+  <data name="TestInputType3" xml:space="preserve">
+    <value>Test Input Type 3</value>
+  </data>
+  <data name="TestInputType4" xml:space="preserve">
+    <value>Test Input Type 4</value>
+  </data>
+  <data name="TestInputParameter1" xml:space="preserve">
+    <value>Parameter 1</value>
+  </data>
+  <data name="TestInputParameter2" xml:space="preserve">
+    <value>Parameter 2</value>
+  </data>
+  <data name="TabSectionTitleNumberInputs" xml:space="preserve">
+    <value>Number Inputs</value>
+  </data>
+  <data name="DateInputs" xml:space="preserve">
+    <value>Date Inputs</value>
+  </data>
+  <data name="TabSectionTitleChoiceInputs" xml:space="preserve">
+    <value>Choice Inputs</value>
+  </data>
+  <data name="TabSectionTitleTextInputs" xml:space="preserve">
+    <value>Text Inputs</value>
+  </data>
+  <data name="TabSectionTitleProperties" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="TabSectionTitlePassFail" xml:space="preserve">
+    <value>Pass/Fail</value>
+  </data>
+  <data name="TabSectionTitleRawData" xml:space="preserve">
+    <value>Row Data</value>
+  </data>
+  <data name="TabSectionTitleResults1" xml:space="preserve">
+    <value>Results 1</value>
+  </data>
+  <data name="TabSectionTitleResults2" xml:space="preserve">
+    <value>Results 2</value>
+  </data>
+  <data name="TabSectionTitleGraph1" xml:space="preserve">
+    <value>Graph 1</value>
+  </data>
+  <data name="TabSectionTitleLayout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="TabSectionTitleOperatorInputs" xml:space="preserve">
+    <value>Operator Inputs</value>
+  </data>
+  <data name="TabSectionTitleGraph2" xml:space="preserve">
+    <value>Graph 2</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="TabSectionTitleEndofTest" xml:space="preserve">
+    <value>End of test</value>
+  </data>
+  <data name="TabSectionTitlePreTest" xml:space="preserve">
+    <value>Pre-Test</value>
+  </data>
+  <data name="TabSectionTitleStartTest" xml:space="preserve">
+    <value>Start test</value>
+  </data>
+  <data name="TabSectionTitleFrame" xml:space="preserve">
+    <value>Frame</value>
+  </data>
+  <data name="TabSectionTitleGrips" xml:space="preserve">
+    <value>Grips</value>
+  </data>
+  <data name="TabSectionTitleLiveDisplays" xml:space="preserve">
+    <value>Live Displays</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="TabSectionTitleRounding" xml:space="preserve">
+    <value>Rounding</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="GroupNameOfGauge" xml:space="preserve">
+    <value>Measurement</value>
+  </data>
+  <data name="Displacement" xml:space="preserve">
+    <value>Displacement</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Load</value>
+  </data>
+  <data name="LoadOrWidth" xml:space="preserve">
+    <value>Load / Width</value>
+  </data>
+  <data name="PIPCount" xml:space="preserve">
+    <value>PIPCount</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="ExportFileSetting" xml:space="preserve">
+    <value>File Settings</value>
+  </data>
+  <data name="DatabaseExport" xml:space="preserve">
+    <value>Database Export</value>
+  </data>
+  <data name="NoLiveDisplays" xml:space="preserve">
+    <value>No live displays</value>
+  </data>
+  <data name="MethodViewApplicationType" xml:space="preserve">
+    <value>Application type:</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="Editmethod" xml:space="preserve">
+    <value>Edit method</value>
+  </data>
+  <data name="Sortby" xml:space="preserve">
+    <value>Sort by:</value>
+  </data>
+  <data name="Filterby" xml:space="preserve">
+    <value>Filter by:</value>
+  </data>
+  <data name="ClearList" xml:space="preserve">
+    <value>Clear List</value>
+  </data>
+  <data name="Methods" xml:space="preserve">
+    <value>Methods</value>
+  </data>
+  <data name="MethodViewChoosearecentmethodorbrowseforone" xml:space="preserve">
+    <value>Choose a recent method or browse for one.</value>
+  </data>
+  <data name="Security" xml:space="preserve">
+    <value>Security</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="NoTestType" xml:space="preserve">
+    <value>No test type</value>
+  </data>
+  <data name="SampleClosed" xml:space="preserve">
+    <value>Sample:Closed</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="MethodsClosed" xml:space="preserve">
+    <value>Methods:Closed</value>
+  </data>
+  <data name="ReportClosed" xml:space="preserve">
+    <value>Report:Closed</value>
+  </data>
+  <data name="MothodViewChooseamethodtemplateoranapplicationspecificmethod" xml:space="preserve">
+    <value>Choose a method template or an application-specific method.</value>
+  </data>
+  <data name="AdhesivesMethods" xml:space="preserve">
+    <value>Adhesives Methods</value>
+  </data>
+  <data name="BrowseMethods" xml:space="preserve">
+    <value>Browse Methods</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Torsion" xml:space="preserve">
+    <value>Torsion</value>
+  </data>
+  <data name="Impact" xml:space="preserve">
+    <value>Impact</value>
+  </data>
+  <data name="Friction" xml:space="preserve">
+    <value>Friction</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="TestCompress" xml:space="preserve">
+    <value>TestCompress</value>
+  </data>
+  <data name="TestTension" xml:space="preserve">
+    <value>TestTension</value>
+  </data>
+  <data name="TestFlexure" xml:space="preserve">
+    <value>TestFlexure</value>
+  </data>
+  <data name="TestTorsion" xml:space="preserve">
+    <value>TestTorsion</value>
+  </data>
+  <data name="TestImpact" xml:space="preserve">
+    <value>TestImpact</value>
+  </data>
+  <data name="TestFriction" xml:space="preserve">
+    <value>TestFriction</value>
+  </data>
+  <data name="TestOther" xml:space="preserve">
+    <value>TestOther</value>
+  </data>
+  <data name="Criteria3" xml:space="preserve">
+    <value>Criteria3</value>
+  </data>
+  <data name="Describe" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Explain" xml:space="preserve">
+    <value>Explain</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>Detail</value>
+  </data>
+  <data name="SystemInformation" xml:space="preserve">
+    <value>System Information</value>
+  </data>
+  <data name="HardwareManagement" xml:space="preserve">
+    <value>Hardware Manage</value>
+  </data>
+  <data name="AuthorityManagement" xml:space="preserve">
+    <value>Authority Management</value>
+  </data>
+  <data name="DataManagerment" xml:space="preserve">
+    <value>Data Managerment</value>
+  </data>
+  <data name="InterfaceManagement" xml:space="preserve">
+    <value>Interface Manage</value>
+  </data>
+  <data name="SystemProperty" xml:space="preserve">
+    <value>SystemProperty</value>
+  </data>
+  <data name="SoftwareCopyright" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="ShenzhenWanTes EquipmentCoLTD" xml:space="preserve">
+    <value>Shenzhen wance Technologies Ltd.</value>
+  </data>
+  <data name="SoftwareVersionNumber" xml:space="preserve">
+    <value>VersionNumber</value>
+  </data>
+  <data name="SoftwareInstallationDate" xml:space="preserve">
+    <value>InstallationDate</value>
+  </data>
+  <data name="Secretkey" xml:space="preserve">
+    <value>KeyCode</value>
+  </data>
+  <data name="ProtocolNumber" xml:space="preserve">
+    <value>ProtocolNumber</value>
+  </data>
+  <data name="FrameModel" xml:space="preserve">
+    <value>FrameModel</value>
+  </data>
+  <data name="RackControllerNumber" xml:space="preserve">
+    <value>RackControllerNumber</value>
+  </data>
+  <data name="MACAddress" xml:space="preserve">
+    <value>MAC</value>
+  </data>
+  <data name="Memo" xml:space="preserve">
+    <value>Memo</value>
+  </data>
+  <data name="ConfigureAttachment" xml:space="preserve">
+    <value>ConfigureAnnex</value>
+  </data>
+  <data name="ConfigureSensors" xml:space="preserve">
+    <value>ConfigureSensors</value>
+  </data>
+  <data name="ExceptionInformation" xml:space="preserve">
+    <value>ExceptionInformation</value>
+  </data>
+  <data name="SelectSetAccessories" xml:space="preserve">
+    <value>Select and set up a annex</value>
+  </data>
+  <data name="AvailableAccessories" xml:space="preserve">
+    <value>Available Annex</value>
+  </data>
+  <data name="SelectedAccessories" xml:space="preserve">
+    <value>Selected Annex</value>
+  </data>
+  <data name="ParameterSettings" xml:space="preserve">
+    <value>Parameter settings</value>
+  </data>
+  <data name="AccessoriesName" xml:space="preserve">
+    <value>Accessories Name:</value>
+  </data>
+  <data name="CommunicationsModule" xml:space="preserve">
+    <value>Module:</value>
+  </data>
+  <data name="BaudRate" xml:space="preserve">
+    <value>BaudRate</value>
+  </data>
+  <data name="ParityBit" xml:space="preserve">
+    <value>Serial Port:</value>
+  </data>
+  <data name="ResetTwoSpacing" xml:space="preserve">
+    <value>Check</value>
+  </data>
+  <data name="UserSettings" xml:space="preserve">
+    <value>User Settings</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>UserName</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="isStop" xml:space="preserve">
+    <value>isStop</value>
+  </data>
+  <data name="LoginDateTime" xml:space="preserve">
+    <value>LoginDate</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="SurePassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="DatabaseSettings" xml:space="preserve">
+    <value>DatabaseSettings</value>
+  </data>
+  <data name="DataBaseIP" xml:space="preserve">
+    <value>DataBaseIP</value>
+  </data>
+  <data name="SaveTwoSpacing" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TestLink" xml:space="preserve">
+    <value>TestConnect</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="OnlineHelp" xml:space="preserve">
+    <value>OnlineHelp</value>
+  </data>
+  <data name="DockingSystem" xml:space="preserve">
+    <value>OtherSystem</value>
+  </data>
+  <data name="SelectSetSensors" xml:space="preserve">
+    <value>Select and set up a Sensors</value>
+  </data>
+  <data name="AvailableSensors" xml:space="preserve">
+    <value>Available Sensors</value>
+  </data>
+  <data name="SelectedSensors" xml:space="preserve">
+    <value>Selected Sensors</value>
+  </data>
+  <data name="SensorsName" xml:space="preserve">
+    <value>SensorsName</value>
+  </data>
+  <data name="Precision" xml:space="preserve">
+    <value>Precision</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="Sample description" xml:space="preserve">
+    <value>Sample description</value>
+  </data>
+  <data name="Sample node 1" xml:space="preserve">
+    <value>Sample node 1</value>
+  </data>
+  <data name="Sample node 2" xml:space="preserve">
+    <value>Sample node 2</value>
+  </data>
+  <data name="Sample node 3" xml:space="preserve">
+    <value>Sample node 3</value>
+  </data>
+  <data name="Prompt" xml:space="preserve">
+    <value>Reminder</value>
+  </data>
+  <data name="Default Text" xml:space="preserve">
+    <value>Default Text</value>
+  </data>
+  <data name="CancelTwoSpacing" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="UnitSettings" xml:space="preserve">
+    <value>Unit Settings</value>
+  </data>
+  <data name="DefaultValue" xml:space="preserve">
+    <value>Default Value</value>
+  </data>
+  <data name="Decimalplaces" xml:space="preserve">
+    <value>Decimal places</value>
+  </data>
+  <data name="limited" xml:space="preserve">
+    <value>limited</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Sample choice inputs 1" xml:space="preserve">
+    <value>Sample choice inputs 1</value>
+  </data>
+  <data name="Sample choice inputs 2" xml:space="preserve">
+    <value>Sample choice inputs 2</value>
+  </data>
+  <data name="Sample choice inputs 3" xml:space="preserve">
+    <value>Sample choice inputs 3</value>
+  </data>
+  <data name="Sample choice inputs 4" xml:space="preserve">
+    <value>Sample choice inputs 4</value>
+  </data>
+  <data name="Sample choice inputs 5" xml:space="preserve">
+    <value>Sample choice inputs 5</value>
+  </data>
+  <data name="Sample choice inputs 6" xml:space="preserve">
+    <value>Sample choice inputs 6</value>
+  </data>
+  <data name="Allow None as a chioce" xml:space="preserve">
+    <value>Allow None as a chioce</value>
+  </data>
+  <data name="Chioce" xml:space="preserve">
+    <value>Chioce</value>
+  </data>
+  <data name="Sample number input" xml:space="preserve">
+    <value>Sample number input</value>
+  </data>
+  <data name="Sample text input" xml:space="preserve">
+    <value>Sample text input</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="Dimensions may be used in virtual measurements" xml:space="preserve">
+    <value>Dimensions may be used in virtual measurements. Specimen label is an option in the legend settings for a graph.  Specimen properties are available for operator inputs, results table 1,report method parameters,prompted text, export method parameters.</value>
+  </data>
+  <data name="Specimen properties" xml:space="preserve">
+    <value>Specimen properties</value>
+  </data>
+  <data name="Specimen label" xml:space="preserve">
+    <value>Specimen label</value>
+  </data>
+  <data name="Geometry and Dimensions" xml:space="preserve">
+    <value>Geometry and Dimensions</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>Geometry</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>Search Measurement</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="Fixture separation" xml:space="preserve">
+    <value>Fixture separation</value>
+  </data>
+  <data name="Final Width" xml:space="preserve">
+    <value>Final Width</value>
+  </data>
+  <data name="Final Thickness" xml:space="preserve">
+    <value>Final Thickness</value>
+  </data>
+  <data name="Final Length" xml:space="preserve">
+    <value>Final Length</value>
+  </data>
+  <data name="Specimen description" xml:space="preserve">
+    <value>Specimen description</value>
+  </data>
+  <data name="Specimen node 1" xml:space="preserve">
+    <value>Specimen node 1</value>
+  </data>
+  <data name="Specimen node 2" xml:space="preserve">
+    <value>Specimen node 2</value>
+  </data>
+  <data name="Specimen number input" xml:space="preserve">
+    <value>Specimen number input</value>
+  </data>
+  <data name="Specimen node 3" xml:space="preserve">
+    <value>Specimen node 3</value>
+  </data>
+  <data name="Specimen text input" xml:space="preserve">
+    <value>Specimen text input</value>
+  </data>
+  <data name="Label 1" xml:space="preserve">
+    <value>Label 1</value>
+  </data>
+  <data name="Label 2" xml:space="preserve">
+    <value>Label 2</value>
+  </data>
+  <data name="Label 3" xml:space="preserve">
+    <value>Label 3</value>
+  </data>
+  <data name="Label 4" xml:space="preserve">
+    <value>Label 4</value>
+  </data>
+  <data name="Label 5" xml:space="preserve">
+    <value>Label 5</value>
+  </data>
+  <data name="Label 6" xml:space="preserve">
+    <value>Label 6</value>
+  </data>
+  <data name="Label 7" xml:space="preserve">
+    <value>Label 7</value>
+  </data>
+  <data name="Sample date input" xml:space="preserve">
+    <value>Sample date input</value>
+  </data>
+  <data name="Measurements Describe" xml:space="preserve">
+    <value>Measurements provide the data for test control, graphing and analysis.Physical measurements provide data directly from a transducer.Virtual measurements generate data from an expression.</value>
+  </data>
+  <data name="Measurement type" xml:space="preserve">
+    <value>Measurement type</value>
+  </data>
+  <data name="Measurement available in the method" xml:space="preserve">
+    <value>Measurement available in the method</value>
+  </data>
+  <data name="CalculationsDescribeSetUp" xml:space="preserve">
+    <value>Create the calculations required for testing. To use a calculation during a test,enable Calculate during the test.To display calculated results, create a results table or add results to live displays.</value>
+  </data>
+  <data name="Available calculations" xml:space="preserve">
+    <value>Available calculations</value>
+  </data>
+  <data name="Selected calculations" xml:space="preserve">
+    <value>Selected calculations</value>
+  </data>
+  <data name="% of break" xml:space="preserve">
+    <value>% of break</value>
+  </data>
+  <data name="Area reduction" xml:space="preserve">
+    <value>Area reduction</value>
+  </data>
+  <data name="Area under curve" xml:space="preserve">
+    <value>Area under curve</value>
+  </data>
+  <data name="Average value" xml:space="preserve">
+    <value>Average value</value>
+  </data>
+  <data name="Break" xml:space="preserve">
+    <value>Break</value>
+  </data>
+  <data name="Break location" xml:space="preserve">
+    <value>Break location</value>
+  </data>
+  <data name="Coefficientoffriction" xml:space="preserve">
+    <value>Coefficient of friction</value>
+  </data>
+  <data name="Compensated energy" xml:space="preserve">
+    <value>Compensated energy</value>
+  </data>
+  <data name="CreepRelaxation" xml:space="preserve">
+    <value>Creep/Relaxation</value>
+  </data>
+  <data name="Elongation after fracture" xml:space="preserve">
+    <value>Elongation after fracture</value>
+  </data>
+  <data name="Fracture toughness conditional point" xml:space="preserve">
+    <value>Fracture toughness conditional point</value>
+  </data>
+  <data name="Hold preset point" xml:space="preserve">
+    <value>Hold preset point</value>
+  </data>
+  <data name="Line intersection" xml:space="preserve">
+    <value>Line intersection</value>
+  </data>
+  <data name="Modulus" xml:space="preserve">
+    <value>Modulus</value>
+  </data>
+  <data name="Non-proportional elongation" xml:space="preserve">
+    <value>Non-proportional elongation</value>
+  </data>
+  <data name="N-value" xml:space="preserve">
+    <value>N-value</value>
+  </data>
+  <data name="Peak first" xml:space="preserve">
+    <value>Peak first</value>
+  </data>
+  <data name="Peak local" xml:space="preserve">
+    <value>Peak local</value>
+  </data>
+  <data name="Peakmaximumminimum" xml:space="preserve">
+    <value>Peak maximum/minimum</value>
+  </data>
+  <data name="Poisson's ratio" xml:space="preserve">
+    <value>Poisson's ratio</value>
+  </data>
+  <data name="Polynomial fitting" xml:space="preserve">
+    <value>Polynomial fitting</value>
+  </data>
+  <data name="preset point" xml:space="preserve">
+    <value>preset point</value>
+  </data>
+  <data name="R-value" xml:space="preserve">
+    <value>R-value</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Maximum Force" xml:space="preserve">
+    <value>Max Force</value>
+  </data>
+  <data name="Maximum" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>Domain</value>
+  </data>
+  <data name="Force" xml:space="preserve">
+    <value>Force</value>
+  </data>
+  <data name="Indicate on graph" xml:space="preserve">
+    <value>Indicate on graph</value>
+  </data>
+  <data name="Calculate during the test" xml:space="preserve">
+    <value>Calculate during the test</value>
+  </data>
+  <data name="Rounding rule" xml:space="preserve">
+    <value>Rounding rule</value>
+  </data>
+  <data name="Rounding interval" xml:space="preserve">
+    <value>Rounding interval</value>
+  </data>
+  <data name="Start test" xml:space="preserve">
+    <value>Start test</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Set digital output lines" xml:space="preserve">
+    <value>Set digital output lines</value>
+  </data>
+  <data name="Tensile strain (displacement)" xml:space="preserve">
+    <value>Tensile strain (displacement)</value>
+  </data>
+  <data name="TextControlStrainDescribe" xml:space="preserve">
+    <value>The axial strain measurement is used in calculations, such as modulus and energy.The initial data comes from the primary source, usually the extensometer After removal, data comes from displacement.</value>
+  </data>
+  <data name="The basic source" xml:space="preserve">
+    <value>The basic source</value>
+  </data>
+  <data name="Remove the extensometer during the measurement" xml:space="preserve">
+    <value>Remove the extensometer during the measurement</value>
+  </data>
+  <data name="Measurement" xml:space="preserve">
+    <value>Measurement</value>
+  </data>
+  <data name="Remove the criteria" xml:space="preserve">
+    <value>Remove the criteria</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Action during removal" xml:space="preserve">
+    <value>Action during removal</value>
+  </data>
+  <data name="Lock tensile strain during disassembly" xml:space="preserve">
+    <value>Lock tensile strain during disassembly</value>
+  </data>
+  <data name="Remove transverse extensometer during test" xml:space="preserve">
+    <value>Remove transverse extensometer during test.</value>
+  </data>
+  <data name="TestControlStrainTransverseStrainDescribe" xml:space="preserve">
+    <value>Transverse strain allows an automatic transverse extensometer to be removed independently of the automatic axial extensometer.</value>
+  </data>
+  <data name="Temperature soak" xml:space="preserve">
+    <value>Temperature soak</value>
+  </data>
+  <data name="TestControlPreTestDescribeTwo" xml:space="preserve">
+    <value>Hold the specimen at a set temperature for a specified time .The soak time starts when all of the selected setpoints are satisfied.</value>
+  </data>
+  <data name="TestControlPreTestDescribeOne" xml:space="preserve">
+    <value>Pre-test parameters are optional that occur before the systems begins capturing data.Upon starting the test,the enabled actions occur in the order listed.If a measurement is not available,add it under Measurements.</value>
+  </data>
+  <data name="Preload" xml:space="preserve">
+    <value>Preload</value>
+  </data>
+  <data name="Remove slack in a specimen caused by gripping the specimen." xml:space="preserve">
+    <value>Remove slack in a specimen caused by gripping the specimen.</value>
+  </data>
+  <data name="Control mode" xml:space="preserve">
+    <value>Control mode</value>
+  </data>
+  <data name="Changeover criteria" xml:space="preserve">
+    <value>Changeover criteria</value>
+  </data>
+  <data name="Overtravel" xml:space="preserve">
+    <value>Overtravel</value>
+  </data>
+  <data name="TestControlPreTestDescribeThree" xml:space="preserve">
+    <value>Stop test and perform end of test action if either overtravel condition occurs.</value>
+  </data>
+  <data name="TestControlPreTestDescribeFour" xml:space="preserve">
+    <value>Automatically balance selected measurements after preload.</value>
+  </data>
+  <data name="Precycling" xml:space="preserve">
+    <value>Precycling</value>
+  </data>
+  <data name="TestControlPreTestDescribeFive" xml:space="preserve">
+    <value>Cycle between two specified boundary points.</value>
+  </data>
+  <data name="Collection of cyclic data" xml:space="preserve">
+    <value>Collection of cyclic data</value>
+  </data>
+  <data name="Cycle Index" xml:space="preserve">
+    <value>Cycle Index</value>
+  </data>
+  <data name="Measurement of maximum value" xml:space="preserve">
+    <value>Measurement of max value</value>
+  </data>
+  <data name="Measurement of minimum value" xml:space="preserve">
+    <value>Measurement of min value</value>
+  </data>
+  <data name="Minimum" xml:space="preserve">
+    <value>Minimum</value>
+  </data>
+  <data name="TestControlTestDescribe" xml:space="preserve">
+    <value>If a measurement is not available, add it under Measurements. If the yield calculation is not available, add it under Calculations.</value>
+  </data>
+  <data name="GBiso" xml:space="preserve">
+    <value>Criteria</value>
+  </data>
+  <data name="Criteria1" xml:space="preserve">
+    <value>Criteria1</value>
+  </data>
+  <data name="Criteria2" xml:space="preserve">
+    <value>Criteria2</value>
+  </data>
+  <data name="End of test1" xml:space="preserve">
+    <value>End of test1</value>
+  </data>
+  <data name="End of test2" xml:space="preserve">
+    <value>End of test2</value>
+  </data>
+  <data name="Sensitivity" xml:space="preserve">
+    <value>Sensitivity</value>
+  </data>
+  <data name="End of test" xml:space="preserve">
+    <value>End of test</value>
+  </data>
+  <data name="DataCaptureScheme" xml:space="preserve">
+    <value>Data capture scheme</value>
+  </data>
+  <data name="Interval" xml:space="preserve">
+    <value>Interval</value>
+  </data>
+  <data name="Record with TestCam" xml:space="preserve">
+    <value>Record with TestCam</value>
+  </data>
+  <data name="ConsoleLiveDisplaysDecsribeOne" xml:space="preserve">
+    <value>Each result in the selected list creates a column in the results table.</value>
+  </data>
+  <data name="ConsoleLiveDisplaysDecsribeTwo" xml:space="preserve">
+    <value>If a result is not available, add the calculation under Calculations.If a rounding format is not available, create it under Rounding rule.To include the table on the test workspace, select a layout that includes this component. To include the results table in the report, go to the Report tab.</value>
+  </data>
+  <data name="Available results" xml:space="preserve">
+    <value>Available Parameters</value>
+  </data>
+  <data name="Selected results(Max Four)" xml:space="preserve">
+    <value>Selected results(Max Four)</value>
+  </data>
+  <data name="ConsoleSoftKeysDexcribeOne" xml:space="preserve">
+    <value>Assign functions to functional keys</value>
+  </data>
+  <data name="ConsoleSoftKeysDexcribeTwo" xml:space="preserve">
+    <value>Use the function key to perform the specified functionality in the software console area.</value>
+  </data>
+  <data name="Available SoftKey" xml:space="preserve">
+    <value>Available SoftKey</value>
+  </data>
+  <data name="Selected SoftKey(Max Four)" xml:space="preserve">
+    <value>Selected SoftKey(Max Four)</value>
+  </data>
+  <data name="Maximum columns" xml:space="preserve">
+    <value>Max columns</value>
+  </data>
+  <data name="ConsoleFrameDescribeOne" xml:space="preserve">
+    <value>Set frame parameter</value>
+  </data>
+  <data name="ConsoleFrameDescribeTwo" xml:space="preserve">
+    <value>The parameters displayed depend on the current frame configuration, including the type and frame type of the controller.</value>
+  </data>
+  <data name="interlocation" xml:space="preserve">
+    <value>interlocation</value>
+  </data>
+  <data name="Above beam" xml:space="preserve">
+    <value>Above beam</value>
+  </data>
+  <data name="Below beam" xml:space="preserve">
+    <value>Under beam</value>
+  </data>
+  <data name="ConsoleGripsDescrobeOne" xml:space="preserve">
+    <value>Set the fixture control parameter</value>
+  </data>
+  <data name="ConsoleGripsDescrobeTwo" xml:space="preserve">
+    <value>For pneumatic rope fixture, jig control is an optional function. If the automatic air control suite is not installed, the system will ignore these Settings.</value>
+  </data>
+  <data name="ConsoleGripsDescrobeThree" xml:space="preserve">
+    <value>The pre-stretch specifies the load to be applied to the sample for the second one that is automatically closed.</value>
+  </data>
+  <data name="ConsoleGripsDescrobeFour" xml:space="preserve">
+    <value>Through the automatic opening of the sample when the test begins, the overstretching can avoid the load of the sample.</value>
+  </data>
+  <data name="Enable prestretching" xml:space="preserve">
+    <value>Enable prestretching</value>
+  </data>
+  <data name="pre-stretch value" xml:space="preserve">
+    <value>pre-stretch value</value>
+  </data>
+  <data name="Enable overstretching" xml:space="preserve">
+    <value>Enable overstretching</value>
+  </data>
+  <data name="Overstretch Value" xml:space="preserve">
+    <value>Overstretch Value</value>
+  </data>
+  <data name="WorkSpaceOperatorInputDescribeOne" xml:space="preserve">
+    <value>Select the parameters to display on the test workspace.  To restrict editing these parameters at specific times, enable the specimen states when changes are prohibited.  To include operator inputs on the test workspace, select a layout that includes this component.</value>
+  </data>
+  <data name="WorkSpaceOperatorInputDescribeTwo" xml:space="preserve">
+    <value>Prevent changes to value in these specimen states:</value>
+  </data>
+  <data name="UnTested" xml:space="preserve">
+    <value>Pre-Test</value>
+  </data>
+  <data name="Testing" xml:space="preserve">
+    <value>Testing</value>
+  </data>
+  <data name="Tested" xml:space="preserve">
+    <value>Tested</value>
+  </data>
+  <data name="Show all parameters" xml:space="preserve">
+    <value>Show all parameters</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="Selected results" xml:space="preserve">
+    <value>Selected Parameters</value>
+  </data>
+  <data name="WorkspaceResultColumnsDescribeOne" xml:space="preserve">
+    <value>Each result in the selected list creates a column in the results table.</value>
+  </data>
+  <data name="WorkspaceResultColumnsDescribeTwo" xml:space="preserve">
+    <value>If a result is not available, add the calculation under Calculations.If a rounding format is not available, create it under Rounding rule.To include the table on the test workspace, select a layout that includes this component. To include the results table in the report, go to the Report tab.</value>
+  </data>
+  <data name="Rounding format" xml:space="preserve">
+    <value>Rounding Format</value>
+  </data>
+  <data name="Apply format to all  statistics" xml:space="preserve">
+    <value>Apply format to all  statistics</value>
+  </data>
+  <data name="Acceptance range" xml:space="preserve">
+    <value>Acceptance range</value>
+  </data>
+  <data name="Upper bound" xml:space="preserve">
+    <value>Upper bound</value>
+  </data>
+  <data name="Lower bound" xml:space="preserve">
+    <value>Lower bound</value>
+  </data>
+  <data name="Group by result" xml:space="preserve">
+    <value>Group by result</value>
+  </data>
+  <data name="Group by average and median" xml:space="preserve">
+    <value>Group by average and median</value>
+  </data>
+  <data name="WorkspaceResultsStatisticsDescribeOne" xml:space="preserve">
+    <value>Each statistic in the selected list creates a row in the results table.</value>
+  </data>
+  <data name="XData" xml:space="preserve">
+    <value>X-Data</value>
+  </data>
+  <data name="YData" xml:space="preserve">
+    <value>Y-Data</value>
+  </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="WorkspaceGraphTypeGraphDescribeOne" xml:space="preserve">
+    <value>To include the graph on the test workspace, select a layout that includes this component. To include the graph in the report, go to the Report tab.</value>
+  </data>
+  <data name="WorkspaceGraphTypeGraphDescribeTwo" xml:space="preserve">
+    <value>A multi-specimen graph can display up to 25 specimen curves on each graph.</value>
+  </data>
+  <data name="Select a graph type" xml:space="preserve">
+    <value>Select a graph type</value>
+  </data>
+  <data name="Graph title" xml:space="preserve">
+    <value>Graph title</value>
+  </data>
+  <data name="Curves per graph" xml:space="preserve">
+    <value>Curves per graph</value>
+  </data>
+  <data name="Offset each curve by" xml:space="preserve">
+    <value>Offset each curve by</value>
+  </data>
+  <data name="Show excluded specimens" xml:space="preserve">
+    <value>Show excluded specimens</value>
+  </data>
+  <data name="Enable data point selector" xml:space="preserve">
+    <value>Enable data point selector</value>
+  </data>
+  <data name="Show average curve" xml:space="preserve">
+    <value>Show average curve</value>
+  </data>
+  <data name="WorkspaceGraphXDataDescribeOne" xml:space="preserve">
+    <value>If a measurement is not available, add it under Measurements. To include a graph on the test workspace, select a layout that includes this component.</value>
+  </data>
+  <data name="Xaxis definition" xml:space="preserve">
+    <value>X-axis definition</value>
+  </data>
+  <data name="Xaxis scaling" xml:space="preserve">
+    <value>X-axis scaling</value>
+  </data>
+  <data name="WorkspaceGraphYDataDescribeOne" xml:space="preserve">
+    <value>If a measurement is not available, add it under Measurements. To include a graph on the test workspace, select a layout that includes this component.</value>
+  </data>
+  <data name="Yaxis definition" xml:space="preserve">
+    <value>Yaxis definition</value>
+  </data>
+  <data name="Yaxis scaling" xml:space="preserve">
+    <value>Y-axis scaling</value>
+  </data>
+  <data name="WorkspaceLayoutDescribeTwo" xml:space="preserve">
+    <value>To customize the test workspace layout, go to Custom settings.</value>
+  </data>
+  <data name="WorkspaceLayoutDescribeOne" xml:space="preserve">
+    <value>Select a pre-configured layout for the test workspace.</value>
+  </data>
+  <data name="File Settings" xml:space="preserve">
+    <value>File Settings</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Method paramters" xml:space="preserve">
+    <value>Method paramters</value>
+  </data>
+  <data name="Export 2" xml:space="preserve">
+    <value>Export 2</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeOne" xml:space="preserve">
+    <value>The system uses these settings to save the sample and associated output files upon finishing a sample.</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeTwo" xml:space="preserve">
+    <value>Specify a default file name and folder</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeThree" xml:space="preserve">
+    <value>When enabled,the file name includes the date and time when the sample was created.Format:'filename_yyyymmdd_hhmmss'.</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeFour" xml:space="preserve">
+    <value>When enabled ,the software does not save the sample file or raw data.</value>
+  </data>
+  <data name="Default folder" xml:space="preserve">
+    <value>Default folder</value>
+  </data>
+  <data name="Append date and time to the sample name" xml:space="preserve">
+    <value>Append date and time to the sample name</value>
+  </data>
+  <data name="Discard the sample file at finish" xml:space="preserve">
+    <value>Discard the sample file at finish</value>
+  </data>
+  <data name="Edit report Settings" xml:space="preserve">
+    <value>Edit report Settings</value>
+  </data>
+  <data name="ExportReportsDescribeOne" xml:space="preserve">
+    <value>When you complete the sample, the system automatically performs the selected functionality, if it is enabled. Save &amp;quot. The report file will save the same location as the file.</value>
+  </data>
+  <data name="Report Settings" xml:space="preserve">
+    <value>Report Settings</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="Print graph" xml:space="preserve">
+    <value>Print graph</value>
+  </data>
+  <data name="Print graph1" xml:space="preserve">
+    <value>Print graph1</value>
+  </data>
+  <data name="Print graph2" xml:space="preserve">
+    <value>Print graph2</value>
+  </data>
+  <data name="Report format" xml:space="preserve">
+    <value>Report format</value>
+  </data>
+  <data name="Save Report" xml:space="preserve">
+    <value>Save Report</value>
+  </data>
+  <data name="Print Report" xml:space="preserve">
+    <value>Print Report</value>
+  </data>
+  <data name="Edit the original data export Settings" xml:space="preserve">
+    <value>Edit the original data export Settings</value>
+  </data>
+  <data name="ExportDatabaseExportDescribeOne" xml:space="preserve">
+    <value>If enabled, when the sample is finished, the system will save the original data table for each sample to separate files. In each file, the sample information appears in front of the original data table. This piece is kept in the same location as the sample file.</value>
+  </data>
+  <data name="Export raw data" xml:space="preserve">
+    <value>Export raw data</value>
+  </data>
+  <data name="Save Close" xml:space="preserve">
+    <value>Save Close</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Save as" xml:space="preserve">
+    <value>Save as...</value>
+  </data>
+  <data name="ExportsExport1DescribeOne" xml:space="preserve">
+    <value>Select the settings and the content for Export 1.</value>
+  </data>
+  <data name="Export settings" xml:space="preserve">
+    <value>Export Settings</value>
+  </data>
+  <data name="Export type" xml:space="preserve">
+    <value>Results table1 results</value>
+  </data>
+  <data name="OverrideDefaultFolder1" xml:space="preserve">
+    <value>Override default folder</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="Edit Workflow" xml:space="preserve">
+    <value>Edit Workflow</value>
+  </data>
+  <data name="Start Sample" xml:space="preserve">
+    <value>Start Sample</value>
+  </data>
+  <data name="Before Test" xml:space="preserve">
+    <value>Before Test</value>
+  </data>
+  <data name="Before Analysis" xml:space="preserve">
+    <value>Before Analysis</value>
+  </data>
+  <data name="Test Notes" xml:space="preserve">
+    <value>Test Notes</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>Finish</value>
+  </data>
+  <data name="Sample size" xml:space="preserve">
+    <value>Sample size</value>
+  </data>
+  <data name="Automatically start a new sample after Finish" xml:space="preserve">
+    <value>Automatically start a new sample after Finish</value>
+  </data>
+  <data name="Run as a prompted" xml:space="preserve">
+    <value>Run as a prompted</value>
+  </data>
+  <data name="Item1" xml:space="preserve">
+    <value>Item1</value>
+  </data>
+  <data name="Item2" xml:space="preserve">
+    <value>Item2</value>
+  </data>
+  <data name="Item3" xml:space="preserve">
+    <value>Item3</value>
+  </data>
+  <data name="Item4" xml:space="preserve">
+    <value>Item4</value>
+  </data>
+  <data name="Item5" xml:space="preserve">
+    <value>Item5</value>
+  </data>
+  <data name="Item6" xml:space="preserve">
+    <value>Item6</value>
+  </data>
+  <data name="Instructions for operator" xml:space="preserve">
+    <value>Instructions for operator</value>
+  </data>
+  <data name="Available paraments" xml:space="preserve">
+    <value>Available paraments</value>
+  </data>
+  <data name="Auto balance" xml:space="preserve">
+    <value>Auto balance</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="SystemManagement" xml:space="preserve">
+    <value>System Management</value>
+  </data>
+  <data name="Rectangle" xml:space="preserve">
+    <value>Rectangle</value>
+  </data>
+  <data name="Round" xml:space="preserve">
+    <value>Round</value>
+  </data>
+  <data name="Irregular Shape" xml:space="preserve">
+    <value>Irregular Shape</value>
+  </data>
+  <data name="Siphonate" xml:space="preserve">
+    <value>Siphonate</value>
+  </data>
+  <data name="Fiber" xml:space="preserve">
+    <value>Fiber</value>
+  </data>
+  <data name="Double shear ring" xml:space="preserve">
+    <value>Double shear ring</value>
+  </data>
+  <data name="Fasteners (American)" xml:space="preserve">
+    <value>Fasteners (American)</value>
+  </data>
+  <data name="Fasteners (Metric)" xml:space="preserve">
+    <value>Fasteners (Metric)</value>
+  </data>
+  <data name="The pipe section（Tube Section）" xml:space="preserve">
+    <value>The pipe section（Tube Section）</value>
+  </data>
+  <data name="The pipe section（Pipe Section）" xml:space="preserve">
+    <value>The pipe section（Pipe Section）</value>
+  </data>
+  <data name="Pipe" xml:space="preserve">
+    <value>Pipe</value>
+  </data>
+  <data name="Final Diameter" xml:space="preserve">
+    <value>Final Diameter</value>
+  </data>
+  <data name="Diameter" xml:space="preserve">
+    <value>Diameter</value>
+  </data>
+  <data name="Final Area" xml:space="preserve">
+    <value>Final Area</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="Final External Diameter" xml:space="preserve">
+    <value>Final External Diameter</value>
+  </data>
+  <data name="External Diameter" xml:space="preserve">
+    <value>External Diameter</value>
+  </data>
+  <data name="Final Wall Thickness" xml:space="preserve">
+    <value>Final Wall Thickness</value>
+  </data>
+  <data name="Wall Thickness" xml:space="preserve">
+    <value>Wall Thickness</value>
+  </data>
+  <data name="Final Linear Density" xml:space="preserve">
+    <value>Final Linear Density</value>
+  </data>
+  <data name="Linear Density" xml:space="preserve">
+    <value>Linear Density</value>
+  </data>
+  <data name="Threads per inch" xml:space="preserve">
+    <value>Threads per inch</value>
+  </data>
+  <data name="Teeth space" xml:space="preserve">
+    <value>Teeth space</value>
+  </data>
+  <data name="Final inner diameter" xml:space="preserve">
+    <value>Final inner diameter</value>
+  </data>
+  <data name="Inner diameter" xml:space="preserve">
+    <value>Inner diameter</value>
+  </data>
+  <data name="external radius" xml:space="preserve">
+    <value>external radius</value>
+  </data>
+  <data name="inside radius" xml:space="preserve">
+    <value>inside radius</value>
+  </data>
+  <data name="Final external radius" xml:space="preserve">
+    <value>Final external radius</value>
+  </data>
+  <data name="Final inside radius" xml:space="preserve">
+    <value>Final inside radius</value>
+  </data>
+  <data name="Unit group" xml:space="preserve">
+    <value>Unit group</value>
+  </data>
+  <data name="Expression" xml:space="preserve">
+    <value>Expression</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>Event</value>
+  </data>
+  <data name="Short" xml:space="preserve">
+    <value>Short</value>
+  </data>
+  <data name="Long" xml:space="preserve">
+    <value>Long</value>
+  </data>
+  <data name="Basic" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="Selected paraments" xml:space="preserve">
+    <value>Selected paraments</value>
+  </data>
+  <data name="Select one of the interconnection modes" xml:space="preserve">
+    <value>Select one of the interconnection modes</value>
+  </data>
+  <data name="GoBackToHome" xml:space="preserve">
+    <value>Go back to home</value>
+  </data>
+  <data name="CloseTheWindow" xml:space="preserve">
+    <value>Close the window</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="SoftwareManagement" xml:space="preserve">
+    <value>Software Management</value>
+  </data>
+  <data name="Maintaining" xml:space="preserve">
+    <value>Maintaining</value>
+  </data>
+  <data name="Query" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Total startup time" xml:space="preserve">
+    <value>Total startup time</value>
+  </data>
+  <data name="Total operation time" xml:space="preserve">
+    <value>Total operation time</value>
+  </data>
+  <data name="Total number of tests" xml:space="preserve">
+    <value>Test Counts</value>
+  </data>
+  <data name="Type of test" xml:space="preserve">
+    <value>Type of test</value>
+  </data>
+  <data name="test material" xml:space="preserve">
+    <value>test material</value>
+  </data>
+  <data name="The wear types" xml:space="preserve">
+    <value>The wear types</value>
+  </data>
+  <data name="Degree of wear" xml:space="preserve">
+    <value>Degree of wear</value>
+  </data>
+  <data name="wear rate" xml:space="preserve">
+    <value>wear rate</value>
+  </data>
+  <data name="Wear factors" xml:space="preserve">
+    <value>Wear factors</value>
+  </data>
+  <data name="Maintenance advice" xml:space="preserve">
+    <value>Maintenance advice</value>
+  </data>
+  <data name="A reminder date" xml:space="preserve">
+    <value>A reminder date</value>
+  </data>
+  <data name="Remind" xml:space="preserve">
+    <value>Remind</value>
+  </data>
+  <data name="SampleDescribe" xml:space="preserve">
+    <value>Sample inputs pertain to the sample as a  whole,not to individual specimens. Sample notes are available for report method parameter,prompted test,export method parameters</value>
+  </data>
+  <data name="ALL" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AmericanStandard" xml:space="preserve">
+    <value>US Standard</value>
+  </data>
+  <data name="Metric" xml:space="preserve">
+    <value>Metric</value>
+  </data>
+  <data name="SI" xml:space="preserve">
+    <value>SI</value>
+  </data>
+  <data name="LastTestedSpecimen" xml:space="preserve">
+    <value>Last tested sample</value>
+  </data>
+  <data name="Blomedical" xml:space="preserve">
+    <value>Blomedical</value>
+  </data>
+  <data name="Composites" xml:space="preserve">
+    <value>Composites</value>
+  </data>
+  <data name="Elastomers" xml:space="preserve">
+    <value>Elastomers</value>
+  </data>
+  <data name="Plastics" xml:space="preserve">
+    <value>Plastics</value>
+  </data>
+  <data name="Textiles" xml:space="preserve">
+    <value>Textiles</value>
+  </data>
+  <data name="Calibration" xml:space="preserve">
+    <value>Calibration</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>Verification</value>
+  </data>
+  <data name="LineCorrection" xml:space="preserve">
+    <value>LineCorrection</value>
+  </data>
+  <data name="KeyboardSpeed" xml:space="preserve">
+    <value>Keyboard Speed</value>
+  </data>
+  <data name="DataRounding" xml:space="preserve">
+    <value>Data Rounding</value>
+  </data>
+  <data name="AccountManagement" xml:space="preserve">
+    <value>AccountManagement</value>
+  </data>
+  <data name="PreviewReport" xml:space="preserve">
+    <value>PreviewReport</value>
+  </data>
+  <data name="TestMethod" xml:space="preserve">
+    <value>TestMethod</value>
+  </data>
+  <data name="EditReportTemplate" xml:space="preserve">
+    <value>EditReportTemplate</value>
+  </data>
+  <data name="CurveAnalysis" xml:space="preserve">
+    <value>CurveAnalysis</value>
+  </data>
+  <data name="languageManagement" xml:space="preserve">
+    <value>languageManagement</value>
+  </data>
+  <data name="Serial" xml:space="preserve">
+    <value>NO.</value>
+  </data>
+  <data name="MaintenanceProject" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="RemindContent" xml:space="preserve">
+    <value>RemindContent</value>
+  </data>
+  <data name="WhetherMaintenanceIsCompleted" xml:space="preserve">
+    <value>IsCompleted</value>
+  </data>
+  <data name="LastMaintenanceTime" xml:space="preserve">
+    <value>LastTime</value>
+  </data>
+  <data name="MaintenancePeriod" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="NextMaintenanceTime" xml:space="preserve">
+    <value>NextTime</value>
+  </data>
+  <data name="MaintenanceCount" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MaintenanceProjectOne" xml:space="preserve">
+    <value>MaintenanceItem</value>
+  </data>
+  <data name="RemindProject" xml:space="preserve">
+    <value>RemindItem</value>
+  </data>
+  <data name="Physical measurements" xml:space="preserve">
+    <value>Physical measurements</value>
+  </data>
+  <data name="Virtual measurements" xml:space="preserve">
+    <value>Virtual measurements</value>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>Torque</value>
+  </data>
+  <data name="Strain" xml:space="preserve">
+    <value>Strain</value>
+  </data>
+  <data name="UserDefined" xml:space="preserve">
+    <value>UserDefined</value>
+  </data>
+  <data name="TensileStrain" xml:space="preserve">
+    <value>TensileStrain</value>
+  </data>
+  <data name="CorrectionDisplacement" xml:space="preserve">
+    <value>CorrectionDisplacement</value>
+  </data>
+  <data name="TransverseStrain" xml:space="preserve">
+    <value>TransverseStrain</value>
+  </data>
+  <data name="BruteForce" xml:space="preserve">
+    <value>BruteForce</value>
+  </data>
+  <data name="SensorPlacement" xml:space="preserve">
+    <value>SensorConfigure</value>
+  </data>
+  <data name="Splice" xml:space="preserve">
+    <value>Communications Interfaces</value>
+  </data>
+  <data name="Pre-test limit" xml:space="preserve">
+    <value>Pre-test limit</value>
+  </data>
+  <data name="DataPoint" xml:space="preserve">
+    <value>DataPoint</value>
+  </data>
+  <data name="Using linear regression" xml:space="preserve">
+    <value>Using linear regression</value>
+  </data>
+  <data name="True strain control" xml:space="preserve">
+    <value>True strain control</value>
+  </data>
+  <data name="Source of Stress" xml:space="preserve">
+    <value>Source of Stress</value>
+  </data>
+  <data name="Width of transverse strain gauge" xml:space="preserve">
+    <value>Width of transverse strain gauge</value>
+  </data>
+  <data name="PlankSpecimen" xml:space="preserve">
+    <value>PlankSpecimenEn</value>
+  </data>
+  <data name="PinchParams" xml:space="preserve">
+    <value>PinchEn</value>
+  </data>
+  <data name="RectangularIconTitle" xml:space="preserve">
+    <value>Rectangular</value>
+  </data>
+  <data name="FixtureSeparationIconTitle" xml:space="preserve">
+    <value>Fixture Separation</value>
+  </data>
+  <data name="DefaultSpecimenGeometry" xml:space="preserve">
+    <value>Default Geometry</value>
+  </data>
+  <data name="Strain2" xml:space="preserve">
+    <value>Strain2</value>
+  </data>
+  <data name="TensileStress" xml:space="preserve">
+    <value>Tensile stress</value>
+  </data>
+  <data name="TensileDisplacement" xml:space="preserve">
+    <value>Tensile displacement</value>
+  </data>
+  <data name="CycleCount" xml:space="preserve">
+    <value>Cycle count</value>
+  </data>
+  <data name="TotalCycleCount" xml:space="preserve">
+    <value>Total cycle count</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="OKNoSpace" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="New Sample" xml:space="preserve">
+    <value>New Sample</value>
+  </data>
+  <data name="Enable Specimen Protection" xml:space="preserve">
+    <value>Enable Specimen Protection</value>
+  </data>
+  <data name="Release Pneumatic Grips" xml:space="preserve">
+    <value>Release Pneumatic Grips</value>
+  </data>
+  <data name="TestControlEndOfTestDescribeOne" xml:space="preserve">
+    <value>Set the criteria to end the test and specify the actions after the test.All criteria operate independently.The first criterion that is satisfield stops the test.If a measurement is not available,add it under Measurements.Set the threshold value for Specimen Protection,if available.</value>
+  </data>
+  <data name="TestControlDateDescribeOne" xml:space="preserve">
+    <value>Specify how often the system captures test data.All criteria operate independtly.The system captures data simultaneously from all selected measuremens when any specified interval occurs.</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeFive" xml:space="preserve">
+    <value>Do not use these invalid characters \/;’?&lt;&gt;|</value>
+  </data>
+  <data name="File extension" xml:space="preserve">
+    <value>File Suffix </value>
+  </data>
+  <data name="Encoding type" xml:space="preserve">
+    <value>Encoding type</value>
+  </data>
+  <data name="File name convention" xml:space="preserve">
+    <value>File name convention</value>
+  </data>
+  <data name="Createafileforeachspecimen" xml:space="preserve">
+    <value>Create a file for each specimen</value>
+  </data>
+  <data name="ShowMax" xml:space="preserve">
+    <value>ShowMax</value>
+  </data>
+  <data name="ShowRate" xml:space="preserve">
+    <value>ShowRate</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="Selected resultsMaxTwelve" xml:space="preserve">
+    <value>Selected Results(Max Twelve)</value>
+  </data>
+  <data name="Sample file name" xml:space="preserve">
+    <value>Sample file name</value>
+  </data>
+  <data name="Results table2 results" xml:space="preserve">
+    <value>Results table2 results</value>
+  </data>
+  <data name="Results table1 results" xml:space="preserve">
+    <value>Results table1 results</value>
+  </data>
+  <data name="Raw Data" xml:space="preserve">
+    <value>Raw Data</value>
+  </data>
+  <data name="Export1frequency" xml:space="preserve">
+    <value>Export 1 frequency</value>
+  </data>
+  <data name="Export 1" xml:space="preserve">
+    <value>Export 1</value>
+  </data>
+  <data name="AvailableLiveDisplay" xml:space="preserve">
+    <value>Available Live Display</value>
+  </data>
+  <data name="SelectedLiveDispalys" xml:space="preserve">
+    <value>Selected Live Dispalys</value>
+  </data>
+  <data name="ConsoleDescripe" xml:space="preserve">
+    <value>Descript</value>
+  </data>
+  <data name="Ramp1" xml:space="preserve">
+    <value>Ramp1</value>
+  </data>
+  <data name="Ramp2" xml:space="preserve">
+    <value>Ramp2</value>
+  </data>
+  <data name="Rate1" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Rate2" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="TabSectionTitleSoftKeys" xml:space="preserve">
+    <value>Soft Keys</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="DataManagement" xml:space="preserve">
+    <value>DataManagement</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="CalculationSetup" xml:space="preserve">
+    <value>SetUp</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Criteria" xml:space="preserve">
+    <value>Criteria</value>
+  </data>
+  <data name="OverrideDefaultFolder2" xml:space="preserve">
+    <value>Override default folder2</value>
+  </data>
+  <data name="OverrideDefaultFolder3" xml:space="preserve">
+    <value>Override default folder3</value>
+  </data>
+  <data name="Ex2OverrideDefaultFolder1" xml:space="preserve">
+    <value>Override default folder</value>
+  </data>
+  <data name="Ex2OverrideDefaultFolder2" xml:space="preserve">
+    <value>Override default folder</value>
+  </data>
+  <data name="Ex2OverrideDefaultFolder3" xml:space="preserve">
+    <value>Override default folder</value>
+  </data>
+  <data name="Ex2OverrideDefaultFolder4" xml:space="preserve">
+    <value>Override default folder</value>
+  </data>
+  <data name="CheckSencor" xml:space="preserve">
+    <value>CheckSencor</value>
+  </data>
+  <data name="Fetch" xml:space="preserve">
+    <value>ReadValue</value>
+  </data>
+</root>

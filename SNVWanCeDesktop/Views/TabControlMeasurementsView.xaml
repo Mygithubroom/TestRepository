@@ -1,0 +1,1829 @@
+﻿<UserControl
+	x:Class="WanCeDesktopApp.Views.TabControlMeasurementsView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:cv="clr-namespace:WanCeDesktopApp.Common"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+	xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:prism="http://prismlibrary.com/"
+	xmlns:viewmodel="clr-namespace:WanCeDesktopApp.ViewModels"
+	d:Height="950"
+	d:Width="1528"
+	prism:ViewModelLocator.AutoWireViewModel="True"
+	mc:Ignorable="d">
+	<!--<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">-->
+	<Grid x:Name="mainGrd" SizeChanged="Grid_SizeChanged">
+		<materialDesign:Card>
+			<Grid Background="#626367">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<TextBlock
+					Grid.Row="0"
+					MaxWidth="1300"
+					Margin="10,10,0,0"
+					HorizontalAlignment="Left"
+					Text="{lex:Loc Measurements Describe}"
+					TextWrapping="Wrap" />
+
+				<Grid Grid.Row="1">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="80" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="auto" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<TextBlock
+							Grid.Column="0"
+							Margin="10,5"
+							VerticalAlignment="Top"
+							Style="{StaticResource txbkFirstTitle}"
+							Text="{lex:Loc Measurement type}" />
+						<Border
+							Grid.Row="1"
+							Margin="10"
+							Background="#222627"
+							CornerRadius="5">
+							<DockPanel>
+								<ScrollViewer VerticalScrollBarVisibility="Auto">
+									<TreeView
+										Name="treeView"
+										Margin="5"
+										ItemsSource="{Binding AvailableParametersArr}"
+										MouseDoubleClick="FirstDeterMiniedParameMouseDoubleClick">
+										<i:Interaction.Triggers>
+											<i:EventTrigger EventName="MouseDoubleClick">
+												<i:InvokeCommandAction Command="{Binding MoveToRightCommand}" CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}" />
+											</i:EventTrigger>
+										</i:Interaction.Triggers>
+										<TreeView.ItemTemplate>
+											<HierarchicalDataTemplate ItemsSource="{Binding AvailableParametersItemsArr}">
+												<ContentControl Name="item">
+													<ContentControl.Content>
+														<MultiBinding Converter="{StaticResource LocMultiConverter}">
+															<MultiBinding.Bindings>
+																<Binding Path="InputTypeName" />
+																<Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+															</MultiBinding.Bindings>
+														</MultiBinding>
+													</ContentControl.Content>
+												</ContentControl>
+											</HierarchicalDataTemplate>
+										</TreeView.ItemTemplate>
+									</TreeView>
+								</ScrollViewer>
+							</DockPanel>
+						</Border>
+					</Grid>
+					<StackPanel
+						Grid.Column="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center">
+						<Button
+							Width="70"
+							Height="46"
+							Margin="0,0,0,10"
+							Click="BtnMove_Click"
+							Content="{materialDesign:PackIcon Kind=ArrowRight,
+							                                  Size=40}"
+							Cursor="Hand"
+							ToolTip="To Right">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Click">
+									<i:InvokeCommandAction Command="{Binding MoveToRightCommand}" CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Button>
+						<Button
+							x:Name="btnMoveToLeft"
+							Width="70"
+							Height="46"
+							Margin="0,0,0,0"
+							Click="BtnMove_Click"
+							Content="{materialDesign:PackIcon Kind=ArrowLeft,
+							                                  Size=40}"
+							ToolTip="To Left">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Click">
+									<i:InvokeCommandAction Command="{Binding MoveToLeftCommand}" CommandParameter="{Binding ElementName=DeterMiniedParametersList, Path=SelectedItem}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</Button>
+					</StackPanel>
+					<Grid Grid.Column="2">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="auto" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<TextBlock
+							Margin="10,5"
+							VerticalAlignment="Top"
+							Style="{StaticResource txbkFirstTitle}"
+							Text="{lex:Loc Measurement available in the method}" />
+						<Border
+							Grid.Row="1"
+							Margin="10"
+							Background="#222627"
+							CornerRadius="5">
+							<DockPanel>
+								<ScrollViewer VerticalScrollBarVisibility="Auto">
+									<ListBox
+										x:Name="DeterMiniedParametersList"
+										Margin="5"
+										FontSize="18"
+										ItemsSource="{Binding DeterMiniedParametersArr}"
+										SelectedItem="{Binding DeterMiniedParametersItem}"
+										SelectionChanged="DeterMiniedParametersList_SelectionChanged">
+										<i:Interaction.Triggers>
+											<i:EventTrigger EventName="SelectionChanged">
+												<i:InvokeCommandAction Command="{Binding SelectionChangedCommand}" CommandParameter="{Binding ElementName=DeterMiniedParametersList, Path=SelectedItem}" />
+											</i:EventTrigger>
+										</i:Interaction.Triggers>
+										<ListBox.ItemTemplate>
+											<DataTemplate>
+												<ContentControl Content="{Binding Title}">
+													<!--<MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                                        <Binding Path="Title" />
+                                                        <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                                    </MultiBinding>-->
+												</ContentControl>
+											</DataTemplate>
+										</ListBox.ItemTemplate>
+									</ListBox>
+								</ScrollViewer>
+							</DockPanel>
+						</Border>
+					</Grid>
+					<Grid
+						x:Name="DeterMiniedParamePanel"
+						Grid.Column="3"
+						DataContext="{Binding ElementName=DeterMiniedParametersList, Path=SelectedItem}">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="auto" />
+							<RowDefinition />
+						</Grid.RowDefinitions>
+						<TextBlock
+							Margin="10,5"
+							VerticalAlignment="Top"
+							Style="{StaticResource txbkFirstTitle}">
+							<TextBlock.Text>
+								<MultiBinding Converter="{StaticResource LocMultiConverter}">
+									<Binding Path="InputTypeName" />
+									<Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+								</MultiBinding>
+							</TextBlock.Text>
+						</TextBlock>
+						<Grid Grid.Row="1">
+							<ScrollViewer
+								Name="EditPanelScroll"
+								Grid.Row="1"
+								Margin="0,0,10,0"
+								VerticalScrollBarVisibility="Auto">
+								<StackPanel>
+									<!--<Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>-->
+									<!--<Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>-->
+									<!--  说明  -->
+									<DockPanel x:Name="DescriptionPanel">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc Description}" />
+										<TextBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True"
+											Text="{Binding Title}" />
+									</DockPanel>
+
+									<!--  传感器配置  -->
+									<DockPanel Name="SensorSettingPanel" Grid.Row="1">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc ConfigureSensors}" />
+										<ComboBox
+											Name="CMBSensor"
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+									</DockPanel>
+									<!--  接头  -->
+									<DockPanel Name="JointPanel" Grid.Row="2">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc Splice}" />
+										<ComboBox
+											x:Name="CMBJoint"
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+									</DockPanel>
+									<!--  基本源  -->
+									<DockPanel Name="BasicSourcePanel" Grid.Row="3">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc 基本源}" />
+										<ComboBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+									</DockPanel>
+									<!--  单位群  -->
+									<DockPanel Name="UnitGroupPanel" Grid.Row="4">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc 单位群}" />
+										<ComboBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+									</DockPanel>
+									<!--  位移源  -->
+									<DockPanel Name="DisplacementSourcePanel" Grid.Row="5">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc 位移源}" />
+										<ComboBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+									</DockPanel>
+									<!--  载荷源  -->
+									<DockPanel Name="LoadSourcePanel" Grid.Row="6">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc 载荷源}" />
+										<ComboBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+									</DockPanel>
+									<!--  参数表达式  -->
+									<Grid Name="ExpressionPanel" Grid.Row="7">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="auto" />
+											<ColumnDefinition />
+											<ColumnDefinition Width="auto" />
+										</Grid.ColumnDefinitions>
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc Expression}" />
+										<Button
+											Grid.Column="2"
+											Height="50"
+											Margin="5"
+											materialDesign:ButtonAssist.CornerRadius="5"
+											Command="{Binding ExecuteShowDialogCommand}"
+											Content="{materialDesign:PackIcon Kind=FunctionVariant,
+											                                  Size=30}">
+											<!--<i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="Click">
+                                                    <i:InvokeCommandAction Command="{Binding ExecuteShowDialogCommand}" CommandParameter="ExpressionBuilderDialogView" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>-->
+										</Button>
+										<TextBox
+											Grid.Column="1"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+									</Grid>
+									<!--  柔度文件  -->
+									<Grid Name="ComplianceFilePanel" Grid.Row="7">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="auto" />
+											<RowDefinition Height="auto" />
+										</Grid.RowDefinitions>
+										<TextBlock Text="{lex:Loc ComplianceFile}" />
+										<Grid Grid.Row="1" Margin="25,0,0,0">
+											<Grid.RowDefinitions>
+												<RowDefinition />
+												<RowDefinition />
+												<RowDefinition />
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="auto" />
+												<ColumnDefinition Width="3*" />
+												<ColumnDefinition Width="*" />
+											</Grid.ColumnDefinitions>
+											<!--  名称  -->
+											<TextBlock
+												MinWidth="150"
+												VerticalAlignment="Center"
+												Text="{lex:Loc FileName}" />
+											<TextBox
+												Grid.Column="1"
+												MinWidth="200"
+												Margin="5"
+												materialDesign:TextFieldAssist.HasClearButton="True" />
+											<Button
+												Grid.Column="2"
+												Height="50"
+												MinWidth="100"
+												Margin="5"
+												Content="{lex:Loc Import}" />
+											<!--  最近修改日期  -->
+											<TextBlock
+												Grid.Row="1"
+												MinWidth="150"
+												VerticalAlignment="Center"
+												Text="{lex:Loc LastModified}" />
+											<TextBox
+												Grid.Row="1"
+												Grid.Column="1"
+												MinWidth="200"
+												Margin="5"
+												materialDesign:TextFieldAssist.HasClearButton="True" />
+											<!--  文件大小  -->
+											<TextBlock
+												Grid.Row="2"
+												MinWidth="150"
+												VerticalAlignment="Center"
+												Text="{lex:Loc FileSize}" />
+											<TextBox
+												Grid.Row="2"
+												Grid.Column="1"
+												MinWidth="200"
+												Margin="5"
+												materialDesign:TextFieldAssist.HasClearButton="True" />
+										</Grid>
+									</Grid>
+
+									<!--  Source of strain  -->
+									<DockPanel Name="SourceOfStrainPanel" Grid.Row="8">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc SourceOfStrain}" />
+										<ComboBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+									</DockPanel>
+									<!--  Transverse strain gauge width  -->
+									<Grid Name="TransverseStrainGaugeWidthPanel" Grid.Row="9">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="auto" />
+											<ColumnDefinition />
+											<ColumnDefinition />
+											<ColumnDefinition Width="auto" />
+										</Grid.ColumnDefinitions>
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc Transverse strain gauge width}" />
+										<TextBox
+											Grid.Column="1"
+											MinWidth="150"
+											Margin="5,5,0,5" />
+										<ComboBox
+											Grid.Column="2"
+											MinWidth="60"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True" />
+										<Button
+											Grid.Column="3"
+											Height="50"
+											Margin="5"
+											Content="{materialDesign:PackIcon Kind=Calculator,
+											                                  Size=20}" />
+									</Grid>
+									<!--  预实验限位  -->
+									<Grid Name="PreTestLimitPanel" Grid.Row="10">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="auto" />
+											<RowDefinition />
+										</Grid.RowDefinitions>
+										<CheckBox
+											materialDesign:CheckBoxAssist.CheckBoxSize="30"
+											Checked="CheckBox_Checked"
+											Content="{lex:Loc Pre-test limit}"
+											IsChecked="{Binding IsPreTestLimit}"
+											Tag="PreTestLimitEditPanel"
+											Unchecked="CheckBox_Unchecked" />
+										<StackPanel
+											x:Name="PreTestLimitEditPanel"
+											Grid.Row="1"
+											Visibility="Collapsed">
+											<DockPanel Margin="25,0,0,0">
+												<TextBlock
+													MinWidth="150"
+													VerticalAlignment="Center"
+													Text="{lex:Loc Maximum}" />
+												<TextBox
+													MinWidth="200"
+													Margin="5"
+													materialDesign:TextFieldAssist.HasClearButton="True"
+													Text="{Binding PreMaximum}" />
+												<ComboBox
+													Name="EditUnit"
+													Height="50"
+													MinWidth="60"
+													DataContext="{Binding ElementName=mainGrd, Path=DataContext}"
+													IsSynchronizedWithCurrentItem="True"
+													ItemsSource="{Binding UnitItems}"
+													SelectedIndex="{Binding Index}"
+													SelectionChanged="EditUnit_SelectionChanged" />
+											</DockPanel>
+											<DockPanel Margin="25,0,0,0">
+												<TextBlock
+													MinWidth="150"
+													VerticalAlignment="Center"
+													Text="{lex:Loc Minimum}" />
+												<TextBox
+													MinWidth="200"
+													Margin="5"
+													materialDesign:TextFieldAssist.HasClearButton="True"
+													Text="{Binding PreMinimum}" />
+												<ComboBox
+													Height="50"
+													MinWidth="60"
+													DataContext="{Binding ElementName=mainGrd, Path=DataContext}"
+													IsSynchronizedWithCurrentItem="True"
+													ItemsSource="{Binding UnitItems}" />
+											</DockPanel>
+										</StackPanel>
+									</Grid>
+									<!--  速率  -->
+									<Grid Name="RatePanel" Grid.Row="11">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="auto" />
+											<RowDefinition Height="auto" />
+											<RowDefinition Height="auto" />
+											<RowDefinition Height="auto" />
+										</Grid.RowDefinitions>
+										<CheckBox
+											materialDesign:CheckBoxAssist.CheckBoxSize="30"
+											Checked="CheckBox_Checked"
+											Content="{lex:Loc Rate}"
+											IsChecked="{Binding IsRate}"
+											Tag="RateEditPanel"
+											Unchecked="CheckBox_Unchecked" />
+										<StackPanel
+											x:Name="RateEditPanel"
+											Grid.Row="1"
+											Visibility="Collapsed">
+											<DockPanel Margin="25,0,0,0">
+												<TextBlock
+													MinWidth="150"
+													VerticalAlignment="Center"
+													Text="{lex:Loc Description}" />
+												<TextBox
+													MinWidth="200"
+													Margin="5"
+													materialDesign:TextFieldAssist.HasClearButton="True"
+													Text="{Binding RateExplain}" />
+											</DockPanel>
+											<DockPanel Margin="25,0,0,0">
+												<TextBlock
+													MinWidth="150"
+													VerticalAlignment="Center"
+													Text="{lex:Loc DataPoint}" />
+												<TextBox
+													MinWidth="200"
+													Margin="5"
+													materialDesign:TextFieldAssist.HasClearButton="True"
+													Text="{Binding DataPointCount}" />
+											</DockPanel>
+											<CheckBox
+												Margin="25,0,0,0"
+												HorizontalAlignment="Left"
+												materialDesign:CheckBoxAssist.CheckBoxSize="30"
+												Content="{lex:Loc Using linear regression}"
+												IsChecked="{Binding IsUsingLinearRegression}" />
+										</StackPanel>
+									</Grid>
+									<!--  真应变控制  -->
+									<CheckBox
+										x:Name="TrueStrainControlPanel"
+										Grid.Row="12"
+										materialDesign:CheckBoxAssist.CheckBoxSize="30"
+										Content="{lex:Loc True strain control}"
+										IsChecked="{Binding IsTrueStrainControl}" />
+									<!--  Transverse Strain  -->
+									<DockPanel Name="TransverseStrainPanel" Grid.Row="13">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc TransverseStrain}" />
+										<ComboBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True"
+											NumberSubstitution.CultureSource="Text" />
+									</DockPanel>
+									<!--  数据点数量  -->
+									<DockPanel Name="DataPointNumberPanel" Grid.Row="14">
+										<TextBlock
+											MinWidth="150"
+											VerticalAlignment="Center"
+											Text="{lex:Loc DataPointNumber}" />
+										<TextBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True"
+											NumberSubstitution.CultureSource="Text" />
+									</DockPanel>
+									<!--  消除弹性应变 Elimination of elastic strain  -->
+									<DockPanel Name="EliminationOfElasticStrainPanel" Grid.Row="15">
+										<CheckBox Content="{lex:Loc 消除弹性应变}" />
+									</DockPanel>
+									<!--  泊松(Poission)比  -->
+									<DockPanel Name="PoissionRatePanel" Grid.Row="16">
+										<TextBox
+											MinWidth="200"
+											Margin="5"
+											materialDesign:TextFieldAssist.HasClearButton="True"
+											Text="{lex:Loc 泊松(Poission)比}" />
+									</DockPanel>
+								</StackPanel>
+
+							</ScrollViewer>
+						</Grid>
+					</Grid>
+					<!--<StackPanel
+                        x:Name="DeterMiniedParamePanel"
+                        Grid.Column="3"
+                        Margin="10,0,0,0"
+                        Visibility="Collapsed">
+                        <TextBlock
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Text="{lex:Loc ParameterSettings}" />
+					-->
+					<!--  基础界面  -->
+					<!--
+                        <Grid
+                            x:Name="BaseParamentPanel"
+                            Margin="10,10,0,0"
+                            Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Text="{lex:Loc Description}" />
+                            <TextBox
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                MinWidth="300"
+                                Margin="10,0,0,0"
+                                HorizontalAlignment="Left" />
+                            <TextBlock
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Text="{lex:Loc Unit group}" />
+                            <ComboBox
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                MinWidth="300"
+                                Margin="10,10,0,0"
+                                HorizontalAlignment="Left" />
+                            <TextBlock
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                Text="{lex:Loc Expression}" />
+                            <StackPanel
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Orientation="Horizontal">
+                                <TextBox
+                                    MinWidth="250"
+                                    Margin="10,10,0,0"
+                                    HorizontalAlignment="Left" />
+                                <Button
+                                    Width="45"
+                                    Height="50"
+                                    Margin="5,10,0,0"
+                                    Padding="0,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    Command="{Binding RelativeSource={RelativeSource AncestorType=DockPanel, Mode=FindAncestor}, Path=DataContext.ExecuteShowDialogCommand}"
+                                    CommandParameter="ExpressionBuilderDialogView"
+                                    Content="{materialDesign:PackIcon Kind=FunctionVariant,
+                                                                      Size=24}" />
+                            </StackPanel>
+                            <CheckBox
+                                x:Name="MaterialDesignOutlinedTextBoxEnabledComboBox1"
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Left"
+                                materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                CommandParameter="{Binding}"
+                                Content="{lex:Loc Pretest limits}"
+                                FontSize="18" />
+                            <CheckBox
+                                x:Name="MaterialDesignOutlinedTextBoxEnabledComboBox2"
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Left"
+                                materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                CommandParameter="{Binding}"
+                                Content="{lex:Loc Rate}"
+                                FontSize="18" />
+                            <CheckBox
+                                x:Name="MaterialDesignOutlinedTextBoxEnabledComboBox3"
+                                Grid.Row="5"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Margin="0,10,0,0"
+                                HorizontalAlignment="Left"
+                                materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                CommandParameter="{Binding}"
+                                Content="{lex:Loc Event}"
+                                FontSize="18" />
+                        </Grid>
+					-->
+					<!--  载荷界面  -->
+					<!--
+                        <Grid
+                            x:Name="LoadPanel"
+                            Margin="10,10,0,0"
+                            Visibility="Collapsed">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Explain}" />
+                                    <TextBox MinWidth="300" />
+                                </StackPanel>
+                                <DockPanel Margin="0,0,0,5">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc SensorPlacement}" />
+                                    <ComboBox />
+                                </DockPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Splice}" />
+                                    <TextBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Pre-test limit}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="ReadyTestLimitLoadPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="ReadyTestLimitLoadPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Maximum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Minimum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Rate}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="VelocityLoadPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="VelocityLoadPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Explain}" />
+                                            <TextBox MinWidth="250" FontSize="16" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc DataPoint}" />
+                                            <TextBox
+                                                Width="220"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <CheckBox
+                                            materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                            Content="{lex:Loc Using linear regression}"
+                                            Focusable="False"
+                                            FontSize="18" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+					-->
+					<!--  时间界面  -->
+					<!--
+                        <Grid x:Name="TimePanel" Visibility="Collapsed">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    MinWidth="100"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Text="{lex:Loc Explain}" />
+                                <TextBox MinWidth="300" />
+                            </StackPanel>
+                        </Grid>
+					-->
+					<!--  位移界面  -->
+					<!--
+                        <Grid x:Name="DisplacementPanel" Visibility="Collapsed">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Explain}" />
+                                    <TextBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Pre-test limit}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="ReadyTestLimitDisplacementPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="ReadyTestLimitDisplacementPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Maximum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Minimum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Rate}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="VelocityDisplacementPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="VelocityDisplacementPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Explain}" />
+                                            <TextBox MinWidth="250" FontSize="16" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc DataPoint}" />
+                                            <TextBox
+                                                Width="220"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <CheckBox
+                                            Grid.Row="1"
+                                            Margin="0,5"
+                                            materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                            Content="{lex:Loc Using linear regression}"
+                                            Focusable="False"
+                                            FontSize="18" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <CheckBox
+                                    materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                    Content="{lex:Loc True strain control}"
+                                    Focusable="False"
+                                    FontSize="18" />
+                            </StackPanel>
+                        </Grid>
+					-->
+					<!--  拉伸应变(位移)界面  -->
+					<!--
+                        <Grid x:Name="TensileStrainDisplacementPanel" Visibility="Collapsed">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Explain}" />
+                                    <TextBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc The basic source}" />
+                                    <ComboBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Pre-test limit}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="ReadyTestLimitTensileStrainDisplacementPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="ReadyTestLimitTensileStrainDisplacementPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Maximum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Minimum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Rate}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="VelocityTensileStrainDisplacementPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="VelocityTensileStrainDisplacementPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Explain}" />
+                                            <TextBox MinWidth="250" FontSize="16" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc DataPoint}" />
+                                            <TextBox
+                                                Width="220"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <CheckBox
+                                            materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                            Content="{lex:Loc Using linear regression}"
+                                            Focusable="False"
+                                            FontSize="18" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+					-->
+					<!--  拉伸应力界面  -->
+					<!--
+                        <Grid x:Name="StretchingStressPanel" Visibility="Collapsed">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Explain}" />
+                                    <TextBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Unit group}" />
+                                    <ComboBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Pre-test limit}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="ReadyTestLimitStretchingStressPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="ReadyTestLimitStretchingStressPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Maximum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Minimum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Rate}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="VelocityStretchingStressPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="VelocityStretchingStressPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Explain}" />
+                                            <TextBox MinWidth="250" FontSize="16" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc DataPoint}" />
+                                            <TextBox
+                                                Width="220"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <CheckBox
+                                            materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                            Content="{lex:Loc Using linear regression}"
+                                            Focusable="False"
+                                            FontSize="18" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+					-->
+					<!--  拉伸位移界面  -->
+					<!--
+                        <Grid x:Name="StretchingDisplacementPanel" Visibility="Collapsed">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Explain}" />
+                                    <TextBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Unit group}" />
+                                    <ComboBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Pre-test limit}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="ReadyTestLimitStretchingDisplacementPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="ReadyTestLimitStretchingDisplacementPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Maximum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Minimum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Rate}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="VelocityStretchingDisplacementPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="VelocityStretchingDisplacementPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Explain}" />
+                                            <TextBox MinWidth="250" FontSize="16" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc DataPoint}" />
+                                            <TextBox
+                                                Width="220"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <CheckBox
+                                            materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                            Content="{lex:Loc Using linear regression}"
+                                            Focusable="False"
+                                            FontSize="18" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+					-->
+					<!--  强力界面  -->
+					<!--
+                        <Grid x:Name="BruteForcePanel" Visibility="Collapsed">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Explain}" />
+                                    <TextBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="100"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Unit group}" />
+                                    <ComboBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Pre-test limit}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="ReadyTestLimitBruteForcePanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="ReadyTestLimitBruteForcePanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Maximum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Minimum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Rate}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="VelocityBruteForcePanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="VelocityBruteForcePanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Explain}" />
+                                            <TextBox MinWidth="250" FontSize="16" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc DataPoint}" />
+                                            <TextBox
+                                                Width="220"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <CheckBox
+                                            materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                            Content="{lex:Loc Using linear regression}"
+                                            Focusable="False"
+                                            FontSize="18" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+					-->
+					<!--  横向应变界面  -->
+					<!--
+                        <Grid x:Name="TransverseStrainPanel" Visibility="Visible">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="35*" />
+                                <ColumnDefinition Width="178*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.ColumnSpan="2" Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="120"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Explain}" />
+                                    <TextBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="120"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Source of Stress}" />
+                                    <ComboBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        MinWidth="120"
+                                        VerticalAlignment="Center"
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Text="{lex:Loc Width of transverse strain gauge}" />
+                                    <ComboBox MinWidth="300" />
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Pre-test limit}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="ReadyTestLimitTensileStrainPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="ReadyTestLimitTensileStrainPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Maximum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Minimum}" />
+                                            <TextBox
+                                                Width="110"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                            <ComboBox MinWidth="100" Margin="5,0,0,0" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0,0,0,5" Orientation="Vertical">
+                                    <CheckBox
+                                        materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                        Checked="CheckBox_Checked"
+                                        Content="{lex:Loc Rate}"
+                                        Focusable="False"
+                                        FontSize="18"
+                                        Tag="VelocityTensileStrainPanel"
+                                        Unchecked="CheckBox_Unchecked" />
+                                    <StackPanel
+                                        x:Name="VelocityTensileStrainPanel"
+                                        Margin="40,0,0,0"
+                                        Orientation="Vertical"
+                                        Visibility="Collapsed">
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc Explain}" />
+                                            <TextBox MinWidth="250" FontSize="16" />
+                                        </StackPanel>
+                                        <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                                            <TextBlock
+                                                MinWidth="100"
+                                                VerticalAlignment="Center"
+                                                FontSize="18"
+                                                Text="{lex:Loc DataPoint}" />
+                                            <TextBox
+                                                Width="220"
+                                                FontSize="16"
+                                                IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}"
+                                                Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                                            <StackPanel Margin="5,0,0,0">
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,1,0,0"
+                                                    Padding="2,2"
+                                                    Content="▲"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                                <Button
+                                                    Width="30"
+                                                    Height="25"
+                                                    Margin="0,3,0,0"
+                                                    Padding="2,2"
+                                                    Content="▼"
+                                                    IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextBoxEnabledComboBox1}" />
+                                            </StackPanel>
+                                        </StackPanel>
+                                        <CheckBox
+                                            materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                                            Content="{lex:Loc Using linear regression}"
+                                            Focusable="False"
+                                            FontSize="18" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>-->
+				</Grid>
+			</Grid>
+		</materialDesign:Card>
+	</Grid>
+	<!--</ScrollViewer>-->
+</UserControl>

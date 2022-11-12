@@ -1,0 +1,199 @@
+﻿<UserControl
+	x:Class="WanCeDesktopApp.Views.Dialogs.ChoiceInputsDialogView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:cv="clr-namespace:WanCeDesktopApp.Common"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+	xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:prism="http://prismlibrary.com/"
+	xmlns:viewmodels="clr-namespace:WanCeDesktopApp.ViewModels"
+	Width="600"
+	Height="500"
+	prism:ViewModelLocator.AutoWireViewModel="True"
+	mc:Ignorable="d">
+	<i:Interaction.Triggers>
+		<i:EventTrigger EventName="GotFocus">
+			<cv:GotFocusTrigger />
+		</i:EventTrigger>
+	</i:Interaction.Triggers>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<Border
+				Height="60"
+				Background="#626367"
+				CornerRadius="3,3,0,0">
+				<DockPanel>
+					<materialDesign:PackIcon
+						Width="60"
+						Height="60"
+						Foreground="AliceBlue"
+						Kind="PencilBox" />
+					<TextBlock
+						Margin="6,8,0,0"
+						Foreground="WhiteSmoke"
+						Text=" Properties - Choice input " />
+				</DockPanel>
+			</Border>
+		</Grid>
+		<StackPanel Grid.Row="1" Margin="20,0">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<StackPanel>
+					<StackPanel Orientation="Horizontal">
+						<TextBlock
+							MinWidth="110"
+							VerticalAlignment="Center"
+							Text="{lex:Loc Prompt}"
+							TextWrapping="Wrap" />
+						<TextBox
+							MinWidth="400"
+							Margin="0,10,0,0"
+							materialDesign:TextFieldAssist.HasClearButton="True" />
+					</StackPanel>
+					<DockPanel Margin="0,10" LastChildFill="False">
+						<TextBlock
+							MinWidth="110"
+							VerticalAlignment="Center"
+							Text="{lex:Loc Defaultvalue}"
+							TextWrapping="Wrap" />
+						<ComboBox
+							MinWidth="400"
+							materialDesign:TextFieldAssist.HasClearButton="True"
+							ItemsSource="{Binding Choices}" />
+					</DockPanel>
+					<DockPanel>
+						<CheckBox materialDesign:CheckBoxAssist.CheckBoxSize="30" Content="{lex:Loc Allow None as a chioce}" />
+					</DockPanel>
+				</StackPanel>
+				<Grid Grid.Row="1" Margin="0,0,0,10">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="auto" />
+					</Grid.ColumnDefinitions>
+					<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+						<!--<materialDesign:ColorZone>-->
+						<DataGrid
+							x:Name="myDataGrid"
+							Width="auto"
+							MinHeight="200"
+							Margin="5,0,10,0"
+							d:ItemsSource="{d:SampleData ItemCount=10}"
+							BorderBrush="Black"
+							BorderThickness="1"
+							CanUserAddRows="False"
+							CanUserDeleteRows="True"
+							ColumnWidth="120"
+							CurrentCellChanged="myDataGrid_CurrentCellChanged"
+							Focusable="False"
+							GridLinesVisibility="Vertical"
+							ItemsSource="{Binding PropertyTable}"
+							PreviewKeyDown="myDataGrid_PreviewKeyDown"
+							SelectionMode="Extended"
+							SelectionUnit="Cell"
+							Style="{StaticResource MaterialDesignDataGrid}"
+							Tag="{Binding SelectItemIndex}">
+							<i:Interaction.Triggers>
+								<i:EventTrigger EventName="Unselected">
+									<i:InvokeCommandAction Command="{Binding CurrentCellChangedCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}, Path=Tag}" />
+								</i:EventTrigger>
+							</i:Interaction.Triggers>
+						</DataGrid>
+					</ScrollViewer>
+					<StackPanel Grid.Column="1">
+						<Button
+							Width="41"
+							Height="35"
+							Margin="0,0,0,0"
+							Padding="0,3,0,0"
+							Command="{Binding AddRowCommand}"
+							Content="{materialDesign:PackIcon Kind=Add,
+							                                  Size=24}"
+							Cursor="Hand" />
+						<Button
+							x:Name="DeleteRow"
+							Width="41"
+							Height="35"
+							Margin="0,8,0,0"
+							Padding="0,0,0,0"
+							Command="{Binding DeleteRowCommand}"
+							CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"
+							Content="{materialDesign:PackIcon Kind=Delete,
+							                                  Size=24}"
+							Cursor="Hand"
+							Tag="{Binding ElementName=myDataGrid, Path=Tag}" />
+						<Button
+							x:Name="MoveUpRow"
+							Width="41"
+							Height="35"
+							Margin="0,8,0,0"
+							Padding="0,0,0,0"
+							Command="{Binding MoveUpRowCommand}"
+							CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"
+							Content="{materialDesign:PackIcon Kind=ArrowTop,
+							                                  Size=24}"
+							Tag="{Binding ElementName=myDataGrid, Path=Tag}" />
+						<Button
+							x:Name="MoveDownRow"
+							Width="41"
+							Height="35"
+							Margin="0,8,0,0"
+							Padding="0,0,0,0"
+							Command="{Binding MoveDownRowCommand}"
+							CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Tag}"
+							Content="{materialDesign:PackIcon Kind=ArrowBottom,
+							                                  Size=24}"
+							Cursor="Hand"
+							Tag="{Binding ElementName=myDataGrid, Path=Tag}" />
+						<Button
+							Width="41"
+							Height="35"
+							Margin="0,8,0,0"
+							Padding="0,0,0,0"
+							Command="{Binding LineColumnCommand}"
+							CommandParameter="{Binding ElementName=myDataGrid, Path=SelectedValue}"
+							Content="{materialDesign:PackIcon Kind=Link,
+							                                  Size=24}"
+							Tag="{Binding ElementName=myDataGrid, Path=Tag}" />
+					</StackPanel>
+				</Grid>
+			</Grid>
+		</StackPanel>
+		<DockPanel
+			Grid.Row="2"
+			Height="70"
+			Margin="20,0"
+			VerticalAlignment="Center"
+			LastChildFill="False">
+			<Button Height="49" Content="{materialDesign:PackIcon Kind=QuestionMark, Size=24}" />
+			<StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+				<Button
+					Height="49"
+					Margin="0,0,20,0"
+					Command="{Binding CancelCommand}"
+					Content="{lex:Loc CancelTwoSpacing}"
+					Style="{StaticResource MaterialDesignOutlinedButton}" />
+				<Button
+					Height="49"
+					Command="{Binding SaveCommand}"
+					Content="{lex:Loc OK}"
+					Cursor="Hand" />
+			</StackPanel>
+
+
+		</DockPanel>
+	</Grid>
+</UserControl>
+

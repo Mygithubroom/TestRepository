@@ -1,0 +1,91 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <LocalizationMultiConverter xmlns="clr-namespace:WanCeDesktopApp.Common" x:Key="LocMultiConverter" />
+    <DataTemplate x:Key="myMethodItem">
+        <materialDesign:Card
+            Height="Auto"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            materialDesign:ShadowAssist.ShadowEdges="All"
+            UniformCornerRadius="5">
+            <Grid Width="170">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="32" />
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.Row="0"
+                    Background="{DynamicResource SecondaryHueDarkBrush}"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                    BorderThickness="1"
+                    CornerRadius="4,4,0,0">
+                    <DockPanel DockPanel.Dock="Top">
+                        <materialDesign:Card
+                            Margin="4"
+                            materialDesign:ShadowAssist.Darken="True"
+                            materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                            materialDesign:ShadowAssist.ShadowEdges="All"
+                            Background="{DynamicResource PrimaryHueMidBrush}"
+                            UniformCornerRadius="5">
+                            <materialDesign:PackIcon
+                                Width="50"
+                                Height="50"
+                                Foreground="{DynamicResource SecondaryHueDarkForegroundBrush}"
+                                Kind="Hail" />
+                        </materialDesign:Card>
+                        <TextBlock
+                            Margin="5"
+                            Foreground="{DynamicResource SecondaryHueDarkForegroundBrush}"
+                            TextWrapping="Wrap">
+                            <TextBlock.Text>
+                                <MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                    <MultiBinding.Bindings>
+                                        <Binding Path="Title" />
+                                        <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                    </MultiBinding.Bindings>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <!--<md:PopupBox HorizontalAlignment="Right" VerticalAlignment="Top">
+                                                <Button Content="{lex:Loc Edit}" />
+                                            </md:PopupBox>-->
+                    </DockPanel>
+                </Border>
+                <Border
+                    Grid.Row="1"
+                    Background="{DynamicResource SecondaryHueDarkBrush}"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}"
+                    BorderThickness="1,0,1,1"
+                    CornerRadius="0,0,4,4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="30" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Margin="5"
+                            Foreground="{DynamicResource SecondaryHueDarkForegroundBrush}">
+                            <TextBlock.Text>
+                                <MultiBinding Converter="{StaticResource LocMultiConverter}">
+                                    <MultiBinding.Bindings>
+                                        <Binding Path="Content" />
+                                        <Binding Path="Culture" Source="{x:Static lex:LocalizeDictionary.Instance}" />
+                                    </MultiBinding.Bindings>
+                                </MultiBinding>
+                            </TextBlock.Text>
+                        </TextBlock>
+                        <materialDesign:PackIcon
+                            Grid.Column="1"
+                            Width="20"
+                            Height="20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Kind="Information" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </materialDesign:Card>
+    </DataTemplate>
+</ResourceDictionary>

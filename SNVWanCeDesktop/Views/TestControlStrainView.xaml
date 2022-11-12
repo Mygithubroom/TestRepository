@@ -1,0 +1,118 @@
+﻿<UserControl
+	x:Class="WanCeDesktopApp.Views.TestControlStrainView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp.Views"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:prism="http://prismlibrary.com/"
+	d:DesignHeight="450"
+	d:DesignWidth="800"
+	prism:ViewModelLocator.AutoWireViewModel="True"
+	mc:Ignorable="d">
+	<UserControl.Resources />
+	<Grid Background="{DynamicResource PrimaryHueGridBrush}" SizeChanged="Grid_SizeChanged">
+		<ScrollViewer
+			x:Name="StrainViewScroll"
+			HorizontalScrollBarVisibility="Auto"
+			VerticalScrollBarVisibility="Auto">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="auto" />
+					<RowDefinition Height="auto" />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<StackPanel
+					Grid.Row="1"
+					Margin="10,0,0,0"
+					materialDesign:ShadowAssist.ShadowDepth="Depth2">
+					<TextBlock Text="{lex:Loc Tensile strain (displacement)}" />
+					<TextBlock
+						MaxWidth="1300"
+						Margin="0,10,0,0"
+						HorizontalAlignment="Left"
+						Text="{lex:Loc TextControlStrainDescribe}"
+						TextWrapping="Wrap" />
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="auto" />
+							<RowDefinition Height="auto" />
+							<RowDefinition Height="auto" />
+						</Grid.RowDefinitions>
+						<TextBlock VerticalAlignment="Center" Text="{lex:Loc The basic source}" />
+						<ComboBox
+							Grid.Column="1"
+							Margin="0,5,200,0"
+							SelectedValue="{Binding BaseSourceComboBox}" />
+						<CheckBox
+							x:Name="chkBox"
+							Grid.Row="1"
+							materialDesign:CheckBoxAssist.CheckBoxSize="30"
+							Checked="chkBox_Checked"
+							Content="{lex:Loc Remove the extensometer during the measurement}"
+							Focusable="False"
+							IsChecked="{Binding RemoveCheckBox}"
+							Tag="StrainPanel"
+							Unchecked="chkBox_Unchecked" />
+						<UniformGrid
+							Name="StrainPanel"
+							Grid.Row="2"
+							Grid.Column="0"
+							Grid.ColumnSpan="2"
+							Margin="20,0,0,0"
+							Columns="2"
+							Rows="5"
+							Visibility="Collapsed">
+							<TextBlock VerticalAlignment="Center" Text="{lex:Loc Remove the criteria}" />
+							<ComboBox Margin="0,5" SelectedValue="{Binding RemovCriteriaComboBox}" />
+							<TextBlock VerticalAlignment="Center" Text="{lex:Loc Measurement}" />
+							<ComboBox Margin="0,5" SelectedValue="{Binding MeasuremetnComboBox}" />
+							<TextBlock VerticalAlignment="Center" Text="{lex:Loc value}" />
+							<Grid Margin="0,5">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="auto" />
+								</Grid.ColumnDefinitions>
+								<TextBox materialDesign:TextFieldAssist.HasClearButton="True" Text="{Binding ValueTextBox}" />
+								<StackPanel Grid.Column="1" Orientation="Horizontal">
+									<ComboBox Width="100" SelectedValue="{Binding UintComBox}" />
+									<Button
+										Height="45"
+										Margin="5"
+										Content="{materialDesign:PackIcon Kind=Keyboard,
+										                                  Size=24}" />
+								</StackPanel>
+							</Grid>
+							<TextBlock VerticalAlignment="Center" Text="{lex:Loc Action during removal}" />
+							<ComboBox Margin="0,5" SelectedValue="{Binding ActionDuringComboBox}" />
+							<CheckBox
+								materialDesign:CheckBoxAssist.CheckBoxSize="30"
+								Content="{lex:Loc Lock tensile strain during disassembly}"
+								IsChecked="{Binding LockTensileComboBox}" />
+						</UniformGrid>
+					</Grid>
+				</StackPanel>
+				<StackPanel Grid.Row="2">
+					<CheckBox
+						Margin="10,10,0,0"
+						materialDesign:CheckBoxAssist.CheckBoxSize="30"
+						Content="{lex:Loc Remove transverse extensometer during test}"
+						FontSize="18"
+						FontWeight="Bold"
+						IsChecked="{Binding RemoveTransverseComboBox}" />
+					<TextBlock
+						Margin="10,10,0,0"
+						Text="{lex:Loc TestControlStrainTransverseStrainDescribe}"
+						TextWrapping="Wrap" />
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

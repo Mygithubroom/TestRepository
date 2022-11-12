@@ -1,0 +1,86 @@
+<!-- 保存方法文件的基本格式， 开发时再商议决定-->
+<!-- 设置思路来源于instron 试验机软件方法配置流程-->
+<?xml version="1.0" encoding="UTF-8"?>
+<Method Name="方法名" Type="拉伸" ISO="标准名" Author ="张三" History="张三" SaveRevisionHistory="hjn" Description="edrtfghjnkm">
+    <sample>
+        <Note></Note>
+        <NumberInputs>
+            <Prompt></Prompt>
+            <UnitSet></UnitSet>
+            <DefaultValue></DefaultValue>
+            <DecimalPlaces></DecimalPlaces>
+            <Limited Up="" Down=""></Limited>
+        </NumberInputs>
+        <ChoiceInputs></ChoiceInputs>
+        <DateInputs></DateInputs>
+    </sample>
+    <Specimen Unit="10" Label="hui" Geometry="rectangular" Width="564" Thickness="1" Length="564" FixtureSepareation="56" FinalWidth="564"
+    FinalThickness="564" FinalLength="564">
+        <Note></Note>
+        <NumberInputs>
+            <Prompt></Prompt>
+            <UnitSet></UnitSet>
+            <DefaultValue></DefaultValue>
+            <DecimalPlaces></DecimalPlaces>
+            <Limited Up="" Down=""></Limited>
+        </NumberInputs>
+        <ChoiceInputs></ChoiceInputs>
+        <DateInputs></DateInputs>
+    </Specimen>
+    <Measurements>
+        <Item1/>
+        <Item2/>
+        <Item3/>
+        <Item4/>
+    </Measurements>
+    <Calculations>
+        <Items>
+            <Item1 Description="wfs" Type="fsda" Domain="fs" SearchMeasurement="fd" IndicateOnGraph="yes" CalculateDuringTheTest="yes"></Item1>
+            <Item2/>
+            <Item3/>
+            <Item4/>
+        </Items>
+        <Rounding/>
+    </Calculations>
+    <TestControl>
+        <startTest></startTest>
+        <Strain></Strain>
+        <Pre-Test></Pre-Test>
+        <Test></Test>
+        <EndOfTest></EndOfTest>
+        <Data></Data>
+    </TestControl>
+    <Console>
+        <LiveDisplays>
+            <Items>
+                <Item1 Displacement="fds" Units="fs" NumberOfDigits/>
+                <Item2/>
+                <Item3/>
+            </Items>
+        </LiveDisplays>
+        <SoftKeys></SoftKeys>
+        <Frame></Frame>
+        <Grips></Grips>
+    </Console>
+    <WorkSpace>
+        <OperatorInputs>
+            <UnTested></UnTested>
+            <Testing></Testing>
+            <Tested></Tested>
+        </OperatorInputs>
+        <Results1></Results1>
+        <Results2></Results2>
+        <Graph1></Graph1>
+        <Graph2></Graph2>
+        <RawData></RawData>
+        <PassFail></PassFail>
+    </WorkSpace>
+    <Exports>
+        <FileSettings Path="sdf/fs/fs/fs"></FileSettings>
+        <Reports>qw</Reports>
+        <DatabaseExport></DatabaseExport>
+        <Export1></Export1>
+        <Export2></Export2>
+    </Exports>
+    <WorkFlow></WorkFlow>
+</Method>

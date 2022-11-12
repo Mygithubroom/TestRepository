@@ -1,0 +1,122 @@
+﻿<UserControl
+    x:Class="WanCeDesktopApp.Views.Dialogs.SpecimenGeometryDialogView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cv="clr-namespace:WanCeDesktopApp.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dialogmodels="clr-namespace:WanCeDesktopApp.ViewModels.DialogModels"
+    xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:local="clr-namespace:WanCeDesktopApp"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:viewmodels="clr-namespace:WanCeDesktopApp.ViewModels"
+    Width="600"
+    Height="500"
+    d:DataContext="{d:DesignInstance Type=dialogmodels:SpecimenGeometryDialogViewModel}"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="GotFocus">
+            <cv:GotFocusTrigger />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <materialDesign:ColorZone x:Name="ColorZone">
+                <Border
+                    Height="60"
+                    Background="#626367"
+                    CornerRadius="3,3,0,0">
+                    <DockPanel>
+                        <materialDesign:PackIcon
+                            Width="60"
+                            Height="60"
+                            Foreground="AliceBlue"
+                            Kind="PencilBox" />
+                        <Label
+                            Margin="6,8,0,0"
+                            Content="{Binding Head}"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="WhiteSmoke" />
+                    </DockPanel>
+                </Border>
+            </materialDesign:ColorZone>
+        </Grid>
+        <Grid Grid.Row="1" Margin="20,20,20,150">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Prompt}" />
+            <TextBox
+                Grid.Column="1"
+                Height="40"
+                Margin="10,10,0,10"
+                Padding="10"
+                VerticalAlignment="Top"
+                FontSize="16"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Text="{Binding Title}" />
+            <TextBlock
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Text="{lex:Loc DefaultSpecimenGeometry}" />
+            <ComboBox
+                x:Name="cmbGenmetryName"
+                Grid.Row="1"
+                Grid.Column="1"
+                Height="40"
+                Margin="10,10,0,10"
+                Padding="10,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Top"
+                VerticalContentAlignment="Center"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                SelectedIndex="{Binding SelectedGeometryIndex}">
+                <ComboBoxItem Content="{lex:Loc Rectangle}" Tag="矩形" />
+                <ComboBoxItem Content="{lex:Loc Round}" Tag="圆形" />
+                <ComboBoxItem Content="{lex:Loc Irregular Shape}" Tag="不规则形状" />
+                <ComboBoxItem Content="{lex:Loc Siphonate}" Tag="管状" />
+                <ComboBoxItem Content="{lex:Loc Fiber}" Tag="纤维" />
+                <ComboBoxItem Content="{lex:Loc Double shear ring}" Tag="双剪切环" />
+                <ComboBoxItem Content="{lex:Loc Fasteners (American)}" Tag="紧固件（美制）" />
+                <ComboBoxItem Content="{lex:Loc Fasteners (Metric)}" Tag="紧固件（公制）" />
+                <ComboBoxItem Content="{lex:Loc The pipe section（Tube Section）}" Tag="管截面（Tube Section）" />
+                <ComboBoxItem Content="{lex:Loc The pipe section（Pipe Section）}" Tag="管截面（Pipe Section）" />
+                <ComboBoxItem Content="{lex:Loc Pipe}" Tag="管(Pipe)" />
+            </ComboBox>
+        </Grid>
+        <StackPanel
+            Grid.Row="2"
+            Margin="20"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <Button
+                Height="49"
+                Margin="20,0"
+                Command="{Binding CancelCommand}"
+                Content="{lex:Loc CancelTwoSpacing}"
+                Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                Style="{StaticResource MaterialDesignOutlinedButton}" />
+            <Button
+                Height="49"
+                Command="{Binding SaveCommand}"
+                Content="{lex:Loc OK}"
+                Cursor="Hand" />
+        </StackPanel>
+    </Grid>
+</UserControl>

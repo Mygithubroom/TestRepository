@@ -1,0 +1,1327 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PlotControlLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:PlotControlLibrary.Common.BuiltinComponents">
+            <summary>
+            适用于标准试验的曲线图组件。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.BuiltinComponents.builtInXGuide">
+            <summary>
+            X 轴箭头辅助线。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.BuiltinComponents.builtInYGuide">
+            <summary>
+            Y 轴箭头辅助线。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.BuiltinComponents.TypicalMarkers">
+            <summary>
+            与当前 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/> 相关的特征点。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.BuiltinComponents.ChannelAxisWrapperBundle">
+            <summary>
+            与当前 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/> 相关的坐标轴。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.BuiltinComponents.ChannelDataBundle">
+            <summary>
+            与当前 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/> 相关的通道数据。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.BuiltinComponents.OxyPlotModel">
+            <summary>
+            与当前 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/> 相关的 <see cref="T:OxyPlot.PlotModel"/>。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.BuiltinComponents.TestCount">
+            <summary>
+            当前 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/> 内存储的试验次数。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.BuiltinComponents.InvisibleTestIndexes">
+            <summary>
+            隐藏的曲线索引列表。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.BuiltinComponents.HighlightTestIndex">
+            <summary>
+            高亮（加粗）显示的曲线索引。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.BuiltinComponents.TestTitles">
+            <summary>
+            自定义试验曲线名称，按照试验次序一一对应
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.#ctor(System.Collections.Generic.List{PlotControlLibrary.Common.TestChannelData})">
+            <summary>
+            构建对象。
+            </summary>
+            <param name="channelDataBundle">设定 <see cref="P:PlotControlLibrary.Common.BuiltinComponents.ChannelDataBundle"/></param>
+            <exception cref="T:System.ArgumentException">参数不符合要求时抛出</exception>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.UpdateLineSeriesVisibility">
+            <summary>
+            根据 <see cref="P:PlotControlLibrary.Common.BuiltinComponents.InvisibleTestIndexes"/> 设定试验曲线的显示状态，与索引匹配的曲线会被隐藏，反之则会显示。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.UpdateLineSeriesHighlight">
+            <summary>
+            根据 <see cref="P:PlotControlLibrary.Common.BuiltinComponents.HighlightTestIndex"/> 设定试验曲线的高亮（加粗）状态，与索引匹配的曲线会高亮显示，反之则恢复正常状态。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.GetLineSeries(System.Int32,System.Int32,System.Int32,OxyPlot.Axes.AxisPosition,OxyPlot.Axes.AxisPosition)">
+            <summary>
+            获取根据通道数据获取 <see cref="T:OxyPlot.Series.LineSeries"/> 曲线。
+            </summary>
+            <param name="testIndex">试验索引</param>
+            <param name="xIndex">X 轴数据所对应的 <see cref="P:PlotControlLibrary.Common.BuiltinComponents.ChannelDataBundle"/> 索引</param>
+            <param name="yIndex">Y 轴数据所对应的 <see cref="P:PlotControlLibrary.Common.BuiltinComponents.ChannelDataBundle"/> 索引</param>
+            <param name="xPosition">曲线的 X 轴对应的 <see cref="T:OxyPlot.Axes.AxisPosition"/></param>
+            <param name="yPosition">曲线的 Y 轴对应的 <see cref="T:OxyPlot.Axes.AxisPosition"/></param>
+            <returns>目标 <see cref="T:OxyPlot.Series.LineSeries"/> 曲线</returns>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.AddTestData(System.Int32,System.Double[])">
+            <summary>
+            添加单组试验数据。
+            </summary>
+            <param name="testIndex">试验索引</param>
+            <param name="dataSet">试验数据（数组索引与通道索引一一对应）</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.AddTestData(System.Int32,System.Double[][])">
+            <summary>
+            添加多组试验数据。
+            </summary>
+            <param name="testIndex">试验索引</param>
+            <param name="dataSet">二维数组形式的多组试验数据（内层数组索引与通道索引一一对应）</param>
+            <exception cref="T:System.ArgumentException">当输入数据不符合规范时抛出</exception>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.AddNewTest">
+            <summary>
+            添加一个新的空白试验数据。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.AddNewTest(System.Double[][])">
+            <summary>
+            以指定数据内容添加新的试验数据。
+            </summary>
+            <param name="dataSet">新添加的试验数据</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.BuiltinComponents.GetPresetSeriesColor(System.Int32,System.Nullable{OxyPlot.OxyColor})">
+            <summary>
+            根据试验数据索引获取对应的预置颜色。
+            </summary>
+            <param name="testIndex">试验数据索引</param>
+            <param name="baseColor">作为变化基底的颜色</param>
+            <returns>目标曲线的对应的预置颜色</returns>
+        </member>
+        <member name="T:PlotControlLibrary.Common.Configure">
+            <summary>
+            提供修改曲线控件元素的各种方法。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.Configure.LEFT_AXIS_KEY">
+            <summary>
+            左侧坐标轴索引键。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.Configure.RIGHT_AXIS_KEY">
+            <summary>
+            右侧坐标轴索引键。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.Configure.BOTTOM_AXIS_KEY">
+            <summary>
+            底部坐标轴索引键。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.Configure.LEGEND_KEY">
+            <summary>
+            曲线图例组件索引键。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.Configure.DEFAULT_AXIS_MARGIN_RATIO">
+            <summary>
+            曲线边缘默认留白比例。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.Configure.DEFAULT_AXIS_MAXIMUM">
+            <summary>
+            默认坐标轴显示上限。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.Configure.DEFAULT_AXIS_MINIMUM">
+            <summary>
+            默认坐标轴显示下限。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.Configure.AxisKeyDict">
+            <summary>
+            记录了坐标轴位置与坐标轴索引的对应关系。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.LinearAxis(OxyPlot.Axes.LinearAxis,System.Nullable{OxyPlot.Axes.AxisPosition},System.String,System.String,System.Nullable{OxyPlot.OxyColor},System.Nullable{OxyPlot.LineStyle},System.Nullable{OxyPlot.LineStyle},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Func{System.Double,System.String})">
+            <summary>
+            根据输入的参数配置 <see cref="T:OxyPlot.Axes.LinearAxis"/> 对象，并忽略不符合条件的参数。
+            </summary>
+            <param name="axis">目标坐标轴</param>
+            <param name="position">坐标轴的位置 <see cref="T:OxyPlot.Axes.AxisPosition"/></param>
+            <param name="title">坐标轴的标题</param>
+            <param name="unit">坐标轴的单位</param>
+            <param name="color">坐标轴的颜色（包括标题文字）</param>
+            <param name="lineStyle">坐标轴的线形</param>
+            <param name="majorGridlineStyle">坐标轴网格线形</param>
+            <param name="majorStep">大刻度跨度</param>
+            <param name="minimumMajorStep">大刻度跨度下限</param>
+            <param name="minorStep">小刻度跨度</param>
+            <param name="minimumMniorStep">小刻度跨度下限</param>
+            <param name="maximum">坐标轴最大值（用于界定默认可视范围）</param>
+            <param name="minimum">坐标轴最小值（用于界定默认可视范围）</param>
+            <param name="intervalLength">刻度间距，</param>
+            <param name="thickness">坐标轴线粗细</param>
+            <param name="majorTickSize">大刻度标线长度</param>
+            <param name="minorTickSize">小刻度标线长度</param>
+            <param name="labelFormatter">规定刻度数值显示格式</param>
+            <exception cref="T:System.NotImplementedException">当曲线控件内存在非 <see cref="T:OxyPlot.Axes.LinearAxis"/> 类型的曲线时抛出</exception>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.CreateLinearAxis(OxyPlot.Axes.AxisPosition,System.String,System.String,System.Nullable{OxyPlot.OxyColor},OxyPlot.LineStyle,OxyPlot.LineStyle,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Func{System.Double,System.String})">
+            <summary>
+            创建 <see cref="T:OxyPlot.Axes.LinearAxis"/> 对象，忽略不符合条件的参数。
+            </summary>
+            <param name="position">坐标轴的位置 <see cref="T:OxyPlot.Axes.AxisPosition"/></param>
+            <param name="title">坐标轴的标题</param>
+            <param name="unit">坐标轴的单位</param>
+            <param name="color">坐标轴的颜色（包括标题文字）</param>
+            <param name="lineStyle">坐标轴的线形</param>
+            <param name="majorGridlineStyle">坐标轴网格线形</param>
+            <param name="majorStep">大刻度跨度</param>
+            <param name="minimumMajorStep">大刻度跨度下限</param>
+            <param name="minorStep">小刻度跨度</param>
+            <param name="minimumMniorStep">小刻度跨度下限</param>
+            <param name="maximum">坐标轴最大值（用于界定默认可视范围）</param>
+            <param name="minimum">坐标轴最小值（用于界定默认可视范围）</param>
+            <param name="intervalLength">刻度间距，</param>
+            <param name="thickness">坐标轴线粗细</param>
+            <param name="majorTickSize">大刻度标线长度</param>
+            <param name="minorTickSize">小刻度标线长度</param>
+            <param name="labelFormatter">规定刻度数值显示格式</param>
+            <returns>配置完成的坐标轴 <see cref="T:OxyPlot.Axes.LinearAxis"/>。</returns>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.LogarithmicAxis(OxyPlot.Axes.LogarithmicAxis,System.Nullable{OxyPlot.Axes.AxisPosition},System.String,System.String,System.Nullable{OxyPlot.OxyColor},System.Nullable{OxyPlot.LineStyle},System.Nullable{OxyPlot.LineStyle},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Func{System.Double,System.String})">
+            <summary>
+            配置对数坐标轴 <see cref="T:OxyPlot.Axes.LogarithmicAxis"/>，忽略不符合条件的参数。
+            </summary>
+            <param name="axis">目标坐标轴</param>
+            <param name="position">坐标轴的位置 <see cref="T:OxyPlot.Axes.AxisPosition"/></param>
+            <param name="title">坐标轴的标题</param>
+            <param name="unit">坐标轴的单位</param>
+            <param name="color">坐标轴的颜色（包括标题文字）</param>
+            <param name="lineStyle">坐标轴的线形</param>
+            <param name="majorGridlineStyle">坐标轴网格线形</param>
+            <param name="majorStep">大刻度跨度</param>
+            <param name="minimumMajorStep">大刻度跨度下限</param>
+            <param name="minorStep">小刻度跨度</param>
+            <param name="minimumMniorStep">小刻度跨度下限</param>
+            <param name="maximum">坐标轴最大值（用于界定默认可视范围）</param>
+            <param name="minimum">坐标轴最小值（用于界定默认可视范围）</param>
+            <param name="intervalLength">刻度间距，</param>
+            <param name="thickness">坐标轴线粗细</param>
+            <param name="majorTickSize">大刻度标线长度</param>
+            <param name="minorTickSize">小刻度标线长度</param>
+            <param name="labelFormatter">规定刻度数值显示格式</param>
+            <exception cref="T:System.NotImplementedException">当曲线控件内存在非 <see cref="T:OxyPlot.Axes.LinearAxis"/> 类型的曲线时抛出<see cref="T:OxyPlot.Series.LineSeries"/> 以外类型的曲线时抛出</exception>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.CreateLogarithmicAxis(OxyPlot.Axes.AxisPosition,System.String,System.String,System.Nullable{OxyPlot.OxyColor},OxyPlot.LineStyle,OxyPlot.LineStyle,System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Func{System.Double,System.String})">
+            <summary>
+            创建 <see cref="T:OxyPlot.Axes.LogarithmicAxis"/> 对象，忽略不符合条件的参数。
+            </summary>
+            <param name="position">坐标轴的位置 <see cref="T:OxyPlot.Axes.AxisPosition"/></param>
+            <param name="title">坐标轴的标题</param>
+            <param name="unit">坐标轴的单位</param>
+            <param name="color">坐标轴的颜色（包括标题文字）</param>
+            <param name="lineStyle">坐标轴的线形</param>
+            <param name="majorGridlineStyle">坐标轴网格线形</param>
+            <param name="majorStep">大刻度跨度</param>
+            <param name="minimumMajorStep">大刻度跨度下限</param>
+            <param name="minorStep">小刻度跨度</param>
+            <param name="minimumMniorStep">小刻度跨度下限</param>
+            <param name="maximum">坐标轴最大值（用于界定默认可视范围）</param>
+            <param name="minimum">坐标轴最小值（用于界定默认可视范围）</param>
+            <param name="intervalLength">刻度间距，</param>
+            <param name="thickness">坐标轴线粗细</param>
+            <param name="majorTickSize">大刻度标线长度</param>
+            <param name="minorTickSize">小刻度标线长度</param>
+            <param name="labelFormatter">规定刻度数值显示格式</param>
+            <returns>根据参数配置完成的坐标轴 <see cref="T:OxyPlot.Axes.LogarithmicAxis"/> 对象。</returns>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.DefaultLabelFormatter(System.Double)">
+            <summary>
+            默认的坐标轴刻度数值格式化方法，保留6位有效数字。
+            </summary>
+            <param name="input">刻度数值</param>
+            <returns>刻度显示字串</returns>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.AxisColor(OxyPlot.Axes.Axis,OxyPlot.OxyColor)">
+            <summary>
+            设置所有与 <see cref="T:OxyPlot.Axes.Axis"/> 相关的颜色。
+            </summary>
+            <param name="axis">目标坐标轴</param>
+            <param name="color">颜色</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.LineSeries(OxyPlot.Series.LineSeries,System.Nullable{OxyPlot.Axes.AxisPosition},System.Nullable{OxyPlot.Axes.AxisPosition},System.String,System.Nullable{OxyPlot.OxyColor},System.Nullable{OxyPlot.LineStyle},System.Nullable{System.Double},System.Nullable{System.Boolean})">
+            <summary>
+            根据输入的参数配置 <see cref="T:OxyPlot.Series.LineSeries"/> 对象，并忽略不符合条件的参数。
+            </summary>
+            <param name="series"></param>
+            <param name="xAxisPosition"></param>
+            <param name="yAxisPosition"></param>
+            <param name="title"></param>
+            <param name="color"></param>
+            <param name="lineStyle"></param>
+            <param name="thickness"></param>
+            <param name="isVisible"></param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.CreateLineSeries(OxyPlot.Axes.AxisPosition,OxyPlot.Axes.AxisPosition,System.String,System.Nullable{OxyPlot.OxyColor},System.Nullable{OxyPlot.LineStyle},System.Nullable{System.Double},System.Nullable{System.Boolean})">
+            <summary>
+            创建 <see cref="T:OxyPlot.Series.LineSeries"/> 对象，忽略不符合条件的参数。
+            </summary>
+            <param name="xAxisPosition">X 轴位置</param>
+            <param name="yAxisPosition">Y 轴位置</param>
+            <param name="title">标题</param>
+            <param name="color">颜色</param>
+            <param name="lineStyle">线形</param>
+            <param name="thickness">粗细</param>
+            <param name="isVisible">是否显示</param>
+            <returns>创建完成的曲线。</returns>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.LineSeriesAddPoint(OxyPlot.Series.LineSeries,OxyPlot.DataPoint)">
+            <summary>
+            向目标 <see cref="T:OxyPlot.Series.LineSeries"/> 对象添加坐标点，针对资源竞争情况进行处理。
+            </summary>
+            <param name="series">目标曲线</param>
+            <param name="point">需要添加的数据点</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.LineSeriesAddPointRange(OxyPlot.Series.LineSeries,System.Collections.Generic.IEnumerable{OxyPlot.DataPoint})">
+            <summary>
+            向目标 <see cref="T:OxyPlot.Series.LineSeries"/> 对象添加坐标点序列，针对资源竞争情况进行处理。
+            </summary>
+            <param name="series">目标曲线</param>
+            <param name="pointRange">需要添加的坐标点序列</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.PointAnnotation(OxyPlot.Annotations.PointAnnotation,System.Nullable{OxyPlot.Axes.AxisPosition},System.Nullable{OxyPlot.Axes.AxisPosition},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{OxyPlot.OxyColor},System.String,System.Nullable{OxyPlot.MarkerType},System.Nullable{System.Double})">
+            <summary>
+            根据输入的参数配置 <see cref="T:OxyPlot.Annotations.PointAnnotation"/> 对象，并忽略不符合条件的参数。
+            </summary>
+            <param name="annotation">目标标注对象</param>
+            <param name="xAxisPosition">X 轴位置</param>
+            <param name="yAxisPosition">Y 轴位置</param>
+            <param name="x">X 坐标</param>
+            <param name="y">Y 坐标</param>
+            <param name="size">大小</param>
+            <param name="color">颜色</param>
+            <param name="text">附带文字</param>
+            <param name="shape">形状</param>
+            <param name="thickness">描边粗细</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.CreatePointAnnotation(System.Nullable{OxyPlot.Axes.AxisPosition},System.Nullable{OxyPlot.Axes.AxisPosition},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{OxyPlot.OxyColor},System.String,System.Nullable{OxyPlot.MarkerType},System.Nullable{System.Double})">
+            <summary>
+            创建 <see cref="T:OxyPlot.Annotations.PointAnnotation"/> 对象，并忽略不符合条件的参数。
+            </summary>
+            <param name="xAxisPosition">X 轴位置</param>
+            <param name="yAxisPosition">Y 轴位置</param>
+            <param name="x">X 坐标</param>
+            <param name="y">Y 坐标</param>
+            <param name="size">大小</param>
+            <param name="color">颜色</param>
+            <param name="text">附带文字</param>
+            <param name="shape">形状</param>
+            <param name="thickness">描边粗细</param>
+            <returns>创建好的标注点。</returns>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.SimpleLegend(OxyPlot.Legends.Legend,OxyPlot.Legends.LegendPosition,System.Boolean)">
+            <summary>
+            配置曲线图例元素。
+            </summary>
+            <param name="legend">图例对象</param>
+            <param name="position">位置</param>
+            <param name="isVisible">是否可见</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.CreateSimpleLegend(OxyPlot.Legends.LegendPosition)">
+            <summary>
+            创建曲线图例元素。
+            </summary>
+            <param name="position">位置</param>
+            <returns>创建好的图例对象。</returns>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.ResetAxesRange(OxyPlot.PlotModel,System.Int32,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Boolean)">
+            <summary>
+            以指定试验曲线的末尾曲线段为基准，重新调整各个坐标轴的显示区域上下限。
+            </summary>
+            <param name="plotModel">目标 <see cref="T:OxyPlot.PlotModel"/></param>
+            <param name="testIndex">作为调整基准的试验曲线索引</param>
+            <param name="lastPointNum">显示的曲线段中所包含的数据点数量</param>
+            <param name="leftMarginRatio">左边距比例，即“绘图区左侧至曲线段左侧的距离/曲线区域宽度”</param>
+            <param name="topMarginRatio">上边距比例，即“上方空白区域高度/曲线区域高度”</param>
+            <param name="rightMarginRatio">右边距比例，即“右侧空白区域宽度/曲线区域宽度”</param>
+            <param name="bottomMarginRatio">下边距比例，即“下方空白区域高度/曲线区域高度”</param>
+            <param name="autoResetAxes">是否自动重置所有坐标轴（重设坐标轴上下限后需要对曲线控件进行刷新或重置坐标轴才能反映出设置结果）</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.ResetAxesRange(OxyPlot.PlotModel,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Boolean)">
+            <summary>
+            以指定的试验曲线为基准，重新调整各个坐标轴显示区域上下限。。
+            </summary>
+            <param name="plotModel">目标 <see cref="T:OxyPlot.PlotModel"/></param>
+            <param name="testIndex">作为调整基准的试验曲线索引</param>
+            <param name="leftMarginRatio">左边距比例，即“左侧空白区域宽度/曲线区域宽度”</param>
+            <param name="topMarginRatio">上边距比例，即“上方空白区域高度/曲线区域高度”</param>
+            <param name="rightMarginRatio">右边距比例，即“右侧空白区域宽度/曲线区域宽度”</param>
+            <param name="bottomMarginRatio">下边距比例，即“下方空白区域高度/曲线区域高度”</param>
+            <param name="autoResetAxes">是否自动重置所有坐标轴（重设坐标轴上下限后需要对曲线控件进行刷新或重置坐标轴才能反映出设置结果）</param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.Configure.ResetAxesRange(OxyPlot.PlotModel,System.Double,System.Double,System.Double,System.Double,System.Boolean)">
+            <summary>
+            重新调整各个坐标轴显示区域上下限。。
+            </summary>
+            <param name="plotModel">目标 <see cref="T:OxyPlot.PlotModel"/></param>
+            <param name="leftMarginRatio">左边距比例，即“左侧空白区域宽度/曲线区域宽度”</param>
+            <param name="topMarginRatio">上边距比例，即“上方空白区域高度/曲线区域高度”</param>
+            <param name="rightMarginRatio">右边距比例，即“右侧空白区域宽度/曲线区域宽度”</param>
+            <param name="bottomMarginRatio">下边距比例，即“下方空白区域高度/曲线区域高度”</param>
+            <param name="autoResetAxes">是否自动重置所有坐标轴（重设坐标轴上下限后需要对曲线控件进行刷新或重置坐标轴才能反映出设置结果）</param>
+        </member>
+        <member name="T:PlotControlLibrary.Common.OxyInitMode">
+            <summary>
+            曲线控件的初始化模式。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyInitMode.SingleYAxis">
+            <summary>
+            标准的XY轴配置。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyInitMode.DualYAxis">
+            <summary>
+            双Y轴配置。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Common.OxyClearMode">
+            <summary>
+            曲线控件的内容清理模式。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyClearMode.All">
+            <summary>
+            清理所有内容。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyClearMode.Series">
+            <summary>
+            清理曲线。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyClearMode.Annotation">
+            <summary>
+            清理标注。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Common.OxyRefreshMode">
+            <summary>
+            曲线控件的刷新模式
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyRefreshMode.Once">
+            <summary>
+            进行一次刷新。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyRefreshMode.OnceNoDataChange">
+            <summary>
+            进行一次不涉及数据变动的刷新。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyRefreshMode.LoopOn">
+            <summary>
+            启动循环刷新。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.OxyRefreshMode.LoopOff">
+            <summary>
+            关闭循环刷新。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Common.ChannelInitMode">
+            <summary>
+            初始化通道的模式代号，支持二进制运算。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.ChannelInitMode.Basic">
+            <summary>
+            基础模式，无特别设定。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.ChannelInitMode.NeedLogarithmicAxis">
+            <summary>
+            该通道需要使用对数坐标轴。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.ChannelInitMode.DisplayOnStart">
+            <summary>
+            表示该通道的坐标轴为默认显示的坐标轴。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.ChannelInitMode.DisplayLogarithmicAxis">
+            <summary>
+            表示该通道默认使用对数坐标轴。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Common.LangResManager">
+            <summary>
+            管理模块内固定文本资源的类，为接入外部多语言环境提供便捷渠道。使用时一般直接调用该类自带的 Instance 实例。
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Common.LangResManager.Instance">
+            <summary>
+            该类的静态实例，
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemCancelTrack">
+            <summary>
+            取消遍历的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemDisplayTypicalMarkerAll">
+            <summary>
+            显示所有特征点内容的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemDisplayTypicalMarkerPointOnly">
+            <summary>
+            只显示特征点标记点的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemDisplayTypicalMarkerNone">
+            <summary>
+            隐藏特征点的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemTrack">
+            <summary>
+            启动遍历的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemTypicalMarker">
+            <summary>
+            特征点的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemResetPlot">
+            <summary>
+            重置视图的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemDrawAuxiliaryLine">
+            <summary>
+            添加辅助线的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemDrawVerticalAuxiliaryLine">
+            <summary>
+            添加垂直辅助线的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemDrawHorizontalAuxiliaryLine">
+            <summary>
+            添加水平辅助线的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemClearAuxiliaryLine">
+            <summary>
+            清除辅助线的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemExportToClipboard">
+            <summary>
+            导出至剪贴板的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemSaveJpg">
+            <summary>
+            导出至 JPG 文件的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemSavePng">
+            <summary>
+            导出至 PNG 文件的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemRotateToHorizontal">
+            <summary>
+            旋转辅助线至水平的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemRotateToVertical">
+            <summary>
+            旋转辅助线至垂直的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemRemoveCurrentAuxiliaryLine">
+            <summary>
+            移除当前辅助线的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemHeaderLinear">
+            <summary>
+            切换线性坐标轴的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemHeaderLogarithmic">
+            <summary>
+            切换对数坐标轴的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemMoveTypicalMarker">
+            <summary>
+            移动特征点的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemCrosshair">
+            <summary>
+            十字线的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemDisplayGridline">
+            <summary>
+            显示网格的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemDisplayLegend">
+            <summary>
+            显示图例的菜单项文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.LangResManager.MenuItemCreateParalleledAux">
+            <summary>
+            创建平行辅助线的菜单项文字。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.LangResManager.#ctor">
+            <summary>
+            构建对象，设定各属性的初始值（中文）。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.LangResManager.GetLangStr(System.String)">
+            <summary>
+            根据属性名获取对应的字符串。
+            </summary>
+            <param name="key">属性名字符串</param>
+            <returns>目标字符串，若未找到则返回 null。</returns>
+        </member>
+        <member name="T:PlotControlLibrary.Common.ModdedPlotCommands">
+            <summary>
+            该类仿照 <see cref="T:OxyPlot.PlotCommands"/> 编写，并针对实际需求修改了一些功能。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Common.TestChannelAxisWrapper">
+            <summary>
+            定义通道与坐标轴的对应关系，以供 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/> 使用。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelAxisWrapper.ChannelID">
+            <summary>
+            通道 ID。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelAxisWrapper.ChannelAxis">
+            <summary>
+            通道对应的坐标轴。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelAxisWrapper.IsDisplayOnStart">
+            <summary>
+            是否在初始化后显示在曲线控件上。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelAxisWrapper.IsLogarithmic">
+            <summary>
+            是否为对数坐标轴。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.TestChannelAxisWrapper.#ctor(PlotControlLibrary.Common.TestChannelData,System.Boolean)">
+            <summary>
+            构建对象。
+            </summary>
+            <param name="channelData">设定 <see cref="T:PlotControlLibrary.Common.TestChannelData"/></param>
+            <param name="isLogarithmic">设定 <see cref="P:PlotControlLibrary.Common.TestChannelAxisWrapper.IsLogarithmic"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Common.TestChannelData">
+            <summary>
+            包含在曲线控件上显示通道数据所需的各项属性。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelData.ChannelID">
+            <summary>
+            通道 ID，用于区分各个通道。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelData.Unit">
+            <summary>
+            通道数值所使用的单位。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelData.DisplayName">
+            <summary>
+            通道对应的坐标轴上显示的名称。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelData.Color">
+            <summary>
+            通道对应的坐标轴初始颜色。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelData.Position">
+            <summary>
+            通道对应的坐标轴初始位置。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelData.InitMode">
+            <summary>
+            通道的初始化模式。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelData.Data">
+            <summary>
+            记录了该通道的试验数据。举例来说，该通道在第2次试验的第100个采样数据对应的是
+            <c language="cs">Data[1][99]</c>。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.TestChannelData.#ctor(System.String,System.String,System.String,OxyPlot.OxyColor,OxyPlot.Axes.AxisPosition,PlotControlLibrary.Common.ChannelInitMode)">
+            <summary>
+            构建用于曲线控件的通道数据对象。
+            </summary>
+            <param name="channelID">设定 <see cref="P:PlotControlLibrary.Common.TestChannelData.ChannelID"/></param>
+            <param name="displayName">设定 <see cref="P:PlotControlLibrary.Common.TestChannelData.DisplayName"/></param>
+            <param name="unit">设定 <see cref="P:PlotControlLibrary.Common.TestChannelData.Unit"/></param>
+            <param name="color">设定 <see cref="P:PlotControlLibrary.Common.TestChannelData.Color"/></param>
+            <param name="defaultAxisPosition">设定 <see cref="P:PlotControlLibrary.Common.TestChannelData.Position"/></param>
+            <param name="channelInitMode">设定 <see cref="P:PlotControlLibrary.Common.TestChannelData.InitMode"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Common.TestChannelTypicalMarker">
+            <summary>
+            包含了用于曲线控件的特征点/线数据。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.RelatedComponents">
+            <summary>
+            与该特征点/线关联的 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/>。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.TestIndex">
+            <summary>
+            试验索引。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.DataIndex">
+            <summary>
+            通道数据索引。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.Title">
+            <summary>
+            特征点/线的显示名称。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.TitleLangKey">
+            <summary>
+            特征点/线名称的多语言键值。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.IsVisible">
+            <summary>
+            特征点是否可见。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.IsLine">
+            <summary>
+            是否为特征线
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.Slope">
+            <summary>
+            特征线的斜率，即y = ax + b 中的 a（仅在 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.IsLine"/> 为 <c>true</c> 时有效）
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.Offset">
+            <summary>
+            特征线的偏移，当 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.Slope"/> 为 <see cref="F:System.Double.PositiveInfinity"/> 时，该值相当于 x = b 中的 b，其他情况下相当于 y = ax + b 中的 b（仅在 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.IsLine"/> 为 <c>true</c> 时有效）
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.RelatedChannelX">
+            <summary>
+            与特征线相关的通道，对应特征线的 x 轴（仅在 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.IsLine"/> 为 <c>true</c> 时有效）
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Common.TestChannelTypicalMarker.RelatedChannelY">
+            <summary>
+            与特征线相关的通道，对应特征线的 y 轴（仅在 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.IsLine"/> 为 <c>true</c> 时有效）
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Common.TestChannelTypicalMarker.#ctor(PlotControlLibrary.Common.BuiltinComponents,System.Int32,System.Int32)">
+            <summary>
+            构建特征点数据对象。
+            </summary>
+            <param name="builtInComponents"><see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.RelatedComponents"/></param>
+            <param name="testIndex">设定 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.TestIndex"/></param>
+            <param name="dataIndex">设定 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.DataIndex"/></param>
+        </member>
+        <member name="M:PlotControlLibrary.Common.TestChannelTypicalMarker.#ctor(PlotControlLibrary.Common.BuiltinComponents,System.Int32,System.Double,System.Double,PlotControlLibrary.Common.TestChannelData,PlotControlLibrary.Common.TestChannelData)">
+            <summary>
+            构建特征线数据对象。
+            </summary>
+            <param name="builtInComponents"><see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.RelatedComponents"/></param>
+            <param name="testIndex">设定 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.TestIndex"/></param>
+            <param name="slope">设定 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.Slope"/></param>
+            <param name="offset">设定 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.Offset"/></param>
+            <param name="xChannel">设定 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.RelatedChannelX"/></param>
+            <param name="yChannel">设定 <see cref="P:PlotControlLibrary.Common.TestChannelTypicalMarker.RelatedChannelY"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.AddAnnotationEvent">
+            <summary>
+            添加标注事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.AddAxisEvent">
+            <summary>
+            添加坐标轴事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.AddSeriesEvent">
+            <summary>
+            添加曲线事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.ClearEvent">
+            <summary>
+            清除图表事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.InitEvent">
+            <summary>
+            曲线控件初始化事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.ModifyPropsEvent">
+            <summary>
+            修改控件属性事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.AddAnnotationEventPayload">
+            <summary>
+            添加标注事件的内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.AddAnnotationEventPayload.Annotations">
+            <summary>
+            需要添加的 <see cref="T:OxyPlot.Annotations.Annotation"/> 数组。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.AddAnnotationEventPayload.AutoRefresh">
+            <summary>
+            是否在添加完成后自动刷新。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.AddAnnotationEventPayload.#ctor(System.String[],OxyPlot.Annotations.Annotation[],System.Boolean)">
+            <summary>
+            构建对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="annotations">设定 <see cref="P:PlotControlLibrary.Events.Payloads.AddAnnotationEventPayload.Annotations"/></param>
+            <param name="autoRefresh">设定 <see cref="P:PlotControlLibrary.Events.Payloads.AddAnnotationEventPayload.AutoRefresh"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.AddAxisEventPayload">
+            <summary>
+            添加坐标轴事件的内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.AddAxisEventPayload.PlotAxis">
+            <summary>
+            需要添加的坐标轴数组。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.AddAxisEventPayload.AutoRefresh">
+            <summary>
+            是否需要在操作完成后自动刷新。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.AddAxisEventPayload.#ctor(System.String[],OxyPlot.Axes.Axis[],System.Boolean)">
+            <summary>
+            构建添加坐标轴的事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="plotAxis">设定 <see cref="P:PlotControlLibrary.Events.Payloads.AddAxisEventPayload.PlotAxis"/></param>
+            <param name="autoRefresh">设定 <see cref="P:PlotControlLibrary.Events.Payloads.AddAxisEventPayload.AutoRefresh"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.AddSeriesEventPayload">
+            <summary>
+            添加曲线事件的内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.AddSeriesEventPayload.PlotSeries">
+            <summary>
+            需要添加的曲线数组。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.AddSeriesEventPayload.AutoRefresh">
+            <summary>
+            是否需要在操作完成后自动刷新。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.AddSeriesEventPayload.#ctor(System.String[],OxyPlot.Series.Series[],System.Boolean)">
+             <summary>
+            
+             </summary>
+             <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+             <param name="plotSeries">设定 <see cref="P:PlotControlLibrary.Events.Payloads.AddSeriesEventPayload.PlotSeries"/></param>
+             <param name="autoRefresh">设定 <see cref="P:PlotControlLibrary.Events.Payloads.AddSeriesEventPayload.AutoRefresh"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.ClearEventPayload">
+            <summary>
+            清除曲线控件内容的事件内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.ClearEventPayload.ClearMode">
+            <summary>
+            清理模式 <see cref="T:PlotControlLibrary.Common.OxyClearMode"/>。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.ClearEventPayload.#ctor(System.String[],PlotControlLibrary.Common.OxyClearMode)">
+            <summary>
+            构建事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="clearMode">设定 <see cref="P:PlotControlLibrary.Events.Payloads.ClearEventPayload.ClearMode"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.EventPayloadBase">
+            <summary>
+            <see cref="T:PlotControlLibrary.Views.PlotControl"/>
+            控制事件内容的基类，所有定义事件内容的类都应继承此类。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList">
+            <summary>
+            <see cref="T:PlotControlLibrary.Views.PlotControl"/>
+            控制事件的目标控件 ID 列表。只有 ID 在此列表内的控件才会响应事件。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.EventPayloadBase.#ctor(System.String[])">
+            <summary>
+            此构造方法不应被直接调用，而应通过继承类中的
+            <c>base(targetIDList)</c>
+            调用。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.InitEventPayload">
+            <summary>
+            曲线控件初始化事件携带的数据。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.InitEventPayload.InitMode">
+            <summary>
+            初始化模式 <see cref="T:PlotControlLibrary.Common.OxyInitMode"/>。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.InitEventPayload.Components">
+            <summary>
+            预设组件数组。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.InitEventPayload.#ctor(System.String[],PlotControlLibrary.Common.OxyInitMode,PlotControlLibrary.Common.BuiltinComponents[])">
+            <summary>
+            构建初始化事件所需的数据对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="initMode">设定 <see cref="P:PlotControlLibrary.Events.Payloads.InitEventPayload.InitMode"/></param>
+            <param name="components">设定 <see cref="P:PlotControlLibrary.Events.Payloads.InitEventPayload.Components"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload">
+            <summary>
+            修改控件属性的事件内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.ZoomFactor">
+            <summary>
+            需要设定单步缩放系数。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.PanFactor">
+            <summary>
+            需要设定的单步平移系数。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.IsGridVisible">
+            <summary>
+            是否显示网格。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.IsLegendVisible">
+            <summary>
+            是否显示图例。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.#ctor(System.String[],System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            构建事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="zoomFactor">设定 <see cref="P:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.ZoomFactor"/></param>
+            <param name="panFactor">设定 <see cref="P:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.PanFactor"/></param>
+            <param name="isGridVisible">设定 <see cref="P:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.IsGridVisible"/></param>
+            <param name="isLegendVisible">设定 <see cref="P:PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload.IsLegendVisible"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.RefreshBuiltInMarkerEventPayload">
+            <summary>
+            刷新特征点的事件内容。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.RefreshBuiltInMarkerEventPayload.#ctor(System.String[])">
+            <summary>
+            构建事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.RefreshBuiltInSeriesEventPayload">
+            <summary>
+            刷新内置组件中的曲线的事件内容。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.RefreshBuiltInSeriesEventPayload.#ctor(System.String[])">
+            <summary>
+            构建事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.RefreshEventPayload">
+            <summary>
+            刷新控件的事件内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.RefreshEventPayload.RefreshMode">
+            <summary>
+            刷新模式 <see cref="T:PlotControlLibrary.Common.OxyClearMode"/>。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.RefreshEventPayload.#ctor(System.String[],PlotControlLibrary.Common.OxyRefreshMode)">
+            <summary>
+            构建事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="refreshMode">设定 <see cref="P:PlotControlLibrary.Events.Payloads.RefreshEventPayload.RefreshMode"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.RemoveAnnotationEventPayload">
+            <summary>
+            移除控件内 <see cref="T:OxyPlot.Annotations.Annotation"/> 的事件内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.RemoveAnnotationEventPayload.Annotations">
+            <summary>
+            需要移除的 <see cref="T:OxyPlot.Annotations.Annotation"/>。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.RemoveAnnotationEventPayload.AutoRefresh">
+            <summary>
+            是否需要在操作完成后自动刷新。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.RemoveAnnotationEventPayload.#ctor(System.String[],OxyPlot.Annotations.Annotation[],System.Boolean)">
+            <summary>
+            构建事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="annotations">设定 <see cref="T:OxyPlot.Annotations.Annotation"/></param>
+            <param name="autoRefresh">设定 <see cref="P:PlotControlLibrary.Events.Payloads.RemoveAnnotationEventPayload.AutoRefresh"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.RemoveAxisEventPayload">
+            <summary>
+            移除坐标轴的事件内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.RemoveAxisEventPayload.PlotAxis">
+            <summary>
+            需要移除的坐标轴。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.RemoveAxisEventPayload.AutoRefresh">
+            <summary>
+            是否需要在操作完成后自动刷新。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.RemoveAxisEventPayload.#ctor(System.String[],OxyPlot.Axes.Axis[],System.Boolean)">
+            <summary>
+            构建事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="plotAxis">设定 <see cref="P:PlotControlLibrary.Events.Payloads.RemoveAxisEventPayload.PlotAxis"/></param>
+            <param name="autoRefresh">设定 <see cref="P:PlotControlLibrary.Events.Payloads.RemoveAxisEventPayload.AutoRefresh"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.RemoveSeriesEventPayload">
+            <summary>
+            移除曲线的事件内容。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.RemoveSeriesEventPayload.PlotSeries">
+            <summary>
+            需要添加的曲线数组。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.RemoveSeriesEventPayload.AutoRefresh">
+            <summary>
+            是否需要在操作完成后自动刷新。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.RemoveSeriesEventPayload.#ctor(System.String[],OxyPlot.Series.Series[],System.Boolean)">
+            <summary>
+            构建事件内容对象。
+            </summary>
+            <param name="targetIDList">设定 <see cref="P:PlotControlLibrary.Events.Payloads.EventPayloadBase.TargetIDList"/></param>
+            <param name="plotSeries">设定 <see cref="P:PlotControlLibrary.Events.Payloads.RemoveSeriesEventPayload.PlotSeries"/></param>
+            <param name="autoRefresh">设定 <see cref="P:PlotControlLibrary.Events.Payloads.RemoveSeriesEventPayload.AutoRefresh"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.Payloads.TypicalDataChangedEventPayload">
+            <summary>
+            控件内特征点数据修改的事件内容
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Events.Payloads.TypicalDataChangedEventPayload.PlotControlID">
+            <summary>
+            触发事件的曲线控件 ID
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Events.Payloads.TypicalDataChangedEventPayload.#ctor(System.String)">
+            <summary>
+            构建事件内容对象
+            </summary>
+            <param name="plotControlID">设定 <see cref="P:PlotControlLibrary.Events.Payloads.TypicalDataChangedEventPayload.PlotControlID"/></param>
+        </member>
+        <member name="T:PlotControlLibrary.Events.RefreshBuiltInMarkerEvent">
+            <summary>
+            刷新 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/> 中定义的特征点的事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.RefreshBuiltInSeriesEvent">
+            <summary>
+            刷新由 <see cref="T:PlotControlLibrary.Common.BuiltinComponents"/> 定义的曲线和特征点的事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.RefreshEvent">
+            <summary>
+            刷新事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.RemoveAnnotationEvent">
+            <summary>
+            移除标注事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.RemoveAxisEvent">
+            <summary>
+            移除坐标轴事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.RemoveSeriesEvent">
+            <summary>
+            移除曲线事件。
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Events.TypicalDataChangedEvent">
+            <summary>
+            曲线控件内特征点修改后触发的事件
+            </summary>
+        </member>
+        <member name="T:PlotControlLibrary.Manipulators.MousePanManipulator">
+            <summary>
+            实现鼠标拖拽平移视图的功能。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Manipulators.MouseTrackerManipulator.Delta(OxyPlot.OxyMouseEventArgs)">
+            <summary>
+            经过优化的 Delta 方法，只会在等待一段时间后执行。若等待期间有新的事件触发了 Delta，则之前的执行会被取消，从而大大减少资源消耗。
+            </summary>
+            <param name="e">事件参数</param>
+        </member>
+        <member name="T:PlotControlLibrary.ViewModels.MenuItemViewModel">
+            <summary>
+            曲线控件右键菜单项目的绑定对象。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.Header">
+            <summary>
+            项目标题文字。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.RogueHeader">
+            <summary>
+            运行时动态生成的标题（如特征点名称）。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.ManagedHeader">
+            <summary>
+            有固定多语言资源的标题。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.HeaderLangKey">
+            <summary>
+            项目标题对应的多语言索引。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.IsCheckable">
+            <summary>
+            是否可勾选。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.IsSeparator">
+            <summary>
+            是否为分隔符。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.IsChecked">
+            <summary>
+            勾选状态。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.Command">
+            <summary>
+            执行的指令。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.CommandParameter">
+            <summary>
+            指令参数。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.ViewModels.MenuItemViewModel.MenuItems">
+            <summary>
+            子菜单。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.MenuItemViewModel.#ctor(System.String)">
+            <summary>
+            创建曲线控件右键菜单项目的绑定对象。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.GetSkiaFontFamilyName(System.String)">
+            <summary>
+            获取可以被 SkiaSharp 接受的字体名称。
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.ConfigureUserInputBindings">
+            <summary>
+            配置缩放平移等操作指令。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.InitEventSub">
+            <summary>
+            初始化监听事件。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.RemoveAnnotation(PlotControlLibrary.Events.Payloads.RemoveAnnotationEventPayload)">
+            <summary>
+            处理移除标注事件。
+            </summary>
+            <param name="eventPayload"></param>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.AddAnnotation(PlotControlLibrary.Events.Payloads.AddAnnotationEventPayload)">
+            <summary>
+            处理添加标注事件。
+            </summary>
+            <param name="eventPayload"></param>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.ModifyProps(PlotControlLibrary.Events.Payloads.ModifyPropsEventPayload)">
+            <summary>
+            处理属性修改事件。
+            </summary>
+            <param name="eventPayload"></param>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.RemoveAxis(PlotControlLibrary.Events.Payloads.RemoveAxisEventPayload)">
+            <summary>
+            处理移除坐标轴事件。
+            </summary>
+            <param name="eventPayload"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.AddAxis(PlotControlLibrary.Events.Payloads.AddAxisEventPayload)">
+            <summary>
+            处理添加坐标轴事件。
+            </summary>
+            <param name="eventPayload"></param>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.Clear(PlotControlLibrary.Events.Payloads.ClearEventPayload)">
+            <summary>
+            处理清除坐标轴/曲线事件。
+            </summary>
+            <param name="eventPayload"></param>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.RemoveSeries(PlotControlLibrary.Events.Payloads.RemoveSeriesEventPayload)">
+            <summary>
+            处理移除曲线事件。
+            </summary>
+            <param name="eventPayload"></param>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.AddSeries(PlotControlLibrary.Events.Payloads.AddSeriesEventPayload)">
+            <summary>
+            处理添加曲线事件。
+            </summary>
+            <param name="eventPayload"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.Render(System.Object,System.EventArgs)">
+            <summary>
+            与循环刷新绑定的方法。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:PlotControlLibrary.ViewModels.PlotControlViewModel.Refresh(PlotControlLibrary.Events.Payloads.RefreshEventPayload)">
+            <summary>
+            处理刷新事件。
+            </summary>
+            <param name="eventPayload"></param>
+        </member>
+        <member name="T:PlotControlLibrary.Views.PlotControl">
+            <summary>
+            控件主要功能通过对应的 ViewModel 实现。
+            </summary>
+            <summary>
+            PlotControl
+            </summary>
+        </member>
+        <member name="F:PlotControlLibrary.Views.PlotControl.IdProp">
+            <summary>
+            ID 属性对应的依赖属性。
+            </summary>
+        </member>
+        <member name="P:PlotControlLibrary.Views.PlotControl.ID">
+            <summary>
+            该对象的 ID 属性。为了能让 Prism 的事件系统准确辨别该控件，应确保其唯一性。
+            </summary>
+        </member>
+        <member name="M:PlotControlLibrary.Views.PlotControl.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:PlotControlLibrary.Views.PlotControl.OnInitialized(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:PlotControlLibrary.Views.PlotControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

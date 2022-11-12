@@ -1,0 +1,123 @@
+﻿<UserControl
+	x:Class="WanCeDesktopApp.Views.MaintainingView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp.Views"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	d:DesignHeight="450"
+	d:DesignWidth="1200"
+	mc:Ignorable="d">
+	<Grid Background="#626367">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<StackPanel
+			Grid.Row="0"
+			Margin="10"
+			Orientation="Horizontal">
+			<Button
+				Margin="0,0,10,0"
+				VerticalAlignment="Bottom"
+				Content="{lex:Loc Add}" />
+			<Button
+				Margin="0,0,10,0"
+				VerticalAlignment="Bottom"
+				Content="{lex:Loc Edit}" />
+			<Button
+				Margin="0,0,10,0"
+				VerticalAlignment="Bottom"
+				Content="{lex:Loc Delete}" />
+			<Button
+				Margin="0,0,10,0"
+				VerticalAlignment="Bottom"
+				Content="{lex:Loc Save}" />
+			<Button
+				Margin="0,0,10,0"
+				VerticalAlignment="Bottom"
+				Content="{lex:Loc Cancel}" />
+			<Button
+				Margin="0,0,10,0"
+				VerticalAlignment="Bottom"
+				Content="{lex:Loc OKNoSpace}" />
+		</StackPanel>
+		<StackPanel
+			Grid.Row="1"
+			Height="250"
+			MinHeight="250"
+			VerticalAlignment="Top">
+			<Grid Background="Transparent">
+				<DataGrid
+					x:Name="MaintainingOne"
+					Width="800"
+					Height="240"
+					Margin="10"
+					HorizontalAlignment="Left"
+					HorizontalContentAlignment="Right"
+					AutoGenerateColumns="False"
+					CanUserResizeColumns="False"
+					IsReadOnly="True"
+					ItemsSource="{Binding LstMaintainingOne}">
+					<DataGrid.ColumnHeaderStyle>
+						<Style TargetType="DataGridColumnHeader">
+							<Setter Property="HorizontalContentAlignment" Value="Center" />
+							<Setter Property="Background" Value="#222627" />
+							<Setter Property="Padding" Value="0,10,0,10" />
+						</Style>
+					</DataGrid.ColumnHeaderStyle>
+					<DataGrid.Columns>
+						<DataGridTextColumn Width="70" Header="{lex:Loc Serial}" />
+						<DataGridTextColumn Width="200" Header="{lex:Loc MaintenanceProject}" />
+						<DataGridTextColumn Width="140" Header="{lex:Loc LastMaintenanceTime}" />
+						<DataGridComboBoxColumn Width="120" Header="{lex:Loc MaintenancePeriod}" />
+						<DataGridTextColumn Width="140" Header="{lex:Loc NextMaintenanceTime}" />
+						<DataGridTextColumn Header="{lex:Loc MaintenanceCount}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</Grid>
+		</StackPanel>
+		<Grid Grid.Row="2" Background="Transparent">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto" />
+				<ColumnDefinition Width="auto" />
+			</Grid.ColumnDefinitions>
+			<Grid Background="Transparent">
+				<DataGrid
+					Width="800"
+					Height="240"
+					Margin="10"
+					HorizontalAlignment="Left"
+					HorizontalContentAlignment="Right"
+					AutoGenerateColumns="False"
+					CanUserResizeColumns="False"
+					ColumnWidth="100"
+					IsReadOnly="True"
+					ItemsSource="{Binding LstMaintainingOne}">
+					<DataGrid.ColumnHeaderStyle>
+						<Style TargetType="DataGridColumnHeader">
+							<Setter Property="HorizontalContentAlignment" Value="Center" />
+							<Setter Property="Background" Value="#222627" />
+							<Setter Property="Padding" Value="0,10,0,10" />
+						</Style>
+					</DataGrid.ColumnHeaderStyle>
+					<DataGrid.Columns>
+						<DataGridTextColumn Width="70" Header="{lex:Loc Serial}" />
+						<DataGridTextColumn Width="200" Header="{lex:Loc MaintenanceProject}" />
+						<DataGridTextColumn Width="140" Header="{lex:Loc RemindContent}" />
+						<DataGridCheckBoxColumn
+							Width="120"
+							CanUserReorder="False"
+							Header="{lex:Loc WhetherMaintenanceIsCompleted}"
+							IsReadOnly="False" />
+						<DataGridTextColumn Width="200" Header="{lex:Loc Remark}" />
+					</DataGrid.Columns>
+				</DataGrid>
+			</Grid>
+
+		</Grid>
+	</Grid>
+</UserControl>

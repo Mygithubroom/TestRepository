@@ -1,0 +1,230 @@
+﻿<UserControl
+	x:Class="WanCeDesktopApp.Views.ExportsExport2View"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp.Views"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:prism="http://prismlibrary.com/"
+	d:DesignHeight="450"
+	d:DesignWidth="800"
+	prism:ViewModelLocator.AutoWireViewModel="True"
+	mc:Ignorable="d">
+	<Grid Background="{DynamicResource PrimaryHueGridBrush}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<!--<TextBlock Height="60"
+                   Text="" />-->
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="2*" />
+			</Grid.ColumnDefinitions>
+			<StackPanel Name="panel1" Margin="10,10,0,0">
+				<TextBlock Text="{lex:Loc ExportsExport1DescribeOne}" />
+				<ScrollViewer Height="610" VerticalScrollBarVisibility="Auto">
+					<ScrollViewer.Content>
+						<StackPanel>
+							<StackPanel ScrollViewer.HorizontalScrollBarVisibility="Visible">
+								<TextBlock
+									Margin="0,10,0,0"
+									Style="{StaticResource txbkFirstTitle}"
+									Text="{lex:Loc Export settings}" />
+								<Grid Margin="10,10,10,0">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="2*" />
+										<ColumnDefinition Width="3*" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<TextBlock VerticalAlignment="Center" Text="{lex:Loc Export1frequency}" />
+									<ComboBox
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding ExportFrequency}" />
+									<TextBlock
+										Grid.Row="1"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc Export type}" />
+									<ComboBox
+										Grid.Row="1"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding ResultTable1}" />
+									<TextBlock
+										Grid.Row="2"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc File extension}" />
+									<TextBox
+										Grid.Row="2"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										Text="{Binding FileSuffix}" />
+									<TextBlock
+										Grid.Row="3"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc Encoding type}" />
+									<ComboBox
+										Grid.Row="3"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding ExcodeingType}" />
+									<CheckBox
+										Grid.Row="4"
+										Margin="10,10,0,0"
+										materialDesign:CheckBoxAssist.CheckBoxSize="30"
+										Content="{lex:Loc Ex2OverrideDefaultFolder1}"
+										FontSize="16"
+										IsChecked="{Binding IsOverride}" />
+									<TextBlock
+										Grid.Row="5"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc Export settings}" />
+									<ComboBox
+										Grid.Row="5"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding ExportSetting}" />
+									<TextBlock
+										Grid.Row="6"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc File name convention}" />
+									<ComboBox
+										Grid.Row="6"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding DefaultFileName}" />
+									<CheckBox
+										Grid.Row="7"
+										Margin="10,10,0,0"
+										materialDesign:CheckBoxAssist.CheckBoxSize="30"
+										Content="{lex:Loc Ex2OverrideDefaultFolder2}"
+										FontSize="16"
+										IsChecked="{Binding IsOverride2}" />
+								</Grid>
+							</StackPanel>
+							<StackPanel>
+								<TextBlock
+									Margin="0,10,0,0"
+									Style="{StaticResource txbkFirstTitle}"
+									Text="{lex:Loc Content}" />
+								<Grid Margin="10,10,10,0">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="2*" />
+										<ColumnDefinition Width="3*" />
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition Height="auto" />
+										<RowDefinition />
+									</Grid.RowDefinitions>
+									<TextBlock VerticalAlignment="Center" Text="{lex:Loc Method paramters}" />
+									<ComboBox
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding MethodParam}" />
+									<TextBlock
+										Grid.Row="1"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc Results table1 results}" />
+									<ComboBox
+										Grid.Row="1"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding ResultTable2}" />
+									<TextBlock
+										Grid.Row="2"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc Results table2 results}" />
+									<TextBox
+										Grid.Row="2"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										Text="{Binding ResultTable3}" />
+									<TextBlock
+										Grid.Row="3"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc Raw Data}" />
+									<ComboBox
+										Grid.Row="3"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding RawData}" />
+									<CheckBox
+										Grid.Row="4"
+										Margin="10,10,0,0"
+										materialDesign:CheckBoxAssist.CheckBoxSize="30"
+										Content="{lex:Loc Ex2OverrideDefaultFolder3}"
+										FontSize="16"
+										IsChecked="{Binding IsOverride2}" />
+									<TextBlock
+										Grid.Row="5"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc Export type}" />
+									<ComboBox
+										Grid.Row="5"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{Binding ResultTable4}" />
+									<TextBlock
+										Grid.Row="6"
+										Margin="20,0,0,0"
+										VerticalAlignment="Center"
+										Text="{lex:Loc Export type}" />
+									<ComboBox
+										Grid.Row="6"
+										Grid.Column="1"
+										Margin="0,5,0,0"
+										SelectedValue="{}Binding ResultTable5}" />
+									<CheckBox
+										Grid.Row="7"
+										Margin="10,10,0,0"
+										materialDesign:CheckBoxAssist.CheckBoxSize="30"
+										Content="{lex:Loc Ex2OverrideDefaultFolder4}"
+										FontSize="16"
+										IsChecked="{Binding IsOverride3}" />
+								</Grid>
+							</StackPanel>
+						</StackPanel>
+					</ScrollViewer.Content>
+				</ScrollViewer>
+			</StackPanel>
+			<Border
+				Grid.Column="1"
+				Margin="10"
+				BorderBrush="Black"
+				BorderThickness="1,1,1,1"
+				CornerRadius="5" />
+			<!--<StackPanel
+				Grid.Column="1"
+				Margin="10" />-->
+		</Grid>
+	</Grid>
+</UserControl>

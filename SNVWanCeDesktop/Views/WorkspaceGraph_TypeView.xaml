@@ -1,0 +1,121 @@
+﻿<UserControl
+    x:Class="WanCeDesktopApp.Views.WorkspaceGraph_TypeView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:local="clr-namespace:WanCeDesktopApp.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="490"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <Grid Margin="10,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock VerticalAlignment="Center" Text="{lex:Loc WorkspaceGraphTypeGraphDescribeOne}" />
+        <DockPanel
+            Grid.Row="1"
+            Margin="0,5,0,0"
+            LastChildFill="False">
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Select a graph type}" />
+            <ComboBox Width="500" DockPanel.Dock="Right" />
+        </DockPanel>
+        <DockPanel
+            Grid.Row="2"
+            Margin="0,5,0,0"
+            HorizontalAlignment="Center"
+            LastChildFill="False">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text="{lex:Loc WorkspaceGraphTypeGraphDescribeTwo}" />
+        </DockPanel>
+        <DockPanel
+            Grid.Row="3"
+            Margin="0,5,0,0"
+            LastChildFill="False">
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Graph title}" />
+            <TextBox
+                Width="500"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                DockPanel.Dock="Right" />
+        </DockPanel>
+        <DockPanel
+            Grid.Row="4"
+            Margin="0,5,0,0"
+            LastChildFill="False">
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Domain}" />
+            <Button
+                Width="65"
+                Margin="5,0,0,0"
+                Content="{materialDesign:PackIcon Kind=FunctionVariant,
+                                                  Size=24}"
+                DockPanel.Dock="Right" />
+            <TextBox
+                Width="430"
+                DockPanel.Dock="Right"
+                IsEnabled="False" />
+        </DockPanel>
+        <DockPanel
+            Grid.Row="5"
+            Margin="0,5,0,0"
+            LastChildFill="False">
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Curves per graph}" />
+            <TextBox
+                Width="500"
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                DockPanel.Dock="Right" />
+        </DockPanel>
+        <DockPanel
+            Grid.Row="6"
+            Margin="0,5,0,0"
+            LastChildFill="False">
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Offset each curve by}" />
+            <ComboBox Width="500" DockPanel.Dock="Right" />
+        </DockPanel>
+        <DockPanel
+            Grid.Row="7"
+            Margin="0,5,0,0"
+            LastChildFill="False">
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Show excluded specimens}" />
+            <CheckBox
+                Margin="0,0,470,0"
+                materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                DockPanel.Dock="Right" />
+        </DockPanel>
+        <DockPanel
+            Grid.Row="8"
+            Margin="0,5,0,0"
+            LastChildFill="False">
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Enable data point selector}" />
+            <CheckBox
+                Margin="0,0,470,0"
+                materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                DockPanel.Dock="Right" />
+        </DockPanel>
+        <DockPanel
+            Grid.Row="9"
+            Margin="0,5,0,0"
+            LastChildFill="False">
+            <TextBlock VerticalAlignment="Center" Text="{lex:Loc Show average curve}" />
+            <CheckBox
+                Margin="0,0,470,0"
+                materialDesign:CheckBoxAssist.CheckBoxSize="30"
+                DockPanel.Dock="Right" />
+        </DockPanel>
+    </Grid>
+</UserControl>

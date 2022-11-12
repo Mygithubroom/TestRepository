@@ -1,0 +1,133 @@
+﻿<UserControl
+	x:Class="WanCeDesktopApp.Views.ExportDatabaseExportView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:cv="clr-namespace:WanCeDesktopApp.Common"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+	xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:prism="http://prismlibrary.com/"
+	xmlns:viewmodels="clr-namespace:WanCeDesktopApp.ViewModels"
+	d:DesignHeight="800"
+	d:DesignWidth="1300"
+	prism:ViewModelLocator.AutoWireViewModel="True"
+	mc:Ignorable="d">
+	<Grid Background="#626367">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition Width="auto" />
+		</Grid.ColumnDefinitions>
+
+		<!--  第一列  -->
+		<Grid Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto" />
+				<RowDefinition Height="auto" />
+			</Grid.RowDefinitions>
+			<!--  第一行  -->
+			<StackPanel Margin="10,10,0,0" Orientation="Vertical">
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+				</Grid>
+				<TextBlock Text="{lex:Loc Edit the original data export Settings}" />
+				<TextBlock
+					MaxWidth="1200"
+					Margin="0,10,0,0"
+					HorizontalAlignment="Left"
+					Text="{lex:Loc ExportDatabaseExportDescribeOne}"
+					TextWrapping="Wrap" />
+			</StackPanel>
+
+			<!--  第二行  -->
+			<StackPanel
+				Grid.Row="1"
+				Margin="10,10,0,0"
+				Orientation="Vertical">
+				<TextBlock Style="{StaticResource txbkFirstTitle}" Text="{lex:Loc Export raw data}" />
+				<CheckBox
+					Margin="0,10,0,0"
+					materialDesign:CheckBoxAssist.CheckBoxSize="30"
+					Content="{lex:Loc Export raw data}"
+					FontSize="18"
+					IsChecked="{Binding IsExportDB}" />
+			</StackPanel>
+		</Grid>
+
+		<!--  第二列  -->
+		<Border Grid.Column="1" Margin="0,10,20,20">
+			<DockPanel LastChildFill="False">
+				<TextBlock
+					Margin="0,5,0,20"
+					HorizontalAlignment="Center"
+					DockPanel.Dock="Bottom"
+					Text="{lex:Loc Print}" />
+				<Button
+					Margin="0,10,0,0"
+					DockPanel.Dock="Bottom"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignFloatingActionButton}"
+					ToolTip="MaterialDesignFloatingActionButton">
+					<materialDesign:PackIcon
+						Width="30"
+						Height="30"
+						Kind="PrinterSettings" />
+				</Button>
+				<TextBlock
+					Margin="0,5,0,20"
+					HorizontalAlignment="Center"
+					DockPanel.Dock="Bottom"
+					Text="{lex:Loc Save as}" />
+				<Button
+					Margin="0,10,0,0"
+					DockPanel.Dock="Bottom"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignFloatingActionButton}"
+					ToolTip="MaterialDesignFloatingActionButton">
+					<materialDesign:PackIcon
+						Width="30"
+						Height="30"
+						Kind="ContentSaveSettingsOutline" />
+				</Button>
+				<TextBlock
+					Margin="0,5,0,20"
+					HorizontalAlignment="Center"
+					DockPanel.Dock="Bottom"
+					Text="{lex:Loc Save}" />
+				<Button
+					Margin="0,10,0,0"
+					DockPanel.Dock="Bottom"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignFloatingActionButton}"
+					ToolTip="MaterialDesignFloatingActionButton">
+					<materialDesign:PackIcon
+						Width="30"
+						Height="30"
+						Kind="ContentSaveOutline" />
+				</Button>
+				<TextBlock
+					Margin="0,5,0,20"
+					HorizontalAlignment="Center"
+					DockPanel.Dock="Bottom"
+					Text="{lex:Loc Save Close}" />
+				<Button
+					Margin="0,10,0,0"
+					DockPanel.Dock="Bottom"
+					IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+					Style="{StaticResource MaterialDesignFloatingActionButton}"
+					ToolTip="MaterialDesignFloatingActionButton">
+					<materialDesign:PackIcon
+						Width="30"
+						Height="30"
+						Kind="FlagCheckered" />
+				</Button>
+			</DockPanel>
+		</Border>
+	</Grid>
+</UserControl>

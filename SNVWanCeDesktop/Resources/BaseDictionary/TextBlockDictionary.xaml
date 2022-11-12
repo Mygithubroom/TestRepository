@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--  内容 字号18不加粗  -->
+    <Style TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="TextTrimming" Value="WordEllipsis" />
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}" />
+    </Style>
+
+    <!--  一级标题字号20加粗  -->
+    <Style x:Key="txbkFirstTitle" TargetType="TextBlock">
+        <!--<Setter Property="Foreground"
+                Value="Red" />-->
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextTrimming" Value="WordEllipsis" />
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}" />
+    </Style>
+
+    <!--  二级标题字号22加粗  -->
+    <Style x:Key="txbkSecondTitle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="Foreground" Value="Yellow" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextTrimming" Value="WordEllipsis" />
+        <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}" />
+    </Style>
+</ResourceDictionary>

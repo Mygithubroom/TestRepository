@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="WanCeDesktopApp.Views.WorkspaceResults1View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:local="clr-namespace:WanCeDesktopApp.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:ext="clr-namespace:WanCeDesktopApp.Extensions"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             Background="#626367"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="myCheckGroupButton"
+               TargetType="RadioButton"
+               BasedOn="{StaticResource MaterialDesignChoiceChipAccentRadioButton}">
+            <Setter Property="GroupName"
+                    Value="GroupChoiceChip" />
+            <Setter Property="MinWidth"
+                    Value="100" />
+            <Setter Property="Height"
+                    Value="40" />
+            <Setter Property="Background"
+                    Value="LightSkyBlue" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="Command"
+                    Value="{Binding WorkRegionNavigateCommand}" />
+            <Setter Property="CommandParameter"
+                    Value="{Binding RelativeSource={RelativeSource Mode=Self},Path=Tag }" />
+            <Setter Property="Margin"
+                    Value="5" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="{DynamicResource PrimaryHueGridBrush}"
+          SizeChanged="Grid_SizeChanged">
+        <!--<ScrollViewer x:Name="Results1ViewScroll"
+                      HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto">-->
+            <Grid>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Loaded">
+                        <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <UniformGrid Columns="5">
+                    <RadioButton Style="{StaticResource myCheckGroupButton}"
+                                 Content="{lex:Loc Columns}"
+                                 Tag="WorkspaceResult_ColumnsView"
+                                 IsChecked="True" />
+                    <RadioButton Style="{StaticResource myCheckGroupButton}"
+                                 Content="{lex:Loc Statistics}"
+                                 Tag="WorkspaceResults_StatisticsView" />
+                    <RadioButton Style="{StaticResource myCheckGroupButton}"
+                                 Content="{lex:Loc Format}"
+                                 Tag="WorkspaceResults_FormatView"
+                                 Cursor="Hand" />
+                </UniformGrid>
+                <Grid Grid.Row="1">
+                    <DockPanel>
+                        <ContentControl prism:RegionManager.RegionName="{x:Static ext:PrismManage.ResultWorkRegionName}" />
+                    </DockPanel>
+                </Grid>
+            </Grid>
+        <!--</ScrollViewer>-->
+    </Grid>
+</UserControl>
+

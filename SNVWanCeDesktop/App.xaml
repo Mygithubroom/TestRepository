@@ -1,0 +1,82 @@
+﻿<prism:PrismApplication
+	x:Class="WanCeDesktopApp.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:lex="http://wpflocalizeextension.codeplex.com"
+	xmlns:local="clr-namespace:WanCeDesktopApp"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:prism="http://prismlibrary.com/">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<materialDesign:BundledTheme
+					BaseTheme="Dark"
+					PrimaryColor="LightBlue"
+					SecondaryColor="Lime" />
+				<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/Resources/BaseDictionary/ComboBoxDictionary.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/Resources/BaseDictionary/ListBoxDictionary.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/Resources/BaseDictionary/TextBoxDictionary.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/Resources/BaseDictionary/DataTableDictionary.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/Resources/BaseDictionary/TextBlockDictionary.xaml" />
+				<ResourceDictionary Source="pack://application:,,,/Resources/BaseDictionary/TabControlDictionary.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<!--
+				Palette Brush Names
+				Primary Colour
+				PrimaryHueLightBrush
+				PrimaryHueLightForegroundBrush
+				PrimaryHueMidBrush
+				PrimaryHueMidForegroundBrush
+				PrimaryHueDarkBrush
+				PrimaryHueDarkForegroundBrush
+				NB [Light/Mid/Dark]Brush define the different hues of the colour, and the [Light/Mid/Dark]ForegroundBrush define a foreground colour which will show up clearly on that hue.
+				
+				Secondary Colour
+				SecondaryHueLightBrush
+				SecondaryHueLightForegroundBrush
+				SecondaryHueMidBrush
+				SecondaryHueMidForegroundBrush
+				SecondaryHueDarkBrush
+				SecondaryHueDarkForegroundBrush
+				NB [Light/Mid/Dark]Brush define the different hues of the colour, and the [Light/Mid/Dark]ForegroundBrush define a foreground colour which will show up clearly on that hue.
+				
+				Prior to version 2.6.0 there was only these accent brushes. Though these still exist in version 3.0.0, they should be considered obsolete and will be removed in a future version.
+				
+				SecondaryAccentBrush
+				SecondaryAccentForegroundBrush
+			-->
+			<!--  PRIMARY  -->
+			<SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#349fda" />
+			<SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#ffffff" />
+			<SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#222627" />
+			<SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFF" />
+			<SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#015f92" />
+			<SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFF" />
+			<!--  ACCENT (在 MaterialDesign 的未来版本中被弃用)  -->
+			<SolidColorBrush x:Key="SecondaryAccentBrush" Color="#689f38" />
+			<SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFF" />
+			<!--  Secondary  -->
+			<SolidColorBrush x:Key="SecondaryHueLightBrush" Color="#105893" />
+			<SolidColorBrush x:Key="SecondaryHueLightForegroundBrush" Color="#e6e7e9" />
+			<SolidColorBrush x:Key="SecondaryHueMidBrush" Color="#bc1527" />
+			<SolidColorBrush x:Key="SecondaryHueMidForegroundBrush" Color="#e6e7e9" />
+			<SolidColorBrush x:Key="SecondaryHueDarkBrush" Color="#3f4044" />
+			<SolidColorBrush x:Key="SecondaryHueDarkForegroundBrush" Color="#e6e7e9" />
+			<!--  自定义颜色  -->
+			<SolidColorBrush x:Key="PrimaryHueGridBrush" Color="#626367" />
+			<LocalizationMultiConverter xmlns="clr-namespace:WanCeDesktopApp.Common" x:Key="LocMultiConverter" />
+		</ResourceDictionary>
+	</Application.Resources>
+</prism:PrismApplication>
+
+<!--
+	本项目基于.net5 进行开包。
+	【如果安装其它程序包，请及时更新本注释】
+	1、安装MaterialDesignThemes程序包、Prism.DryIoc程序包
+	
+	2、添加materialDesign、Prism 命名空间与引用materialDesign资源
+	
+	3、添加System.Data.SQLite连接SQLite数据库
+-->
+

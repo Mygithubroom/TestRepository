@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExportUtilitiesLibrary</name>
+    </assembly>
+    <members>
+        <member name="P:ExportUtilitiesLibrary.Common.ExportDocInfo.DateHeader">
+            <summary>
+            日期（格式："XXXX-XX-XX"）
+            </summary>
+        </member>
+        <member name="P:ExportUtilitiesLibrary.Common.ExportDocInfo.DocProfile">
+            <summary>
+            页面配置
+            </summary>
+        </member>
+        <member name="T:ExportUtilitiesLibrary.Common.LangResManager">
+            <summary>
+            管理模块内固定文本资源的类，为接入外部多语言环境提供便捷渠道。使用时一般直接调用该类自带的 Instance 实例。
+            </summary>
+        </member>
+        <member name="F:ExportUtilitiesLibrary.Common.LangResManager.HeaderFooterListTitle">
+            <summary>
+            页眉页脚选择列表标题
+            </summary>
+        </member>
+        <member name="F:ExportUtilitiesLibrary.Common.LangResManager.ContentListTitle">
+            <summary>
+            页面内容组件选择列表标题
+            </summary>
+        </member>
+        <member name="T:ExportUtilitiesLibrary.Views.DocumentPreview">
+            <summary>
+            DocumentPreview.xaml 的交互逻辑
+            </summary>
+            <summary>
+            DocumentPreview
+            </summary>
+        </member>
+        <member name="M:ExportUtilitiesLibrary.Views.DocumentPreview.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:ExportUtilitiesLibrary.Views.FixedDocumentPreview">
+            <summary>
+            FixedDocumentPreview.xaml 的交互逻辑
+            </summary>
+            <summary>
+            FixedDocumentPreview
+            </summary>
+        </member>
+        <member name="M:ExportUtilitiesLibrary.Views.FixedDocumentPreview.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:ExportUtilitiesLibrary.Views.FixedDocumentPreview.OnInitialized(System.EventArgs)">
+            <inheritdoc/>
+        </member>
+        <member name="M:ExportUtilitiesLibrary.Views.FixedDocumentPreview.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

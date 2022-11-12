@@ -1,0 +1,1903 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DataBarTitleStress" xml:space="preserve">
+    <value>应力</value>
+  </data>
+  <data name="OnExitConfirm" xml:space="preserve">
+    <value>确认退出系统吗?</value>
+  </data>
+  <data name="IndexMenuContentTest" xml:space="preserve">
+    <value>进入试验导航</value>
+  </data>
+  <data name="IndexMenuContentMethod" xml:space="preserve">
+    <value>进入方法导航</value>
+  </data>
+  <data name="IndexMenuContentManagement" xml:space="preserve">
+    <value>进入系统管理</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>常规</value>
+  </data>
+  <data name="TestViewDescription" xml:space="preserve">
+    <value>开始或继续对一项样品进行试验！</value>
+  </data>
+  <data name="TestViewTitle" xml:space="preserve">
+    <value>试验</value>
+  </data>
+  <data name="TestViewMethodBrowseButtonTitle" xml:space="preserve">
+    <value>浏览方法</value>
+  </data>
+  <data name="TestViewMethodSelectionDescription" xml:space="preserve">
+    <value>新建样品并开始测试或者继续测试现有样品。</value>
+  </data>
+  <data name="HintMessage" xml:space="preserve">
+    <value>提示(后续根据控件类型自行设定提示信息)</value>
+  </data>
+  <data name="TestViewFunctionSectionTitle" xml:space="preserve">
+    <value>功能</value>
+  </data>
+  <data name="New Method" xml:space="preserve">
+    <value>新方法</value>
+  </data>
+  <data name="QuickTestMethodTitle" xml:space="preserve">
+    <value>快速试验</value>
+  </data>
+  <data name="QuickTestMethodDescription" xml:space="preserve">
+    <value>快速开始试验</value>
+  </data>
+  <data name="ContinueTestMethodTitle" xml:space="preserve">
+    <value>继续试验</value>
+  </data>
+  <data name="ContinueTestMethodDescription" xml:space="preserve">
+    <value>继续上次未完成的试验</value>
+  </data>
+  <data name="Compression" xml:space="preserve">
+    <value>压缩</value>
+  </data>
+  <data name="CompressionMethodDescription" xml:space="preserve">
+    <value>压缩试验</value>
+  </data>
+  <data name="Tension" xml:space="preserve">
+    <value>拉伸</value>
+  </data>
+  <data name="TensionMethodDescription" xml:space="preserve">
+    <value>拉伸试验</value>
+  </data>
+  <data name="Flexure" xml:space="preserve">
+    <value>弯曲</value>
+  </data>
+  <data name="FlexureMethodDescription" xml:space="preserve">
+    <value>弯曲方法</value>
+  </data>
+  <data name="TorsionMethodDescription" xml:space="preserve">
+    <value>扭转试验</value>
+  </data>
+  <data name="ImpactMethodDescription" xml:space="preserve">
+    <value>冲击方法</value>
+  </data>
+  <data name="FrictionMethodDescription" xml:space="preserve">
+    <value>摩擦试验</value>
+  </data>
+  <data name="OtherMethodDescription" xml:space="preserve">
+    <value>其它方法</value>
+  </data>
+  <data name="TestViewContinueSampleTitle" xml:space="preserve">
+    <value>继续样品</value>
+  </data>
+  <data name="TestViewContinueSampleDescription" xml:space="preserve">
+    <value>选择一组近期样品或者通过浏览一个方法来选择样品。</value>
+  </data>
+  <data name="TestViewBrowseSampleButtonTitle" xml:space="preserve">
+    <value>浏览样品</value>
+  </data>
+  <data name="TestViewSampleSectionTitle" xml:space="preserve">
+    <value>样品</value>
+  </data>
+  <data name="Sample" xml:space="preserve">
+    <value>样品</value>
+  </data>
+  <data name="Specimen" xml:space="preserve">
+    <value>试样</value>
+  </data>
+  <data name="Measurements" xml:space="preserve">
+    <value>测量</value>
+  </data>
+  <data name="Calculations" xml:space="preserve">
+    <value>计算</value>
+  </data>
+  <data name="TestControl" xml:space="preserve">
+    <value>试验控制</value>
+  </data>
+  <data name="Console" xml:space="preserve">
+    <value>控制台</value>
+  </data>
+  <data name="Workspace" xml:space="preserve">
+    <value>工作区</value>
+  </data>
+  <data name="Exports" xml:space="preserve">
+    <value>导出2</value>
+  </data>
+  <data name="Workflow" xml:space="preserve">
+    <value>流程提示</value>
+  </data>
+  <data name="GeneralTabDescription" xml:space="preserve">
+    <value>选择该方法中所有的单位输入框所使用的单位系统，并决定本系统将如何为新添加的试样进行默认配置。</value>
+  </data>
+  <data name="TestTypeColons" xml:space="preserve">
+    <value>试验类型：</value>
+  </data>
+  <data name="TitleEditorName" xml:space="preserve">
+    <value>试验方法作者：</value>
+  </data>
+  <data name="GeneralTabLabelTitleRevisionHistory" xml:space="preserve">
+    <value>修订历史：</value>
+  </data>
+  <data name="Save revision history" xml:space="preserve">
+    <value>保存修订历史：</value>
+  </data>
+  <data name="GeneralTabLabelTitleUnitSystem" xml:space="preserve">
+    <value>单位系统</value>
+  </data>
+  <data name="GeneralTabLabelTitleSpecimenParamSource" xml:space="preserve">
+    <value>试样参数源：</value>
+  </data>
+  <data name="GeneralTabLabelTitleEnableMultiStation" xml:space="preserve">
+    <value>启用多站点试验：</value>
+  </data>
+  <data name="GeneralTabMethodDescInputHint" xml:space="preserve">
+    <value>这是一个方法描述区域</value>
+  </data>
+  <data name="TestInputParameter1" xml:space="preserve">
+    <value>试验输入参数1</value>
+  </data>
+  <data name="TestInputParameter2" xml:space="preserve">
+    <value>试验输入参数2</value>
+  </data>
+  <data name="TestInputType0" xml:space="preserve">
+    <value>试验输入类型0</value>
+  </data>
+  <data name="TestInputType1" xml:space="preserve">
+    <value>试验输入类型1</value>
+  </data>
+  <data name="TestInputType2" xml:space="preserve">
+    <value>试验输入类型2</value>
+  </data>
+  <data name="TestInputType3" xml:space="preserve">
+    <value>试验输入类型3</value>
+  </data>
+  <data name="TestInputType4" xml:space="preserve">
+    <value>试验输入类型4</value>
+  </data>
+  <data name="TabSectionTitleNumberInputs" xml:space="preserve">
+    <value>数字输入</value>
+  </data>
+  <data name="DateInputs" xml:space="preserve">
+    <value>日期输入</value>
+  </data>
+  <data name="TabSectionTitleTextInputs" xml:space="preserve">
+    <value>文本输入</value>
+  </data>
+  <data name="TabSectionTitleChoiceInputs" xml:space="preserve">
+    <value>选择输入</value>
+  </data>
+  <data name="TabSectionTitleGraph1" xml:space="preserve">
+    <value>图表 1</value>
+  </data>
+  <data name="TabSectionTitleGraph2" xml:space="preserve">
+    <value>图表 2</value>
+  </data>
+  <data name="TabSectionTitleLayout" xml:space="preserve">
+    <value>布局</value>
+  </data>
+  <data name="TabSectionTitleOperatorInputs" xml:space="preserve">
+    <value>操作输入</value>
+  </data>
+  <data name="TabSectionTitlePassFail" xml:space="preserve">
+    <value>通过/失败</value>
+  </data>
+  <data name="TabSectionTitleProperties" xml:space="preserve">
+    <value>属性</value>
+  </data>
+  <data name="TabSectionTitleRawData" xml:space="preserve">
+    <value>元数据</value>
+  </data>
+  <data name="TabSectionTitleResults1" xml:space="preserve">
+    <value>结果 1</value>
+  </data>
+  <data name="TabSectionTitleResults2" xml:space="preserve">
+    <value>结果 2</value>
+  </data>
+  <data name="TabSectionTitleEndofTest" xml:space="preserve">
+    <value>试验结束</value>
+  </data>
+  <data name="TabSectionTitlePreTest" xml:space="preserve">
+    <value>试验前</value>
+  </data>
+  <data name="TabSectionTitleStartTest" xml:space="preserve">
+    <value>开始试验</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="TabSectionTitleFrame" xml:space="preserve">
+    <value>机架</value>
+  </data>
+  <data name="TabSectionTitleSoftKeys" xml:space="preserve">
+    <value>功能键</value>
+  </data>
+  <data name="TabSectionTitleGrips" xml:space="preserve">
+    <value>夹具</value>
+  </data>
+  <data name="TabSectionTitleLiveDisplays" xml:space="preserve">
+    <value>实时显示</value>
+  </data>
+  <data name="TabSectionTitleRounding" xml:space="preserve">
+    <value>修约</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>附注</value>
+  </data>
+  <data name="GroupNameOfGauge" xml:space="preserve">
+    <value>测量</value>
+  </data>
+  <data name="Displacement" xml:space="preserve">
+    <value>位移</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>载荷</value>
+  </data>
+  <data name="LoadOrWidth" xml:space="preserve">
+    <value>载荷 / 宽度</value>
+  </data>
+  <data name="PIPCount" xml:space="preserve">
+    <value>PIP计数</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>时间</value>
+  </data>
+  <data name="ExportFileSetting" xml:space="preserve">
+    <value>文件设置</value>
+  </data>
+  <data name="DatabaseExport" xml:space="preserve">
+    <value>数据库导出</value>
+  </data>
+  <data name="NoLiveDisplays" xml:space="preserve">
+    <value>无实时显示</value>
+  </data>
+  <data name="MethodViewApplicationType" xml:space="preserve">
+    <value>应用类型</value>
+  </data>
+  <data name="Template" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="Editmethod" xml:space="preserve">
+    <value>编辑方法</value>
+  </data>
+  <data name="Sortby" xml:space="preserve">
+    <value>排序:</value>
+  </data>
+  <data name="Filterby" xml:space="preserve">
+    <value>筛选:</value>
+  </data>
+  <data name="ClearList" xml:space="preserve">
+    <value>清空列表</value>
+  </data>
+  <data name="Methods" xml:space="preserve">
+    <value>方法</value>
+  </data>
+  <data name="MethodViewChoosearecentmethodorbrowseforone" xml:space="preserve">
+    <value>选择或者浏览一个方法。</value>
+  </data>
+  <data name="Security" xml:space="preserve">
+    <value>安全</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>演示</value>
+  </data>
+  <data name="NoTestType" xml:space="preserve">
+    <value>无测试类型</value>
+  </data>
+  <data name="SampleClosed" xml:space="preserve">
+    <value>样品:关闭</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="MethodsClosed" xml:space="preserve">
+    <value>方法:关闭</value>
+  </data>
+  <data name="ReportClosed" xml:space="preserve">
+    <value>报告:关闭</value>
+  </data>
+  <data name="MothodViewChooseamethodtemplateoranapplicationspecificmethod" xml:space="preserve">
+    <value>选择一个方法模板或特定于应用程序的方法。</value>
+  </data>
+  <data name="AdhesivesMethods" xml:space="preserve">
+    <value>粘合方法</value>
+  </data>
+  <data name="BrowseMethods" xml:space="preserve">
+    <value>浏览所有方法</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Torsion" xml:space="preserve">
+    <value>扭转</value>
+  </data>
+  <data name="Impact" xml:space="preserve">
+    <value>冲击</value>
+  </data>
+  <data name="Friction" xml:space="preserve">
+    <value>摩擦</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="TestCompress" xml:space="preserve">
+    <value>压缩试验</value>
+  </data>
+  <data name="TestTension" xml:space="preserve">
+    <value>拉伸试验</value>
+  </data>
+  <data name="TestFlexure" xml:space="preserve">
+    <value>弯曲试验</value>
+  </data>
+  <data name="TestTorsion" xml:space="preserve">
+    <value>扭转试验</value>
+  </data>
+  <data name="TestImpact" xml:space="preserve">
+    <value>冲击试验</value>
+  </data>
+  <data name="TestFriction" xml:space="preserve">
+    <value>摩擦试验</value>
+  </data>
+  <data name="TestOther" xml:space="preserve">
+    <value>其他试验</value>
+  </data>
+  <data name="Criteria3" xml:space="preserve">
+    <value>标准3</value>
+  </data>
+  <data name="Describe" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Explain" xml:space="preserve">
+    <value>说明</value>
+  </data>
+  <data name="Detail" xml:space="preserve">
+    <value>详细</value>
+  </data>
+  <data name="SystemInformation" xml:space="preserve">
+    <value>系统信息</value>
+  </data>
+  <data name="HardwareManagement" xml:space="preserve">
+    <value>硬件管理</value>
+  </data>
+  <data name="AuthorityManagement" xml:space="preserve">
+    <value>权限管理</value>
+  </data>
+  <data name="DataManagerment" xml:space="preserve">
+    <value>数据管理</value>
+  </data>
+  <data name="InterfaceManagement" xml:space="preserve">
+    <value>接口管理</value>
+  </data>
+  <data name="SystemProperty" xml:space="preserve">
+    <value>系统属性</value>
+  </data>
+  <data name="SoftwareCopyright" xml:space="preserve">
+    <value>软件版权</value>
+  </data>
+  <data name="ShenzhenWanTes EquipmentCoLTD" xml:space="preserve">
+    <value>深圳万测试验设备有限公司</value>
+  </data>
+  <data name="SoftwareVersionNumber" xml:space="preserve">
+    <value>软件版本号</value>
+  </data>
+  <data name="SoftwareInstallationDate" xml:space="preserve">
+    <value>软件安装日期</value>
+  </data>
+  <data name="Secretkey" xml:space="preserve">
+    <value>密钥</value>
+  </data>
+  <data name="ProtocolNumber" xml:space="preserve">
+    <value>协议号</value>
+  </data>
+  <data name="FrameModel" xml:space="preserve">
+    <value>机架型号</value>
+  </data>
+  <data name="RackControllerNumber" xml:space="preserve">
+    <value>机器控制编号</value>
+  </data>
+  <data name="MACAddress" xml:space="preserve">
+    <value>MAC</value>
+  </data>
+  <data name="Memo" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="ConfigureAttachment" xml:space="preserve">
+    <value>配置附件</value>
+  </data>
+  <data name="ConfigureSensors" xml:space="preserve">
+    <value>配置传感器</value>
+  </data>
+  <data name="ExceptionInformation" xml:space="preserve">
+    <value>异常信息</value>
+  </data>
+  <data name="SelectSetAccessories" xml:space="preserve">
+    <value>选择并设置一个附件</value>
+  </data>
+  <data name="AvailableAccessories" xml:space="preserve">
+    <value>可用附件</value>
+  </data>
+  <data name="SelectedAccessories" xml:space="preserve">
+    <value>选择附件</value>
+  </data>
+  <data name="ParameterSettings" xml:space="preserve">
+    <value>参数设置</value>
+  </data>
+  <data name="AccessoriesName" xml:space="preserve">
+    <value>附件名称:</value>
+  </data>
+  <data name="CommunicationsModule" xml:space="preserve">
+    <value>模块:</value>
+  </data>
+  <data name="BaudRate" xml:space="preserve">
+    <value>波特率</value>
+  </data>
+  <data name="ParityBit" xml:space="preserve">
+    <value>串行通信端口</value>
+  </data>
+  <data name="ResetTwoSpacing" xml:space="preserve">
+    <value>暂
+保留</value>
+  </data>
+  <data name="UserSettings" xml:space="preserve">
+    <value>用户设置</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>账户</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="Grade" xml:space="preserve">
+    <value>级别</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>用户名    </value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>联系电话</value>
+  </data>
+  <data name="isStop" xml:space="preserve">
+    <value>是否停用</value>
+  </data>
+  <data name="LoginDateTime" xml:space="preserve">
+    <value>登陆日期</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="SurePassword" xml:space="preserve">
+    <value>确认密码</value>
+  </data>
+  <data name="DatabaseSettings" xml:space="preserve">
+    <value>数据库设置</value>
+  </data>
+  <data name="DataBaseIP" xml:space="preserve">
+    <value>数据库IP</value>
+  </data>
+  <data name="SaveTwoSpacing" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="TestLink" xml:space="preserve">
+    <value>测试连接</value>
+  </data>
+  <data name="Port" xml:space="preserve">
+    <value>端口</value>
+  </data>
+  <data name="OnlineHelp" xml:space="preserve">
+    <value>联机帮助</value>
+  </data>
+  <data name="DockingSystem" xml:space="preserve">
+    <value>对接第三方系统</value>
+  </data>
+  <data name="SelectSetSensors" xml:space="preserve">
+    <value>选择或设置一个传感器</value>
+  </data>
+  <data name="AvailableSensors" xml:space="preserve">
+    <value>传感器类型</value>
+  </data>
+  <data name="SelectedSensors" xml:space="preserve">
+    <value>选择传感器</value>
+  </data>
+  <data name="SensorsName" xml:space="preserve">
+    <value>传感器名称</value>
+  </data>
+  <data name="Precision" xml:space="preserve">
+    <value>精度</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>速率</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>试验</value>
+  </data>
+  <data name="Sample description" xml:space="preserve">
+    <value>样品描述</value>
+  </data>
+  <data name="Sample node 1" xml:space="preserve">
+    <value>样品节点1</value>
+  </data>
+  <data name="Sample node 2" xml:space="preserve">
+    <value>样品节点2</value>
+  </data>
+  <data name="Sample node 3" xml:space="preserve">
+    <value>样品节点3</value>
+  </data>
+  <data name="Prompt" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="Default Text" xml:space="preserve">
+    <value>默认文本</value>
+  </data>
+  <data name="CancelTwoSpacing" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="UnitSettings" xml:space="preserve">
+    <value>单位设置</value>
+  </data>
+  <data name="DefaultValue" xml:space="preserve">
+    <value>默认值</value>
+  </data>
+  <data name="Decimalplaces" xml:space="preserve">
+    <value>小数位</value>
+  </data>
+  <data name="limited" xml:space="preserve">
+    <value>限制</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>上</value>
+  </data>
+  <data name="Down" xml:space="preserve">
+    <value>下</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Sample choice inputs 1" xml:space="preserve">
+    <value>样品选择输入1</value>
+  </data>
+  <data name="Sample choice inputs 2" xml:space="preserve">
+    <value>样品选择输入2</value>
+  </data>
+  <data name="Sample choice inputs 3" xml:space="preserve">
+    <value>样品选择输入3</value>
+  </data>
+  <data name="Sample choice inputs 4" xml:space="preserve">
+    <value>样品选择输入4</value>
+  </data>
+  <data name="Sample choice inputs 5" xml:space="preserve">
+    <value>样品选择输入5</value>
+  </data>
+  <data name="Sample choice inputs 6" xml:space="preserve">
+    <value>样品选择输入6</value>
+  </data>
+  <data name="Allow None as a chioce" xml:space="preserve">
+    <value>选择允许为空</value>
+  </data>
+  <data name="Chioce" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="Sample number input" xml:space="preserve">
+    <value>样品数字输入</value>
+  </data>
+  <data name="Sample text input" xml:space="preserve">
+    <value>样品文本输入</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>预告</value>
+  </data>
+  <data name="Dimensions may be used in virtual measurements" xml:space="preserve">
+    <value>尺寸可用于虚拟测量。标本标签是图形图例设置中的一个选项。样本属性可供操作人员输入、结果表1、报告方法参数、提示文本、导出方法参数。</value>
+  </data>
+  <data name="Specimen properties" xml:space="preserve">
+    <value>试样属性</value>
+  </data>
+  <data name="Specimen label" xml:space="preserve">
+    <value>试样标签</value>
+  </data>
+  <data name="Geometry and Dimensions" xml:space="preserve">
+    <value>几何和尺寸</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>几何</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>查找测量事件</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>宽度</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>厚度</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>长度</value>
+  </data>
+  <data name="Fixture separation" xml:space="preserve">
+    <value>夹具分离</value>
+  </data>
+  <data name="Final Width" xml:space="preserve">
+    <value>最终宽度</value>
+  </data>
+  <data name="Final Thickness" xml:space="preserve">
+    <value>最终厚度</value>
+  </data>
+  <data name="Final Length" xml:space="preserve">
+    <value>最终长度</value>
+  </data>
+  <data name="Specimen description" xml:space="preserve">
+    <value>试样描述</value>
+  </data>
+  <data name="Specimen node 1" xml:space="preserve">
+    <value>试样节点1</value>
+  </data>
+  <data name="Specimen node 2" xml:space="preserve">
+    <value>试样节点2</value>
+  </data>
+  <data name="Specimen number input" xml:space="preserve">
+    <value>试样数字输入</value>
+  </data>
+  <data name="Specimen node 3" xml:space="preserve">
+    <value>试样节点3</value>
+  </data>
+  <data name="Specimen text input" xml:space="preserve">
+    <value>试样文本输入</value>
+  </data>
+  <data name="Label 1" xml:space="preserve">
+    <value>标签1</value>
+  </data>
+  <data name="Label 2" xml:space="preserve">
+    <value>标签2</value>
+  </data>
+  <data name="Label 3" xml:space="preserve">
+    <value>标签3</value>
+  </data>
+  <data name="Label 4" xml:space="preserve">
+    <value>标签4</value>
+  </data>
+  <data name="Label 5" xml:space="preserve">
+    <value>标签5</value>
+  </data>
+  <data name="Label 6" xml:space="preserve">
+    <value>标签6</value>
+  </data>
+  <data name="Label 7" xml:space="preserve">
+    <value>标签7</value>
+  </data>
+  <data name="Sample date input" xml:space="preserve">
+    <value>样品日期输入</value>
+  </data>
+  <data name="Measurements Describe" xml:space="preserve">
+    <value>测量为测试控制、绘图和分析提供数据。物理测量直接从传感器提供数据。虚拟测量从表达式生成数据。</value>
+  </data>
+  <data name="Measurement type" xml:space="preserve">
+    <value>测量类型</value>
+  </data>
+  <data name="Measurement available in the method" xml:space="preserve">
+    <value>该方法可进行测量</value>
+  </data>
+  <data name="CalculationsDescribeSetUp" xml:space="preserve">
+    <value>创建测试所需的计算。若要在测试期间使用计算，请在测试期间启用“计算”。若要显示计算结果，请创建结果表或将结果添加到实时显示中。</value>
+  </data>
+  <data name="Available calculations" xml:space="preserve">
+    <value>可用计算</value>
+  </data>
+  <data name="Selected calculations" xml:space="preserve">
+    <value>选择计算</value>
+  </data>
+  <data name="% of break" xml:space="preserve">
+    <value>%断裂</value>
+  </data>
+  <data name="Area reduction" xml:space="preserve">
+    <value>面积减少</value>
+  </data>
+  <data name="Area under curve" xml:space="preserve">
+    <value>曲面下面积</value>
+  </data>
+  <data name="Average value" xml:space="preserve">
+    <value>平均值</value>
+  </data>
+  <data name="Break" xml:space="preserve">
+    <value>断裂</value>
+  </data>
+  <data name="Break location" xml:space="preserve">
+    <value>断裂位置</value>
+  </data>
+  <data name="Coefficientoffriction" xml:space="preserve">
+    <value>摩擦系数</value>
+  </data>
+  <data name="Compensated energy" xml:space="preserve">
+    <value>补偿能量</value>
+  </data>
+  <data name="CreepRelaxation" xml:space="preserve">
+    <value>蠕变/松弛</value>
+  </data>
+  <data name="Elongation after fracture" xml:space="preserve">
+    <value>抗拉强度</value>
+  </data>
+  <data name="Fracture toughness conditional point" xml:space="preserve">
+    <value>断裂韧性条件点</value>
+  </data>
+  <data name="Hold preset point" xml:space="preserve">
+    <value>保持预设点</value>
+  </data>
+  <data name="Line intersection" xml:space="preserve">
+    <value>十字线点</value>
+  </data>
+  <data name="Modulus" xml:space="preserve">
+    <value>系数</value>
+  </data>
+  <data name="Non-proportional elongation" xml:space="preserve">
+    <value>非均衡拉伸</value>
+  </data>
+  <data name="N-value" xml:space="preserve">
+    <value>N值</value>
+  </data>
+  <data name="Peak first" xml:space="preserve">
+    <value>第一个高峰</value>
+  </data>
+  <data name="Peak local" xml:space="preserve">
+    <value>当时峰值</value>
+  </data>
+  <data name="Peakmaximumminimum" xml:space="preserve">
+    <value>最大/最小峰值</value>
+  </data>
+  <data name="Poisson's ratio" xml:space="preserve">
+    <value>泊松比</value>
+  </data>
+  <data name="Polynomial fitting" xml:space="preserve">
+    <value>拟合</value>
+  </data>
+  <data name="preset point" xml:space="preserve">
+    <value>预置点</value>
+  </data>
+  <data name="R-value" xml:space="preserve">
+    <value>R值</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Maximum Force" xml:space="preserve">
+    <value>最大力</value>
+  </data>
+  <data name="Maximum" xml:space="preserve">
+    <value>最大值</value>
+  </data>
+  <data name="Domain" xml:space="preserve">
+    <value>范围</value>
+  </data>
+  <data name="Force" xml:space="preserve">
+    <value>力</value>
+  </data>
+  <data name="Indicate on graph" xml:space="preserve">
+    <value>显示在图表中</value>
+  </data>
+  <data name="Calculate during the test" xml:space="preserve">
+    <value>试验过程中计算</value>
+  </data>
+  <data name="Rounding rule" xml:space="preserve">
+    <value>修约规则</value>
+  </data>
+  <data name="Rounding interval" xml:space="preserve">
+    <value>修约范围</value>
+  </data>
+  <data name="Start test" xml:space="preserve">
+    <value>开始试验</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>动作</value>
+  </data>
+  <data name="Set digital output lines" xml:space="preserve">
+    <value>设置数字信号输出</value>
+  </data>
+  <data name="Tensile strain (displacement)" xml:space="preserve">
+    <value>拉伸应变（位移）</value>
+  </data>
+  <data name="TextControlStrainDescribe" xml:space="preserve">
+    <value>轴向应变测量用于计算，如模量和能量。原始数据来自原始源，通常是引伸计。去除后，数据来自位移。</value>
+  </data>
+  <data name="The basic source" xml:space="preserve">
+    <value>基本源</value>
+  </data>
+  <data name="Remove the extensometer during the measurement" xml:space="preserve">
+    <value>测量时移除引伸计</value>
+  </data>
+  <data name="Measurement" xml:space="preserve">
+    <value>测量</value>
+  </data>
+  <data name="Remove the criteria" xml:space="preserve">
+    <value>移除标准</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="Action during removal" xml:space="preserve">
+    <value>移除时动作</value>
+  </data>
+  <data name="Lock tensile strain during disassembly" xml:space="preserve">
+    <value>拆卸时锁定拉伸应变</value>
+  </data>
+  <data name="Remove transverse extensometer during test" xml:space="preserve">
+    <value>在测试过程中拆卸横向引伸计。</value>
+  </data>
+  <data name="TestControlStrainTransverseStrainDescribe" xml:space="preserve">
+    <value>横向应变允许自动横向引伸计独立于自动轴向引伸计被移除。</value>
+  </data>
+  <data name="Temperature soak" xml:space="preserve">
+    <value>热浸</value>
+  </data>
+  <data name="TestControlPreTestDescribeTwo" xml:space="preserve">
+    <value>将试样在设定的温度下保持一段时间。当所有选定的设定值都满足时，浸泡时间开始。</value>
+  </data>
+  <data name="TestControlPreTestDescribeOne" xml:space="preserve">
+    <value>在系统开始捕获数据之前出现的预测试参数是可选的。在开始测试时，启用的操作按照列出的顺序发生。如果度量值不可用，则在度量值下添加它。</value>
+  </data>
+  <data name="Preload" xml:space="preserve">
+    <value>预加载</value>
+  </data>
+  <data name="Remove slack in a specimen caused by gripping the specimen." xml:space="preserve">
+    <value>去除因夹紧标本而造成的松弛。</value>
+  </data>
+  <data name="Control mode" xml:space="preserve">
+    <value>控制模式</value>
+  </data>
+  <data name="Changeover criteria" xml:space="preserve">
+    <value>变更标准</value>
+  </data>
+  <data name="Overtravel" xml:space="preserve">
+    <value>过载</value>
+  </data>
+  <data name="TestControlPreTestDescribeThree" xml:space="preserve">
+    <value>如果发现任何一种超程情况，停止测试并执行测试动作结束方法。</value>
+  </data>
+  <data name="TestControlPreTestDescribeFour" xml:space="preserve">
+    <value>预加载后自动平衡选定的测量。</value>
+  </data>
+  <data name="Precycling" xml:space="preserve">
+    <value>预循环</value>
+  </data>
+  <data name="TestControlPreTestDescribeFive" xml:space="preserve">
+    <value>在两个指定的边界点之间循环。</value>
+  </data>
+  <data name="Collection of cyclic data" xml:space="preserve">
+    <value>循环采集数据</value>
+  </data>
+  <data name="Cycle Index" xml:space="preserve">
+    <value>循环周期</value>
+  </data>
+  <data name="Measurement of maximum value" xml:space="preserve">
+    <value>最大值测量</value>
+  </data>
+  <data name="Measurement of minimum value" xml:space="preserve">
+    <value>最小值测量</value>
+  </data>
+  <data name="Minimum" xml:space="preserve">
+    <value>最小值</value>
+  </data>
+  <data name="TestControlTestDescribe" xml:space="preserve">
+    <value>如果测量不可用，请在测量下添加。如果计算不可用，请在计算里面添加。</value>
+  </data>
+  <data name="DataCaptureScheme" xml:space="preserve">
+    <value>数据采集方案</value>
+  </data>
+  <data name="ConsoleLiveDisplaysDecsribeOne" xml:space="preserve">
+    <value>选择列表中的每个结果都将在结果表中创建一个列。</value>
+  </data>
+  <data name="Record with TestCam" xml:space="preserve">
+    <value>带视频的试验</value>
+  </data>
+  <data name="Interval" xml:space="preserve">
+    <value>间隔</value>
+  </data>
+  <data name="End of test" xml:space="preserve">
+    <value>试验结束</value>
+  </data>
+  <data name="Sensitivity" xml:space="preserve">
+    <value>灵敏度</value>
+  </data>
+  <data name="End of test2" xml:space="preserve">
+    <value>试验结束2</value>
+  </data>
+  <data name="End of test1" xml:space="preserve">
+    <value>试验结束1</value>
+  </data>
+  <data name="GBiso" xml:space="preserve">
+    <value>标准</value>
+  </data>
+  <data name="Criteria1" xml:space="preserve">
+    <value>标准1</value>
+  </data>
+  <data name="Criteria2" xml:space="preserve">
+    <value>标准2</value>
+  </data>
+  <data name="ConsoleLiveDisplaysDecsribeTwo" xml:space="preserve">
+    <value>如果没有结果,请在计算中添加计算。如果不可用舍入格式,则在舍入规则下创建它。要在测试工作区中包含表,请选择包含该组件的布局。要在报告中包含结果表,请访问报告选项卡。</value>
+  </data>
+  <data name="Available results" xml:space="preserve">
+    <value>可用的结果</value>
+  </data>
+  <data name="Selected results(Max Four)" xml:space="preserve">
+    <value>选择的结果(最多四个)</value>
+  </data>
+  <data name="ConsoleSoftKeysDexcribeOne" xml:space="preserve">
+    <value>将功能分配给功能键</value>
+  </data>
+  <data name="ConsoleSoftKeysDexcribeTwo" xml:space="preserve">
+    <value>使用功能键在软件的控制台区域中执行指定的功能。</value>
+  </data>
+  <data name="Available SoftKey" xml:space="preserve">
+    <value>热键</value>
+  </data>
+  <data name="Selected SoftKey(Max Four)" xml:space="preserve">
+    <value>选择的热键（最多四个）</value>
+  </data>
+  <data name="Maximum columns" xml:space="preserve">
+    <value>最大列数</value>
+  </data>
+  <data name="ConsoleFrameDescribeOne" xml:space="preserve">
+    <value>设置机架参数</value>
+  </data>
+  <data name="ConsoleFrameDescribeTwo" xml:space="preserve">
+    <value>显示的参数取决于当前机架配置，包括控制器的类型和机架型号。</value>
+  </data>
+  <data name="interlocation" xml:space="preserve">
+    <value>试验区间</value>
+  </data>
+  <data name="Above beam" xml:space="preserve">
+    <value>高于横梁</value>
+  </data>
+  <data name="Below beam" xml:space="preserve">
+    <value>低于横梁</value>
+  </data>
+  <data name="ConsoleGripsDescrobeOne" xml:space="preserve">
+    <value>设置夹具控制参数</value>
+  </data>
+  <data name="ConsoleGripsDescrobeTwo" xml:space="preserve">
+    <value>对于气动绳线夹具，夹具控制是一个可选功能。如果没有安装自动空气控制套件，系统将忽略这些设置。</value>
+  </data>
+  <data name="ConsoleGripsDescrobeThree" xml:space="preserve">
+    <value>预拉伸指定必施加到试样的用于启动第二个具自动关闭所需的载荷。</value>
+  </data>
+  <data name="ConsoleGripsDescrobeFour" xml:space="preserve">
+    <value>当测试开始时,通过自动打开样品,过度拉伸可以避免样品的负荷。</value>
+  </data>
+  <data name="Enable prestretching" xml:space="preserve">
+    <value>启用预拉伸</value>
+  </data>
+  <data name="pre-stretch value" xml:space="preserve">
+    <value>预拉伸值</value>
+  </data>
+  <data name="Enable overstretching" xml:space="preserve">
+    <value>启用过度拉伸</value>
+  </data>
+  <data name="Overstretch Value" xml:space="preserve">
+    <value>过度拉伸值</value>
+  </data>
+  <data name="WorkSpaceOperatorInputDescribeOne" xml:space="preserve">
+    <value>选择要在测试工作区上显示的参数。如果要限制在特定时间编辑这些参数，请在禁止更改时启用样本状态。如果要在测试工作空间中包含操作员输入，请选择包含此组件的布局。</value>
+  </data>
+  <data name="WorkSpaceOperatorInputDescribeTwo" xml:space="preserve">
+    <value>这些值在什么时候不改变：</value>
+  </data>
+  <data name="UnTested" xml:space="preserve">
+    <value>测试前</value>
+  </data>
+  <data name="Testing" xml:space="preserve">
+    <value>试验中</value>
+  </data>
+  <data name="Tested" xml:space="preserve">
+    <value>试验后</value>
+  </data>
+  <data name="Show all parameters" xml:space="preserve">
+    <value>展示所有参数</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>列数</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>统计</value>
+  </data>
+  <data name="Format" xml:space="preserve">
+    <value>格式</value>
+  </data>
+  <data name="Selected results" xml:space="preserve">
+    <value>选择的结果</value>
+  </data>
+  <data name="WorkspaceResultColumnsDescribeOne" xml:space="preserve">
+    <value>选择列表中的每个结果都将在结果表中创建一个列。</value>
+  </data>
+  <data name="WorkspaceResultColumnsDescribeTwo" xml:space="preserve">
+    <value>如果没有结果,请在计算中添加计算。如果不可用舍入格式,则在舍入规则下创建它。要在测试工作区中包含表,请选择包含该组件的布局。要在报告中包含结果表,请访问报告选项卡。</value>
+  </data>
+  <data name="Rounding format" xml:space="preserve">
+    <value>修约规则</value>
+  </data>
+  <data name="Apply format to all  statistics" xml:space="preserve">
+    <value>全部应用</value>
+  </data>
+  <data name="Acceptance range" xml:space="preserve">
+    <value>接受范围</value>
+  </data>
+  <data name="Upper bound" xml:space="preserve">
+    <value>上界</value>
+  </data>
+  <data name="Lower bound" xml:space="preserve">
+    <value>下界</value>
+  </data>
+  <data name="Group by result" xml:space="preserve">
+    <value>根据结果分组</value>
+  </data>
+  <data name="Group by average and median" xml:space="preserve">
+    <value>根据平均和中位数分组</value>
+  </data>
+  <data name="WorkspaceResultsStatisticsDescribeOne" xml:space="preserve">
+    <value>所选列表中的每个统计数据将在结果表中创建一行。</value>
+  </data>
+  <data name="XData" xml:space="preserve">
+    <value>X-数据</value>
+  </data>
+  <data name="YData" xml:space="preserve">
+    <value>Y-数据</value>
+  </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>高级</value>
+  </data>
+  <data name="WorkspaceGraphTypeGraphDescribeOne" xml:space="preserve">
+    <value>要在测试工作区中包含图形，请选择包含此组件的布局。要在报表中包含图表，请转到报告选项卡。</value>
+  </data>
+  <data name="WorkspaceGraphTypeGraphDescribeTwo" xml:space="preserve">
+    <value>每张曲线图上可显示多达25条试样曲线。</value>
+  </data>
+  <data name="Select a graph type" xml:space="preserve">
+    <value>选择图表类型</value>
+  </data>
+  <data name="Graph title" xml:space="preserve">
+    <value>图表标题</value>
+  </data>
+  <data name="Curves per graph" xml:space="preserve">
+    <value>曲线图</value>
+  </data>
+  <data name="Offset each curve by" xml:space="preserve">
+    <value>每条曲线的偏移</value>
+  </data>
+  <data name="Show excluded specimens" xml:space="preserve">
+    <value>显示排除试样</value>
+  </data>
+  <data name="Enable data point selector" xml:space="preserve">
+    <value>启用数据点选择器</value>
+  </data>
+  <data name="Show average curve" xml:space="preserve">
+    <value>显示平均曲线</value>
+  </data>
+  <data name="WorkspaceGraphXDataDescribeOne" xml:space="preserve">
+    <value>如果没有测量,将其添加到测量中。如果要在测试工作区中包含一个图形,请选择包含该组件的布局。</value>
+  </data>
+  <data name="Xaxis definition" xml:space="preserve">
+    <value>X轴定义</value>
+  </data>
+  <data name="Xaxis scaling" xml:space="preserve">
+    <value>X轴定标</value>
+  </data>
+  <data name="WorkspaceGraphYDataDescribeOne" xml:space="preserve">
+    <value>如果没有测量,将其添加到测量中。如果要在测试工作区中包含一个图形,请选择包含该组件的布局。</value>
+  </data>
+  <data name="Yaxis definition" xml:space="preserve">
+    <value>Y轴定义</value>
+  </data>
+  <data name="Yaxis scaling" xml:space="preserve">
+    <value>Y轴定标</value>
+  </data>
+  <data name="WorkspaceLayoutDescribeTwo" xml:space="preserve">
+    <value>要定制测试工作区布局,请进行自定义设置。</value>
+  </data>
+  <data name="WorkspaceLayoutDescribeOne" xml:space="preserve">
+    <value>选择测试工作区的预先配置的布局。</value>
+  </data>
+  <data name="File Settings" xml:space="preserve">
+    <value>文件设置</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>报告</value>
+  </data>
+  <data name="Method paramters" xml:space="preserve">
+    <value>方法参数</value>
+  </data>
+  <data name="Export 2" xml:space="preserve">
+    <value>导出2</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeOne" xml:space="preserve">
+    <value>在完成一个样品实验后系统使用这些设置来保存样本和相关的输出文件。</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeTwo" xml:space="preserve">
+    <value>指定一个默认文件名和文件夹</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeThree" xml:space="preserve">
+    <value>当启用时，文件名包含创建示例的日期和时间。格式:'filename_yyyymmdd_hhmmss'。</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeFour" xml:space="preserve">
+    <value>当启用时,软件不会保存示例文件或原始数据。</value>
+  </data>
+  <data name="Default folder" xml:space="preserve">
+    <value>默认文件夹</value>
+  </data>
+  <data name="Append date and time to the sample name" xml:space="preserve">
+    <value>将日期和时间添加到样品名</value>
+  </data>
+  <data name="Discard the sample file at finish" xml:space="preserve">
+    <value>完成后丢弃文件</value>
+  </data>
+  <data name="Edit report Settings" xml:space="preserve">
+    <value>编辑报告设置</value>
+  </data>
+  <data name="ExportReportsDescribeOne" xml:space="preserve">
+    <value>当您完成样品时，系统自动执行选择的功能，如果启用&amp;quot;保存&amp;quot;，报告文件将保存与文件相同的位置。</value>
+  </data>
+  <data name="Report Settings" xml:space="preserve">
+    <value>报告设置</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>更改</value>
+  </data>
+  <data name="Print graph" xml:space="preserve">
+    <value>打印曲线图</value>
+  </data>
+  <data name="Print graph1" xml:space="preserve">
+    <value>打印曲线图1</value>
+  </data>
+  <data name="Print graph2" xml:space="preserve">
+    <value>打印曲线图2</value>
+  </data>
+  <data name="Report format" xml:space="preserve">
+    <value>报告格式</value>
+  </data>
+  <data name="Save Report" xml:space="preserve">
+    <value>保存报告</value>
+  </data>
+  <data name="Print Report" xml:space="preserve">
+    <value>打印报告</value>
+  </data>
+  <data name="Edit the original data export Settings" xml:space="preserve">
+    <value>编辑原始数据导出设置</value>
+  </data>
+  <data name="ExportDatabaseExportDescribeOne" xml:space="preserve">
+    <value>如果启用，则当结束样品时，系统会把每个试样的原始数据表格保存到单独的文件中。在每个文件中，试样信息出现在原始数据表格前面。此文件与样品文件保存在相同位置。</value>
+  </data>
+  <data name="Export raw data" xml:space="preserve">
+    <value>导出原始数据</value>
+  </data>
+  <data name="Save Close" xml:space="preserve">
+    <value>保存后关闭</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="Save as" xml:space="preserve">
+    <value>另存为</value>
+  </data>
+  <data name="ExportsExport1DescribeOne" xml:space="preserve">
+    <value>选择参数的设置和内容。</value>
+  </data>
+  <data name="Export settings" xml:space="preserve">
+    <value>导出设置</value>
+  </data>
+  <data name="Export type" xml:space="preserve">
+    <value>结果表1的值</value>
+  </data>
+  <data name="OverrideDefaultFolder1" xml:space="preserve">
+    <value>覆盖默认文件夹</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>内容</value>
+  </data>
+  <data name="Edit Workflow" xml:space="preserve">
+    <value>编辑工作流程</value>
+  </data>
+  <data name="Start Sample" xml:space="preserve">
+    <value>开始样品</value>
+  </data>
+  <data name="Before Test" xml:space="preserve">
+    <value>试验前</value>
+  </data>
+  <data name="Before Analysis" xml:space="preserve">
+    <value>分析前</value>
+  </data>
+  <data name="Test Notes" xml:space="preserve">
+    <value>试验说明</value>
+  </data>
+  <data name="Finish" xml:space="preserve">
+    <value>结束</value>
+  </data>
+  <data name="Sample size" xml:space="preserve">
+    <value>样品尺寸</value>
+  </data>
+  <data name="Automatically start a new sample after Finish" xml:space="preserve">
+    <value>完成后自动开始新样品</value>
+  </data>
+  <data name="Run as a prompted" xml:space="preserve">
+    <value>按提示运行</value>
+  </data>
+  <data name="Item1" xml:space="preserve">
+    <value>项目1</value>
+  </data>
+  <data name="Item2" xml:space="preserve">
+    <value>项目2</value>
+  </data>
+  <data name="Item3" xml:space="preserve">
+    <value>项目3</value>
+  </data>
+  <data name="Item4" xml:space="preserve">
+    <value>项目4</value>
+  </data>
+  <data name="Item5" xml:space="preserve">
+    <value>项目5</value>
+  </data>
+  <data name="Item6" xml:space="preserve">
+    <value>项目6</value>
+  </data>
+  <data name="Instructions for operator" xml:space="preserve">
+    <value>操作员说明</value>
+  </data>
+  <data name="Available paraments" xml:space="preserve">
+    <value>可用参数</value>
+  </data>
+  <data name="Auto balance" xml:space="preserve">
+    <value>自动平衡</value>
+  </data>
+  <data name="Method" xml:space="preserve">
+    <value>编辑方法</value>
+  </data>
+  <data name="SystemManagement" xml:space="preserve">
+    <value>系统管理</value>
+  </data>
+  <data name="Rectangle" xml:space="preserve">
+    <value>矩形</value>
+  </data>
+  <data name="Round" xml:space="preserve">
+    <value>圆形</value>
+  </data>
+  <data name="Irregular Shape" xml:space="preserve">
+    <value>不规则形状</value>
+  </data>
+  <data name="Siphonate" xml:space="preserve">
+    <value>管状</value>
+  </data>
+  <data name="Fiber" xml:space="preserve">
+    <value>纤维</value>
+  </data>
+  <data name="Double shear ring" xml:space="preserve">
+    <value>双剪切环</value>
+  </data>
+  <data name="Fasteners (American)" xml:space="preserve">
+    <value>紧固件（美制）</value>
+  </data>
+  <data name="Fasteners (Metric)" xml:space="preserve">
+    <value>紧固件（公制）</value>
+  </data>
+  <data name="The pipe section（Tube Section）" xml:space="preserve">
+    <value>管截面（Tube Section）</value>
+  </data>
+  <data name="The pipe section（Pipe Section）" xml:space="preserve">
+    <value>管截面（Pipe Section）</value>
+  </data>
+  <data name="Pipe" xml:space="preserve">
+    <value>管形</value>
+  </data>
+  <data name="Final Diameter" xml:space="preserve">
+    <value>最终直径</value>
+  </data>
+  <data name="Diameter" xml:space="preserve">
+    <value>直径</value>
+  </data>
+  <data name="Final Area" xml:space="preserve">
+    <value>最终面积</value>
+  </data>
+  <data name="Area" xml:space="preserve">
+    <value>面积</value>
+  </data>
+  <data name="Final External Diameter" xml:space="preserve">
+    <value>最终外径</value>
+  </data>
+  <data name="External Diameter" xml:space="preserve">
+    <value>外径</value>
+  </data>
+  <data name="Final Wall Thickness" xml:space="preserve">
+    <value>最终壁厚</value>
+  </data>
+  <data name="Wall Thickness" xml:space="preserve">
+    <value>壁厚</value>
+  </data>
+  <data name="Final Linear Density" xml:space="preserve">
+    <value>最终线密度</value>
+  </data>
+  <data name="Linear Density" xml:space="preserve">
+    <value>线密度</value>
+  </data>
+  <data name="Threads per inch" xml:space="preserve">
+    <value>每英寸螺纹数</value>
+  </data>
+  <data name="Teeth space" xml:space="preserve">
+    <value>齿距</value>
+  </data>
+  <data name="Final inner diameter" xml:space="preserve">
+    <value>最终内径</value>
+  </data>
+  <data name="Inner diameter" xml:space="preserve">
+    <value>内径</value>
+  </data>
+  <data name="external radius" xml:space="preserve">
+    <value>外半径</value>
+  </data>
+  <data name="inside radius" xml:space="preserve">
+    <value>内半径</value>
+  </data>
+  <data name="Final external radius" xml:space="preserve">
+    <value>最终外半径</value>
+  </data>
+  <data name="Final inside radius" xml:space="preserve">
+    <value>最终内半径</value>
+  </data>
+  <data name="Unit group" xml:space="preserve">
+    <value>单位组</value>
+  </data>
+  <data name="Expression" xml:space="preserve">
+    <value>表达式</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>事件</value>
+  </data>
+  <data name="Short" xml:space="preserve">
+    <value>短</value>
+  </data>
+  <data name="Long" xml:space="preserve">
+    <value>长</value>
+  </data>
+  <data name="Basic" xml:space="preserve">
+    <value>基础</value>
+  </data>
+  <data name="Custom" xml:space="preserve">
+    <value>自定义</value>
+  </data>
+  <data name="Selected paraments" xml:space="preserve">
+    <value>选择的参数</value>
+  </data>
+  <data name="Select one of the interconnection modes" xml:space="preserve">
+    <value>请选择其中一种对接方式</value>
+  </data>
+  <data name="GoBackToHome" xml:space="preserve">
+    <value>返回主页</value>
+  </data>
+  <data name="CloseTheWindow" xml:space="preserve">
+    <value>关闭窗体</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>导出</value>
+  </data>
+  <data name="SoftwareManagement" xml:space="preserve">
+    <value>软件管理</value>
+  </data>
+  <data name="Maintaining" xml:space="preserve">
+    <value>维护保养</value>
+  </data>
+  <data name="Query" xml:space="preserve">
+    <value>查询</value>
+  </data>
+  <data name="Total startup time" xml:space="preserve">
+    <value>开机总时长</value>
+  </data>
+  <data name="Total operation time" xml:space="preserve">
+    <value>作业总时长</value>
+  </data>
+  <data name="Total number of tests" xml:space="preserve">
+    <value>试验总计次数</value>
+  </data>
+  <data name="Type of test" xml:space="preserve">
+    <value>试验类型</value>
+  </data>
+  <data name="test material" xml:space="preserve">
+    <value>试验材料</value>
+  </data>
+  <data name="The wear types" xml:space="preserve">
+    <value>磨损类型</value>
+  </data>
+  <data name="Degree of wear" xml:space="preserve">
+    <value>磨损程度</value>
+  </data>
+  <data name="wear rate" xml:space="preserve">
+    <value>磨损率</value>
+  </data>
+  <data name="Wear factors" xml:space="preserve">
+    <value>磨损因素</value>
+  </data>
+  <data name="Maintenance advice" xml:space="preserve">
+    <value>维保建议</value>
+  </data>
+  <data name="A reminder date" xml:space="preserve">
+    <value>提醒日期</value>
+  </data>
+  <data name="Remind" xml:space="preserve">
+    <value>提醒</value>
+  </data>
+  <data name="SampleDescribe" xml:space="preserve">
+    <value>样本输入属于整个样本，而不是单个样本。报告方法参数、提示测试、导出方法参数有示例注释。</value>
+  </data>
+  <data name="ALL" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="AmericanStandard" xml:space="preserve">
+    <value>美国标准</value>
+  </data>
+  <data name="Metric" xml:space="preserve">
+    <value>公制</value>
+  </data>
+  <data name="SI" xml:space="preserve">
+    <value>国际单位制</value>
+  </data>
+  <data name="LastTestedSpecimen" xml:space="preserve">
+    <value>上次试验试样</value>
+  </data>
+  <data name="Blomedical" xml:space="preserve">
+    <value>生物医药</value>
+  </data>
+  <data name="Composites" xml:space="preserve">
+    <value>复合材料</value>
+  </data>
+  <data name="Elastomers" xml:space="preserve">
+    <value>弹性体</value>
+  </data>
+  <data name="Plastics" xml:space="preserve">
+    <value>塑料</value>
+  </data>
+  <data name="Textiles" xml:space="preserve">
+    <value>纺织品</value>
+  </data>
+  <data name="Calibration" xml:space="preserve">
+    <value>校准</value>
+  </data>
+  <data name="Verification" xml:space="preserve">
+    <value>检定</value>
+  </data>
+  <data name="LineCorrection" xml:space="preserve">
+    <value>线性修正</value>
+  </data>
+  <data name="KeyboardSpeed" xml:space="preserve">
+    <value>键盘速度</value>
+  </data>
+  <data name="DataRounding" xml:space="preserve">
+    <value>数据修约</value>
+  </data>
+  <data name="AccountManagement" xml:space="preserve">
+    <value>账户管理</value>
+  </data>
+  <data name="PreviewReport" xml:space="preserve">
+    <value>预览报告</value>
+  </data>
+  <data name="TestMethod" xml:space="preserve">
+    <value>试验方法</value>
+  </data>
+  <data name="EditReportTemplate" xml:space="preserve">
+    <value>编辑报告模板</value>
+  </data>
+  <data name="CurveAnalysis" xml:space="preserve">
+    <value>曲线分析</value>
+  </data>
+  <data name="languageManagement" xml:space="preserve">
+    <value>语言管理</value>
+  </data>
+  <data name="Serial" xml:space="preserve">
+    <value>序号</value>
+  </data>
+  <data name="MaintenanceProject" xml:space="preserve">
+    <value>保养项目</value>
+  </data>
+  <data name="RemindContent" xml:space="preserve">
+    <value>提醒内容</value>
+  </data>
+  <data name="WhetherMaintenanceIsCompleted" xml:space="preserve">
+    <value>是否完成</value>
+  </data>
+  <data name="LastMaintenanceTime" xml:space="preserve">
+    <value>上次保养时间</value>
+  </data>
+  <data name="MaintenancePeriod" xml:space="preserve">
+    <value>保养周期</value>
+  </data>
+  <data name="NextMaintenanceTime" xml:space="preserve">
+    <value>下次保养日期</value>
+  </data>
+  <data name="MaintenanceCount" xml:space="preserve">
+    <value>已保养次数</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="MaintenanceProjectOne" xml:space="preserve">
+    <value>保养项</value>
+  </data>
+  <data name="RemindProject" xml:space="preserve">
+    <value>提醒项</value>
+  </data>
+  <data name="Physical measurements" xml:space="preserve">
+    <value>物理测量</value>
+  </data>
+  <data name="Virtual measurements" xml:space="preserve">
+    <value>虚拟测量</value>
+  </data>
+  <data name="Torque" xml:space="preserve">
+    <value>扭矩</value>
+  </data>
+  <data name="Strain" xml:space="preserve">
+    <value>应变</value>
+  </data>
+  <data name="UserDefined" xml:space="preserve">
+    <value>用户自定义</value>
+  </data>
+  <data name="TensileStrain" xml:space="preserve">
+    <value>拉伸应变</value>
+  </data>
+  <data name="CorrectionDisplacement" xml:space="preserve">
+    <value>修正位移</value>
+  </data>
+  <data name="TransverseStrain" xml:space="preserve">
+    <value>横向应变</value>
+  </data>
+  <data name="BruteForce" xml:space="preserve">
+    <value>强力</value>
+  </data>
+  <data name="SensorPlacement" xml:space="preserve">
+    <value>传感器配置</value>
+  </data>
+  <data name="Splice" xml:space="preserve">
+    <value>接头</value>
+  </data>
+  <data name="Pre-test limit" xml:space="preserve">
+    <value>试验前限位</value>
+  </data>
+  <data name="DataPoint" xml:space="preserve">
+    <value>数据点</value>
+  </data>
+  <data name="Using linear regression" xml:space="preserve">
+    <value>使用线性回归</value>
+  </data>
+  <data name="True strain control" xml:space="preserve">
+    <value>真应变控制</value>
+  </data>
+  <data name="Source of Stress" xml:space="preserve">
+    <value>压力来源</value>
+  </data>
+  <data name="Width of transverse strain gauge" xml:space="preserve">
+    <value>横向应变片宽度</value>
+  </data>
+  <data name="PlankSpecimen" xml:space="preserve">
+    <value>PlankSpecimenZh</value>
+  </data>
+  <data name="PinchParams" xml:space="preserve">
+    <value>PinchZh</value>
+  </data>
+  <data name="RectangularIconTitle" xml:space="preserve">
+    <value>矩形</value>
+  </data>
+  <data name="FixtureSeparationIconTitle" xml:space="preserve">
+    <value>钳口距离</value>
+  </data>
+  <data name="DefaultSpecimenGeometry" xml:space="preserve">
+    <value>默认几何形状</value>
+  </data>
+  <data name="Strain2" xml:space="preserve">
+    <value>应变2</value>
+  </data>
+  <data name="TensileStress" xml:space="preserve">
+    <value>拉伸应力</value>
+  </data>
+  <data name="TensileDisplacement" xml:space="preserve">
+    <value>拉伸位移</value>
+  </data>
+  <data name="CycleCount" xml:space="preserve">
+    <value>循环计数</value>
+  </data>
+  <data name="TotalCycleCount" xml:space="preserve">
+    <value>总循环计数</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="OKNoSpace" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="New Sample" xml:space="preserve">
+    <value>新建样品</value>
+  </data>
+  <data name="Enable Specimen Protection" xml:space="preserve">
+    <value>启用样品保护</value>
+  </data>
+  <data name="Release Pneumatic Grips" xml:space="preserve">
+    <value>释放气动控制</value>
+  </data>
+  <data name="TestControlEndOfTestDescribeOne" xml:space="preserve">
+    <value>设置结束测试的条件，并指定测试之后的操作。所有标准都独立运行。第一个标准满足时停止测试。如果度量值不可用，则在度量值下添加它。如果可以请设置“标本保护”的阈值。</value>
+  </data>
+  <data name="TestControlDateDescribeOne" xml:space="preserve">
+    <value>指定系统捕获测试数据的频率，所有标准都独立运行。当任何指定的间隔时间发生时，系统会同时从所有选定的测量中捕获数据。</value>
+  </data>
+  <data name="ExportsFileSettingsDescribeFive" xml:space="preserve">
+    <value>不要使用特殊字符\/;` ?&lt;&gt;|</value>
+  </data>
+  <data name="File extension" xml:space="preserve">
+    <value>文件后缀</value>
+  </data>
+  <data name="Encoding type" xml:space="preserve">
+    <value>编码类型</value>
+  </data>
+  <data name="File name convention" xml:space="preserve">
+    <value>默认文件名称</value>
+  </data>
+  <data name="Createafileforeachspecimen" xml:space="preserve">
+    <value>为每一个试样创建一个文件</value>
+  </data>
+  <data name="ShowMax" xml:space="preserve">
+    <value>显示最大值</value>
+  </data>
+  <data name="ShowRate" xml:space="preserve">
+    <value>显示速率</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>报告</value>
+  </data>
+  <data name="Selected resultsMaxTwelve" xml:space="preserve">
+    <value>选择的结果(最多十二个)</value>
+  </data>
+  <data name="Sample file name" xml:space="preserve">
+    <value>试样文件名</value>
+  </data>
+  <data name="Results table1 results" xml:space="preserve">
+    <value>结果表1的结果</value>
+  </data>
+  <data name="Results table2 results" xml:space="preserve">
+    <value>结果表2的结果</value>
+  </data>
+  <data name="Raw Data" xml:space="preserve">
+    <value>元数据</value>
+  </data>
+  <data name="Export 1" xml:space="preserve">
+    <value>导出1</value>
+  </data>
+  <data name="AvailableLiveDisplay" xml:space="preserve">
+    <value>可选的实时显示</value>
+  </data>
+  <data name="SelectedLiveDispalys" xml:space="preserve">
+    <value>已选择的实时显示</value>
+  </data>
+  <data name="ConsoleDescripe" xml:space="preserve">
+    <value>描述</value>
+  </data>
+  <data name="Ramp1" xml:space="preserve">
+    <value>斜率控制1</value>
+  </data>
+  <data name="Ramp2" xml:space="preserve">
+    <value>斜率控制2</value>
+  </data>
+  <data name="Rate1" xml:space="preserve">
+    <value>速率</value>
+  </data>
+  <data name="Rate2" xml:space="preserve">
+    <value>速率</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="BalanceAll" xml:space="preserve">
+    <value>全部调零</value>
+  </data>
+  <data name="ExcludeSpecimen" xml:space="preserve">
+    <value>去除试样</value>
+  </data>
+  <data name="RemoveExtensometer" xml:space="preserve">
+    <value>移除引伸计</value>
+  </data>
+  <data name="ZeroExtension" xml:space="preserve">
+    <value>零位移</value>
+  </data>
+  <data name="PauseTest" xml:space="preserve">
+    <value>暂停测试</value>
+  </data>
+  <data name="ResumeTest" xml:space="preserve">
+    <value>恢复测试</value>
+  </data>
+  <data name="ReverseDirection" xml:space="preserve">
+    <value>反向</value>
+  </data>
+  <data name="EndHold" xml:space="preserve">
+    <value>结束保持</value>
+  </data>
+  <data name="SelectedLiveDispalys_Max12" xml:space="preserve">
+    <value>选择的实时显示（最多12个）</value>
+  </data>
+  <data name="DataManagement" xml:space="preserve">
+    <value>数据管理</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="CalculationSetup" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>温度</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>数据</value>
+  </data>
+  <data name="Criteria" xml:space="preserve">
+    <value>原则</value>
+  </data>
+  <data name="Export1frequency" xml:space="preserve">
+    <value>导出频率</value>
+  </data>
+  <data name="OverrideDefaultFolder2" xml:space="preserve">
+    <value>覆盖默认文件夹</value>
+  </data>
+  <data name="OverrideDefaultFolder3" xml:space="preserve">
+    <value>覆盖默认文件夹</value>
+  </data>
+  <data name="Ex2OverrideDefaultFolder1" xml:space="preserve">
+    <value>覆盖默认文件夹</value>
+  </data>
+  <data name="Ex2OverrideDefaultFolder2" xml:space="preserve">
+    <value>覆盖默认文件夹</value>
+  </data>
+  <data name="Ex2OverrideDefaultFolder3" xml:space="preserve">
+    <value>覆盖默认文件夹</value>
+  </data>
+  <data name="Ex2OverrideDefaultFolder4" xml:space="preserve">
+    <value>覆盖默认文件夹</value>
+  </data>
+  <data name="CheckSencor" xml:space="preserve">
+    <value>检定 校准</value>
+  </data>
+  <data name="Fetch" xml:space="preserve">
+    <value>读取</value>
+  </data>
+</root>
